@@ -1,0 +1,1 @@
+const gamesURL = "http://localhost:3000/games"
