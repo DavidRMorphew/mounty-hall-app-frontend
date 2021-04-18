@@ -9,6 +9,7 @@ const doorCards = currentGameContainer.getElementsByTagName('article')
 // The following is for testing
 const testGame = new Game(1)
 testGame.initializeRandomGame()
-testGame.renderGameDisplay()
+testGame.toggleGameDisplay()
+testGame.makeDoorsClickable()
 
 door1 = document.getElementById("door1")

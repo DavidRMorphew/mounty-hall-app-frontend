@@ -25,21 +25,20 @@ class Game {
         return Object.assign(this, {door1, door2, door3})
     };
 
-    renderGameDisplay(){
-        currentGameContainer.style.display = ""
-
-        
-        makeDoorsClickable()
-        function makeDoorsClickable(){
-            for (const element of doorCards){
-                element.addEventListener('click', () => {
-                    console.log(element.id);
-                    
-                })
-            }
+    
+    makeDoorsClickable(){
+        for (const element of doorCards){
+            element.addEventListener('click', () => {
+                console.log(element.id);
                 
+            })
         }
-        
+            
+    }
+
+    toggleGameDisplay(){
+        currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none"
+        console.log(currentGameContainer.style.display)
     }
 
     
