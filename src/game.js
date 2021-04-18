@@ -29,16 +29,16 @@ class Game {
         currentGameContainer.innerHTML = 
         `<section class='cards'>
             <article class='card' id='door1'>
-                <h2>door 1</h2>
-                <img src='https://i.imgur.com/tjvqilD.jpg'>
+                <h2>DOOR 1</h2>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg'  alt='a green door'>
             </article>
             <article class="card" id="door2">
-                <h2>door 2</h2>
-                <img src='https://i.imgur.com/zRgVoAg.jpeg'>
+                <h2>DOOR 2</h2>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
             </article>
             <article class='card' id='door3'>
-                <h2>door 3</h2>
-                <img src='https://i.imgur.com/Oqy9GG1.jpg'>
+                <h2>DOOR 3</h2>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
             </article>
         </section>`
     };
