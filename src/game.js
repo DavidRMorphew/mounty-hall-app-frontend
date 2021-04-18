@@ -29,17 +29,12 @@ class Game {
     makeDoorsClickable(){
         for (const element of doorCards){
             element.addEventListener('click', () => {
-                console.log(element.id);
-                
+                console.log(element.id);          
             })
         }
-            
     }
 
     toggleGameDisplay(){
-        currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none"
-        console.log(currentGameContainer.style.display)
-    }
-
-    
+        currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
+    } 
 }
