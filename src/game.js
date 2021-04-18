@@ -10,4 +10,12 @@ class Game {
         this.user_win = user_win;
         this.user_id = user_id;
     };
+
+    renderGameDisplay(){
+        const randomizerArray = ["rodentia","rodentia","rodentia"];
+        const rodentiaArray = ["beaver", "woodchuck", "marmot"];
+        const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
+        randomizerArray[randomIntBetweenZeroAndTwo()] = "car";
+        
+    }
 }
