@@ -23,3 +23,6 @@ main {
 img {
     max-width: 100%;
 }
+#original-pick {
+    color: red;
+}
