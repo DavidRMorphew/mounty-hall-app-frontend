@@ -1,6 +1,6 @@
 class Game {
-    constructor(id, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, user_id){
-        this.id = id;
+    constructor(user_id, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id){
+        this.user_id = user_id;
         this.door1 = door1;
         this.door2 = door2;
         this.door3 = door3;
@@ -8,7 +8,7 @@ class Game {
         this.host_reveal = host_reveal;
         this.user_switch = user_switch;
         this.user_win = user_win;
-        this.user_id = user_id;
+        this.id = id;
     };
 
     initializeRandomGame(){
@@ -26,23 +26,9 @@ class Game {
     };
 
     renderGameDisplay(){
-        currentGameContainer.innerHTML = 
-        `<section class='cards'>
-            <article class='card' id='door1'>
-                <h2>DOOR 1</h2>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg'  alt='a green door'>
-            </article>
-            <article class="card" id="door2">
-                <h2>DOOR 2</h2>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
-            </article>
-            <article class='card' id='door3'>
-                <h2>DOOR 3</h2>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
-            </article>
-        </section>`
+        currentGameContainer.style.display = ""
+
         
-        const doorCards = currentGameContainer.getElementsByTagName('article')
         makeDoorsClickable()
         function makeDoorsClickable(){
             for (const element of doorCards){
