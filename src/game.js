@@ -24,4 +24,22 @@ class Game {
         const [door1, door2, door3] = randomizerArray;
         return Object.assign(this, {door1, door2, door3})
     };
+
+    renderGameDisplay(){
+        currentGameContainer.innerHTML = 
+        `<section class='cards'>
+            <article class='card' id='door1'>
+                <h2>door 1</h2>
+                <img src='https://i.imgur.com/tjvqilD.jpg'>
+            </article>
+            <article class="card" id="door2">
+                <h2>door 2</h2>
+                <img src='https://i.imgur.com/zRgVoAg.jpeg'>
+            </article>
+            <article class='card' id='door3'>
+                <h2>door 3</h2>
+                <img src='https://i.imgur.com/Oqy9GG1.jpg'>
+            </article>
+        </section>`
+    };
 };
