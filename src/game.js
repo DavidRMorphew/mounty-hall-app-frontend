@@ -16,6 +16,12 @@ class Game {
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
         const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
         randomizerArray[randomIntBetweenZeroAndTwo()] = "car";
+        for (let i = 0; i < randomizerArray.length; i++){
+            if (randomizerArray[i] === "rodentia"){
+                randomizerArray[i] = rodentiaArray[randomIntBetweenZeroAndTwo()];
+            };
+        };
+        return randomizerArray;
         
     }
 }
