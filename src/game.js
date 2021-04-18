@@ -41,5 +41,20 @@ class Game {
                 <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
             </article>
         </section>`
-    };
-};
+        
+        const doorCards = currentGameContainer.getElementsByTagName('article')
+        makeDoorsClickable()
+        function makeDoorsClickable(){
+            for (const element of doorCards){
+                element.addEventListener('click', () => {
+                    console.log(element.id);
+                    
+                })
+            }
+                
+        }
+        
+    }
+
+    
+}
