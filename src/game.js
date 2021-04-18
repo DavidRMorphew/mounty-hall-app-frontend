@@ -11,7 +11,7 @@ class Game {
         this.user_id = user_id;
     };
 
-    renderGameDisplay(){
+    initializeRandomGame(){
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
         const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
@@ -21,7 +21,7 @@ class Game {
                 randomizerArray[i] = rodentiaArray[randomIntBetweenZeroAndTwo()];
             };
         };
-        return randomizerArray;
-        
-    }
-}
+        const [door1, door2, door3] = randomizerArray;
+        return Object.assign(this, {door1, door2, door3})
+    };
+};
