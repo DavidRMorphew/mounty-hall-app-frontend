@@ -44,48 +44,50 @@ class Game {
         console.log(newRow)
     }
 
-    createGameResultsRow(){
-        const rowDiv = document.createElement('div')
-        const gameKeysArray = Object.keys(this).slice(1,9)
-        console.log(gameKeysArray)        
-        // rowDiv.className = "Rtable-cell"
-        // rowDiv.id = "username"
-        // rowDiv.innerHTML = `${this.user_name}</div>
-        // <div class="Rtable-cell" id="door1">${this.door1}</div>
-        // <div class="Rtable-cell" id="door2">${this.door2}</div>
-        // <div class="Rtable-cell" id="door3">${this.door3}</div>
-        // <div class="Rtable-cell" id="stay-result">Stay Result</div>
-        // <div class="Rtable-cell" id="switch-result">Switch Result</div>
-        // <div class="Rtable-cell" id="user-choice">User Choice</div>
-        // <div class="Rtable-cell" id="win">${this.user_name}
-        // `
-        // console.log(rowDiv)
-    }
+    // createGameResultsRow(){
+    //     const rowArray = [...Object.keys(this).slice(1,5), 
+    //     const rowDiv = document.createElement('div')
+    //     const gameKeysArray = Object.keys(this).slice(1,9)
+    //     console.log(gameKeysArray)        
+    //     // rowDiv.className = "Rtable-cell"
+    //     // rowDiv.id = "username"
+    //     // rowDiv.innerHTML = `${this.user_name}</div>
+    //     // <div class="Rtable-cell" id="door1">${this.door1}</div>
+    //     // <div class="Rtable-cell" id="door2">${this.door2}</div>
+    //     // <div class="Rtable-cell" id="door3">${this.door3}</div>
+    //     // <div class="Rtable-cell" id="stay-result">Stay Result</div>
+    //     // <div class="Rtable-cell" id="switch-result">Switch Result</div>
+    //     // <div class="Rtable-cell" id="user-choice">User Choice</div>
+    //     // <div class="Rtable-cell" id="win">${this.user_name}
+    //     // `
+    //     // console.log(rowDiv)
+    // }
 
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
     }
 
-    stayResult(){
+    get stayResult(){
         const originalDoorPick = this.original_pick;
         const originalDoorResult = this[originalDoorPick];
         return originalDoorResult
     }
 
-    switchResult(){
+    get switchResult(){
         const doorArray = ["door1", "door2", "door3"]
         const originalPick = this.original_pick
         const hostReveal = this.host_reveal
-        return doorArray.find(door => { 
+        const switchDoor = doorArray.find(door => { 
             return (door !== originalPick && door !== hostReveal)
         })
+        return this[switchDoor]
     }
 
-    userChoice(){
-        return (this.user_switch === "true") ? this.switchResult() : this.original_pick;
+    get userChoice(){
+        return (this.user_switch === "true") ? this.switchResult : this.original_pick;
     }
 
-    userWin(){
-        this.winningDoor() === this.userChoice()
+    get userWin(){
+        return (this.winningDoor() === this.userChoice)
     }
 }
