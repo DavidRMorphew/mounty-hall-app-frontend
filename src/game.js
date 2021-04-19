@@ -44,11 +44,17 @@ class Game {
         console.log(newRow)
     }
 
-    // createGameResultsRow(){
-    //     const rowArray = [...Object.keys(this).slice(1,5), 
+    createGameResultsRow(){
+        const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "userWin"];
+        console.log(rowGameKeyArray);
+        rowGameKeyArray.forEach(key => {
+            const rowDiv = document.createElement('div')
+            rowDiv.className = "Rtable-cell"
+            rowDiv.id = key
+            console.log(rowDiv)
+        })
     //     const rowDiv = document.createElement('div')
-    //     const gameKeysArray = Object.keys(this).slice(1,9)
-    //     console.log(gameKeysArray)        
+    //         
     //     // rowDiv.className = "Rtable-cell"
     //     // rowDiv.id = "username"
     //     // rowDiv.innerHTML = `${this.user_name}</div>
@@ -61,7 +67,7 @@ class Game {
     //     // <div class="Rtable-cell" id="win">${this.user_name}
     //     // `
     //     // console.log(rowDiv)
-    // }
+    }
 
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
