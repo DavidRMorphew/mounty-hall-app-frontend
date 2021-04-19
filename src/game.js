@@ -61,4 +61,8 @@ class Game {
         // `
         // console.log(rowDiv)
     }
+
+    winningDoor(){
+        return Object.keys(this).find(key => this[key] === "car")
+    }
 }
