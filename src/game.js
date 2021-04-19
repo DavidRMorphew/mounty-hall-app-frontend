@@ -65,4 +65,19 @@ class Game {
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
     }
+
+    stayResult(){
+        const originalDoorPick = this.original_pick;
+        const originalDoorResult = this[originalDoorPick];
+        return originalDoorResult
+    }
+
+    switchResult(){
+        const doorArray = ["door1", "door2", "door3"]
+        const originalPick = this.original_pick
+        const hostReveal = this.host_reveal
+        return doorArray.find(door => { 
+            return (door !== originalPick && door !== hostReveal)
+        })
+    }
 }

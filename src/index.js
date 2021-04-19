@@ -9,9 +9,13 @@ const currentUserResultsContainer = document.getElementById("current-user-result
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
 // The following is for testing
-const testGame = new Game(1);
-testGame.initializeRandomGame();
-testGame.toggleGameDisplay();
-testGame.makeDoorsClickable();
+// const testGame = new Game(1);
+// testGame.initializeRandomGame();
+// testGame.toggleGameDisplay();
+// testGame.makeDoorsClickable();
+
+const resultsTestGame = new Game(2);
+resultsTestGame.initializeRandomGame()
+resultsTestGame.original_pick = "door1"
 
 door1 = document.getElementById("door1");
