@@ -5,6 +5,7 @@ const usersURL = baseURL + "users";
 const mountyPicture = document.getElementById("mounty-with-beaver");
 const currentGameContainer = document.getElementById("current-game-container");
 const resultsContainer = document.getElementById("results-container");
+const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
 // The following is for testing

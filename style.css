@@ -45,4 +45,4 @@ img {
     background: fade(slategrey,20%);
 }
 
-.Rtable--7cols > .Rtable-cell { width: 14%; }
+.Rtable--8cols > .Rtable-cell { width: 12.5%; }
