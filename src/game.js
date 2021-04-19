@@ -51,6 +51,7 @@ class Game {
             const rowDiv = document.createElement('div')
             rowDiv.className = "Rtable-cell"
             rowDiv.id = key
+            rowDiv.innerText = this[key]
             console.log(rowDiv)
         })
     //     const rowDiv = document.createElement('div')
@@ -94,6 +95,6 @@ class Game {
     }
 
     get userWin(){
-        return (this.winningDoor() === this.userChoice)
+        return (this.winningDoor() === this.userChoice) ? "Win" : "Lose"
     }
 }
