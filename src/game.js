@@ -1,6 +1,7 @@
 class Game {
-    constructor(user_id, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id){
+    constructor({user_id, user_name, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id}){
         this.user_id = user_id;
+        this.user_name = user_name;
         this.door1 = door1;
         this.door2 = door2;
         this.door3 = door3;
