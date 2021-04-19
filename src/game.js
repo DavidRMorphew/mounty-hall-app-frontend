@@ -80,4 +80,12 @@ class Game {
             return (door !== originalPick && door !== hostReveal)
         })
     }
+
+    userChoice(){
+        return (this.user_switch === "true") ? this.switchResult() : this.original_pick;
+    }
+
+    userWin(){
+        this.winningDoor() === this.userChoice()
+    }
 }
