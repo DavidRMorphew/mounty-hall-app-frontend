@@ -4,11 +4,13 @@ class User {
         this.name = name;
     };
 
-    static addNewUserFormToDOM(){
+    static addTitleToUserSelectionContainer(){
         const selectUserTitle = document.createElement('h2')
         selectUserTitle.innerText = "Type a username below to find a user on file or create a new user. Alternatively, use the dropdown menu to the right to select a user."
         userSelectionContainer.appendChild(selectUserTitle)
-        
+    }
+
+    static addNewUserFormToDOM(){
         const newUserForm = document.createElement('form')
         newUserForm.innerHTML = 
         `<label for="username">New User Name</label>
