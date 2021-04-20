@@ -17,7 +17,8 @@ class User {
         userSelectionContainer.appendChild(newUserForm)
         newUserForm.addEventListener('submit', event => {
             event.preventDefault()
-            console.log(event.target)
+            const submittedUsername = event.target.querySelector('#username').value;
+            console.log(submittedUsername);
         })
     };
 
