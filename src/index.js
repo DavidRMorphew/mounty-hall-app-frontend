@@ -3,6 +3,7 @@ const gamesURL = baseURL + "games";
 const usersURL = baseURL + "users";
 
 const mountyPicture = document.getElementById("mounty-with-beaver");
+const userSelectionContainer = document.getElementById('select-user-container')
 const currentGameContainer = document.getElementById("current-game-container");
 const resultsContainer = document.getElementById("results-container");
 const resultsTable = resultsContainer.lastElementChild
