@@ -1,14 +1,14 @@
 class Game {
     constructor({user_id, user_name, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id}){
-        this.user_id = user_id;
-        this.user_name = user_name;
+        this.userId = user_id;
+        this.username = user_name;
         this.door1 = door1;
         this.door2 = door2;
         this.door3 = door3;
-        this.original_pick = original_pick;
-        this.host_reveal = host_reveal;
-        this.user_switch = user_switch;
-        this.user_win = user_win;
+        this.originalPick = original_pick;
+        this.hostReveal = host_reveal;
+        this.userSwitch = user_switch;
+        this.userWin = user_win;
         this.id = id;
     };
 
@@ -75,15 +75,15 @@ class Game {
     }
 
     get stayResult(){
-        const originalDoorPick = this.original_pick;
+        const originalDoorPick = this.originalPick;
         const originalDoorResult = this[originalDoorPick];
         return originalDoorResult
     }
 
     get switchResult(){
         const doorArray = ["door1", "door2", "door3"]
-        const originalPick = this.original_pick
-        const hostReveal = this.host_reveal
+        const originalPick = this.originalPick
+        const hostReveal = this.hostReveal
         const switchDoor = doorArray.find(door => { 
             return (door !== originalPick && door !== hostReveal)
         })
@@ -91,10 +91,6 @@ class Game {
     }
 
     get userChoice(){
-        return (this.user_switch === "true") ? this.switchResult : this.original_pick;
-    }
-
-    get userWin(){
-        return (this.winningDoor() === this.userChoice) ? "Win" : "Lose"
+        return (!!this.userSwitch) ? "switch" : "stay";
     }
 }
