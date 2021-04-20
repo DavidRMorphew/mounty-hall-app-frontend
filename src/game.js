@@ -39,12 +39,7 @@ class Game {
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
 
-    addSingleGameResultsToDom(){
-        const newRow = this.createGameResultsRow()
-        console.log(newRow)
-    }
-
-    createGameResultsRow(){
+    createGameResultsRowOnDOM(){
         const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
         console.log(rowGameKeyArray);
         rowGameKeyArray.forEach(key => {

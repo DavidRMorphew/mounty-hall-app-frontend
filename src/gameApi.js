@@ -8,8 +8,7 @@ class GameApi {
             console.log(gameData["data"]);
             gameData['data'].forEach(gameObj => {
                 const gameResults = new Game({id: gameObj.id, user_id: gameObj.relationships.user.data.id, ...gameObj.attributes})
-                console.log("game object: "+gameResults)
-                debugger
+                gameResults.createGameResultsRowOnDOM()
             })
         })
     }   
