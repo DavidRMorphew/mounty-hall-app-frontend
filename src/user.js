@@ -28,9 +28,13 @@ class User {
     static handleClickEvent = (event) => {
         event.preventDefault()
         if (event.target.id === "new-user-form"){
-            const submittedUsername = event.target.querySelector('#username').value;
-            console.log(submittedUsername);
+            this.findOrCreateNewUser(event)
         };
     };
+
+    static findOrCreateNewUser = (event) => {
+        const submittedUsername = event.target.querySelector('#username').value;
+        console.log(submittedUsername);
+    }
 
 }
