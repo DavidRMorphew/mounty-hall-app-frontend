@@ -48,26 +48,12 @@ class Game {
         const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
         console.log(rowGameKeyArray);
         rowGameKeyArray.forEach(key => {
-            const rowDiv = document.createElement('div')
-            rowDiv.className = "Rtable-cell"
-            rowDiv.id = key
-            rowDiv.innerText = this[key]
-            console.log(rowDiv)
+            const rowDiv = document.createElement('div');
+            rowDiv.className = "Rtable-cell";
+            rowDiv.id = key;
+            rowDiv.innerText = this[key];
+            resultsTable.appendChild(rowDiv);
         })
-    //     const rowDiv = document.createElement('div')
-    //         
-    //     // rowDiv.className = "Rtable-cell"
-    //     // rowDiv.id = "username"
-    //     // rowDiv.innerHTML = `${this.user_name}</div>
-    //     // <div class="Rtable-cell" id="door1">${this.door1}</div>
-    //     // <div class="Rtable-cell" id="door2">${this.door2}</div>
-    //     // <div class="Rtable-cell" id="door3">${this.door3}</div>
-    //     // <div class="Rtable-cell" id="stay-result">Stay Result</div>
-    //     // <div class="Rtable-cell" id="switch-result">Switch Result</div>
-    //     // <div class="Rtable-cell" id="user-choice">User Choice</div>
-    //     // <div class="Rtable-cell" id="win">${this.user_name}
-    //     // `
-    //     // console.log(rowDiv)
     }
 
     winningDoor(){

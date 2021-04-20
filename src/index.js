@@ -5,6 +5,7 @@ const usersURL = baseURL + "users";
 const mountyPicture = document.getElementById("mounty-with-beaver");
 const currentGameContainer = document.getElementById("current-game-container");
 const resultsContainer = document.getElementById("results-container");
+const resultsTable = resultsContainer.lastElementChild
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
@@ -16,6 +17,6 @@ const doorCards = currentGameContainer.getElementsByTagName('article');
 
 const resultsTestGame = new Game(2);
 resultsTestGame.initializeRandomGame()
-resultsTestGame.original_pick = "door1"
+resultsTestGame.originalPick = "door1"
 
 door1 = document.getElementById("door1");
