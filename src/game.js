@@ -45,7 +45,7 @@ class Game {
     }
 
     createGameResultsRow(){
-        const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "userWin"];
+        const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
         console.log(rowGameKeyArray);
         rowGameKeyArray.forEach(key => {
             const rowDiv = document.createElement('div')
@@ -92,5 +92,9 @@ class Game {
 
     get userChoice(){
         return (!!this.userSwitch) ? "switch" : "stay";
+    }
+
+    get winLose(){
+        return (!!this.userWin) ? "win" : "lose";
     }
 }
