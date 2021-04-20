@@ -10,6 +10,10 @@ class User {
     //     userSelectionContainer.appendChild(selectUserTitle)
     // }
 
+    static toggleUserSelectionDisplay(){
+        userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
+    }
+
     static addNewUserFormToDOM(){
         const newUserForm = document.createElement('form')
         newUserForm.innerHTML = 
