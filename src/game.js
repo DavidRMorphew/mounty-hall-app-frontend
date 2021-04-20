@@ -44,7 +44,13 @@ class Game {
         console.log(rowGameKeyArray);
         rowGameKeyArray.forEach(key => {
             const rowDiv = document.createElement('div');
-            rowDiv.className = "Rtable-cell";
+            if (key === this.originalPick){
+                rowDiv.className = "Rtable-cell original-pick"
+            } else if (key === this.switchDoor()) {
+                rowDiv.className = "Rtable-cell switch-door";
+            } else {
+                rowDiv.className = "Rtable-cell"
+            }
             rowDiv.id = key;
             rowDiv.innerText = this[key];
             resultsTable.appendChild(rowDiv);
@@ -55,6 +61,16 @@ class Game {
         return Object.keys(this).find(key => this[key] === "car")
     }
 
+    switchDoor(){
+        const doorArray = ["door1", "door2", "door3"]
+        const originalPick = this.originalPick
+        const hostReveal = this.hostReveal
+        const switchDoor = doorArray.find(door => { 
+            return (door !== originalPick && door !== hostReveal)
+        })
+        return switchDoor;
+    }
+
     get stayResult(){
         const originalDoorPick = this.originalPick;
         const originalDoorResult = this[originalDoorPick];
@@ -62,13 +78,8 @@ class Game {
     }
 
     get switchResult(){
-        const doorArray = ["door1", "door2", "door3"]
-        const originalPick = this.originalPick
-        const hostReveal = this.hostReveal
-        const switchDoor = doorArray.find(door => { 
-            return (door !== originalPick && door !== hostReveal)
-        })
-        return this[switchDoor]
+        const switchDoor = this.switchDoor();
+        return this[switchDoor];
     }
 
     get userChoice(){
