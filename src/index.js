@@ -10,6 +10,8 @@ const resultsTable = resultsContainer.lastElementChild
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
+// Immediately get seed data on users:
+UserApi.getUsers()
 // The following is for testing
 // const testGame = new Game(1);
 // testGame.initializeRandomGame();

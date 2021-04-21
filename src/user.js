@@ -6,7 +6,6 @@ class User {
         this.id = id;
         this.name = name;
 
-        // User.all.push(this);
         User.findUserOrAddToAll(this);
     };
 
@@ -16,11 +15,7 @@ class User {
         }
     }
 
-    // static addTitleToUserSelectionContainer(){
-    //     const selectUserTitle = document.createElement('h2')
-    //     selectUserTitle.innerText = "Type a username below to find a user on file or create a new user. Alternatively, use the dropdown menu to the right to select a user."
-    //     userSelectionContainer.appendChild(selectUserTitle)
-    // }
+
 
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";

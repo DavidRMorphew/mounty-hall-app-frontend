@@ -22,6 +22,7 @@ class UserApi {
         }) 
     }
 
+    // called in index.js
     static getUsers(){
         fetch(this.baseUrl)
         .then(resp => resp.json())
@@ -31,5 +32,4 @@ class UserApi {
             })
         })
     }
-    // in iteration - check if already exists in User.all
 }
