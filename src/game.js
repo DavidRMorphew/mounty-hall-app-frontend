@@ -1,4 +1,6 @@
 class Game {
+    static all = [];
+
     constructor({user_id, user_name, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id}){
         this.userId = user_id;
         this.username = user_name;
@@ -10,6 +12,8 @@ class Game {
         this.userSwitch = user_switch;
         this.userWin = user_win;
         this.id = id;
+
+        Game.all.push(this);
     };
 
     initializeRandomGame(){
@@ -51,7 +55,8 @@ class Game {
             } else {
                 rowDiv.className = "Rtable-cell"
             }
-            rowDiv.id = key;
+            rowDiv.id = key; // Don't do this
+            // classList.add(key)
             rowDiv.innerText = this[key];
             resultsTable.appendChild(rowDiv);
         })
