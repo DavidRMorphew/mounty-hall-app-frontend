@@ -15,10 +15,12 @@ class UserApi {
         }
         fetch(this.baseUrl, configObj)
         .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            // find or new user - requires data on all users from the backend
-            debugger
+        .then(userData => {
+            const user = userData.data
+            const id = user.id
+            const name = user.attributes.name
+            new User({id, name});
+            currentUserId = id;
         }) 
     }
 

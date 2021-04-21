@@ -15,8 +15,6 @@ class User {
         }
     }
 
-
-
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
     }

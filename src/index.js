@@ -10,6 +10,8 @@ const resultsTable = resultsContainer.lastElementChild
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
+// GlobalVariable
+var currentUserId;
 // Immediately get seed data on users:
 UserApi.getUsers()
 // The following is for testing
@@ -18,8 +20,12 @@ UserApi.getUsers()
 // testGame.toggleGameDisplay();
 // testGame.makeDoorsClickable();
 
-const resultsTestGame = new Game(2);
-resultsTestGame.initializeRandomGame()
-resultsTestGame.originalPick = "door1"
+// const resultsTestGame = new Game(2);
+// resultsTestGame.initializeRandomGame()
+// resultsTestGame.originalPick = "door1"
 
-door1 = document.getElementById("door1");
+// door1 = document.getElementById("door1");
+
+// Test User Selection:
+User.toggleUserSelectionDisplay()
+User.addNewUserFormToDOM()
