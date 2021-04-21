@@ -16,6 +16,15 @@ class Game {
         Game.all.push(this);
     };
 
+    static welcomePlayer(){
+        Game.toggleHostBubbleDisplay();
+        hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
+    }
+
+    static toggleHostBubbleDisplay(){
+        hostTalkBubble.style.display = (hostTalkBubble.style.display === "none")? "" : "none";
+    }
+
     initializeRandomGame(){
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];

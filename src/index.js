@@ -10,6 +10,7 @@ const resultsTable = resultsContainer.lastElementChild
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul')
+const hostTalkBubble = document.getElementById('host-talk-bubble')
 // GlobalVariable
 var currentUser;
 // Immediately get seed data on users:
@@ -27,5 +28,5 @@ UserApi.getUsers()
 // door1 = document.getElementById("door1");
 
 // Test User Selection:
-User.toggleUserSelectionDisplay()
-User.addNewUserFormToDOM()
+// User.toggleUserSelectionDisplay()
+// User.addNewUserFormToDOM()

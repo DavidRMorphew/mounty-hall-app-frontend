@@ -11,5 +11,5 @@ class GameApi {
                 gameResults.createGameResultsRowOnDOM()
             })
         })
-    }   
+    }
 }
