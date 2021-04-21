@@ -6,8 +6,15 @@ class User {
         this.id = id;
         this.name = name;
 
-        User.all.push(this);
+        // User.all.push(this);
+        User.findUserOrAddToAll(this);
     };
+
+    static findUserOrAddToAll(user){
+        if (!(this.all.some(element => element.id === user.id))){
+            User.all.push(user)
+        }
+    }
 
     // static addTitleToUserSelectionContainer(){
     //     const selectUserTitle = document.createElement('h2')
