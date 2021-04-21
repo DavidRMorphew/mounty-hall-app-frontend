@@ -33,11 +33,11 @@ class User {
     static handleClickEvent = (event) => {
         event.preventDefault()
         if (event.target.id === "new-user-form"){
-            this.findOrCreateNewUser(event);
+            this.findOrCreateByName(event);
         };
     };
 
-    static findOrCreateNewUser = (event) => {
+    static findOrCreateByName = (event) => {
         const submittedUsername = event.target.querySelector('#username').value;
         // console.log(submittedUsername);
         // findOrCreate API -> on backend -> create 
