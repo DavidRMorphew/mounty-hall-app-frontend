@@ -12,7 +12,7 @@ class User {
 
     static findUserOrAddToAll(user){
         if (!(this.all.some(element => element.id === user.id))){
-            User.all.push(user)
+            User.all.push(user);
         }
     }
 

@@ -45,19 +45,20 @@ class Game {
 
     createGameResultsRowOnDOM(){
         const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
-        console.log(rowGameKeyArray);
+        
         rowGameKeyArray.forEach(key => {
             const rowDiv = document.createElement('div');
-            if (key === this.originalPick){
-                rowDiv.className = "Rtable-cell original-pick"
-            } else if (key === this.switchDoor()) {
-                rowDiv.className = "Rtable-cell switch-door";
-            } else {
-                rowDiv.className = "Rtable-cell"
-            }
-            rowDiv.id = key; // Don't do this
-            // classList.add(key)
             rowDiv.innerText = this[key];
+            switch (key) {
+                case (this.originalPick):
+                    rowDiv.classList.add("Rtable-cell", key, "original-pick");
+                    break;
+                case (this.switchDoor()):
+                    rowDiv.classList.add("Rtable-cell", key, "switch-door");
+                    break;
+                default:
+                    rowDiv.classList.add("Rtable-cell", key);
+            }
             resultsTable.appendChild(rowDiv);
         })
     }
