@@ -4,19 +4,21 @@ class UserApi {
     
     static findOrCreateByName(name){
         const usernameData = {name};
-        console.log("username data: "+usernameData)
-        debugger
-        // const configObj = {
-        //     method: "POST",
-        //     headers: { 
-        //         "Content-Type": "application/json", 
-        //         Accept: "application/json"
-        //     },
-        //     body: JSON.stringify(usernameData)
-        // }
-        // fetch(this.baseUrl, configObj)
-        // .then()
-        // console.log(submittedUsername)
-        // debugger 
+
+        const configObj = {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json", 
+                Accept: "application/json"
+            },
+            body: JSON.stringify(usernameData)
+        }
+        fetch(this.baseUrl, configObj)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            // find or new user - requires data on all users from the backend
+            debugger
+        }) 
     }
 }
