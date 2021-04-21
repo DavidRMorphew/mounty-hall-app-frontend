@@ -11,7 +11,7 @@ const currentUserResultsContainer = document.getElementById("current-user-result
 const doorCards = currentGameContainer.getElementsByTagName('article');
 
 // GlobalVariable
-var currentUserId;
+var currentUser;
 // Immediately get seed data on users:
 UserApi.getUsers()
 // The following is for testing

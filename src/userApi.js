@@ -19,8 +19,7 @@ class UserApi {
             const user = userData.data
             const id = user.id
             const name = user.attributes.name
-            new User({id, name});
-            currentUserId = id;
+            currentUser = new User({id, name});
         }) 
     }
 
