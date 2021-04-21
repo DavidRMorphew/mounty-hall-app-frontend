@@ -42,4 +42,10 @@ class User {
         UserApi.findOrCreateByName(submittedUsername);
     };
 
+    addUserNameToNavbar(){
+        const currentUserName = this.name;
+        const nameLi = document.createElement('li')
+        nameLi.innerText = currentUserName;
+        navbarUl.appendChild(nameLi);
+    }
 }

@@ -9,7 +9,7 @@ const resultsContainer = document.getElementById("results-container");
 const resultsTable = resultsContainer.lastElementChild
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
-
+const navbarUl = document.getElementById('navbar-ul')
 // GlobalVariable
 var currentUser;
 // Immediately get seed data on users:
