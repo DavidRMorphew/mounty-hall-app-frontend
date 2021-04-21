@@ -21,4 +21,15 @@ class UserApi {
             debugger
         }) 
     }
+
+    static getUsers(){
+        fetch(this.baseUrl)
+        .then(resp => resp.json())
+        .then(usersData => {
+            usersData["data"].forEach(userData => {
+                new User({id: userData.id, name: userData.attributes.name})
+            })
+        })
+    }
+    // in iteration - check if already exists in User.all
 }
