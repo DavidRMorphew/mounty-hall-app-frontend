@@ -42,10 +42,17 @@ class User {
         UserApi.findOrCreateByName(submittedUsername);
     };
 
+    loginUser(){
+        currentUser = this;
+        currentUser.displayCurrentUserAndRemoveUserSelection();
+        currentUser.addLogoutButtonToNavbar()
+    }
+
     displayCurrentUserAndRemoveUserSelection(){
         this.addUserNameToNavbar()
         User.toggleUserSelectionDisplay()
     }
+
 
     addUserNameToNavbar(){
         const currentUserName = this.name;
@@ -56,10 +63,12 @@ class User {
     }
 
     addLogoutButtonToNavbar(){
-        const logout = document.createElement('button')
-        logout.classList.add('btn', 'right')
-        logout.id = "logout"
-        logout.innerText = "Change User"
-
+        const logoutButton = document.createElement('button')
+        // logoutButton.classList.add('btn', 'right')
+        logoutButton.id = "logout"
+        logoutButton.innerText = "Change User"
+        navbarUl.appendChild(logoutButton)
+        // add event listener with functionality
+        // reformat button position
     }
 }
