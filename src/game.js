@@ -36,7 +36,27 @@ class Game {
         event.preventDefault()
         if (event.target.id === "play-button"){
             console.log("initiate game method")
+            console.log(event.target)
+            const playButton = event.target
+            playButton.remove()
+            Game.toggleHostBubbleDisplay()
+            this.startNewGame()
         }
+    }
+
+    static hostPause = (callback) => {
+        window.setTimeout(callback, 700)
+    }
+
+    static startNewGame(){
+        this.hostPause(() => {
+            Game.toggleHostBubbleDisplay()
+            hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."
+        })
+        this.hostPause(() => {
+            User.toggleUserSelectionDisplay()
+            User.addNewUserFormToDOM()
+        })        
     }
 
     static toggleHostBubbleDisplay(){
