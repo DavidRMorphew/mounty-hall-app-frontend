@@ -42,10 +42,24 @@ class User {
         UserApi.findOrCreateByName(submittedUsername);
     };
 
+    displayCurrentUserAndRemoveUserSelection(){
+        this.addUserNameToNavbar()
+        User.toggleUserSelectionDisplay()
+    }
+
     addUserNameToNavbar(){
         const currentUserName = this.name;
         const nameLi = document.createElement('li')
-        nameLi.innerText = currentUserName;
+        nameLi.innerHTML = `<h5>Current Username: "${currentUserName}"</h5>`;
+        nameLi.id = "navbar-current-user";
         navbarUl.appendChild(nameLi);
+    }
+
+    addLogoutButtonToNavbar(){
+        const logout = document.createElement('button')
+        logout.classList.add('btn', 'right')
+        logout.id = "logout"
+        logout.innerText = "Change User"
+
     }
 }

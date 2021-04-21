@@ -20,7 +20,7 @@ class UserApi {
             const id = user.id
             const name = user.attributes.name
             currentUser = new User({id, name});
-            currentUser.addUserNameToNavbar();
+            currentUser.displayCurrentUserAndRemoveUserSelection();
         }) 
     }
 
