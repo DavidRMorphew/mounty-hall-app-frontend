@@ -23,9 +23,9 @@ main {
 img {
     max-width: 100%;
 }
-#mounty-with-beaver {
+/* #mounty-with-beaver {
     max-width: 30%;
-}
+} */
 .original-pick {
     color: red;
 }
@@ -52,8 +52,18 @@ img {
     background: fade(slategrey,20%);
 }
 
-.Rtable--8cols > .Rtable-cell { width: 12.5%; }
+.Rtable-cell-no-border {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;  
+    padding: 0.8em 1.2em;
+    overflow: hidden; 
+    list-style: none;
+    background: fade(slategrey,20%);
+}
 
+.Rtable--8cols > .Rtable-cell { width: 12.5%; }
+.Rtable--2cols > .Rtable-cell-no-border { width: 50%; }
 * {
     text-shadow: 1px 1px 2px black;
 }
@@ -92,4 +102,8 @@ p.speech:after {
 	bottom: -30px;
 	border: 15px solid;
 	border-color: #fff transparent transparent #fff;
+}
+
+div {
+    display: inline-block;
 }

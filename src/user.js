@@ -35,7 +35,6 @@ class User {
         if (event.target.id === "new-user-form"){
             const submittedUsername = event.target.querySelector('#username').value;
             this.findOrCreateByName(submittedUsername);
-            console.log()
         };
     };
 
