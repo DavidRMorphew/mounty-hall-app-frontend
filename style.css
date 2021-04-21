@@ -65,7 +65,7 @@ img {
 .Rtable--8cols > .Rtable-cell { width: 12.5%; }
 .Rtable--2cols > .Rtable-cell-no-border { width: 50%; }
 * {
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 0px 1px black;
 }
 
 p.bubble {
@@ -107,3 +107,10 @@ p.speech:after {
 div {
     display: inline-block;
 }
+
+#host-talk-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+

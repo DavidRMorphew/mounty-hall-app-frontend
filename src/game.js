@@ -19,6 +19,15 @@ class Game {
     static welcomePlayer(){
         Game.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
+        this.createPlayButton();
+    }
+
+    static createPlayButton(){
+        const playButton = document.createElement('button')
+        playButton.id = "play-button"
+        playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
+        playButton.innerText = "Play the Game"
+        hostTalkBubble.insertAdjacentElement('afterend', playButton);
     }
 
     static toggleHostBubbleDisplay(){
