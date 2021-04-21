@@ -39,8 +39,9 @@ class User {
 
     static findOrCreateNewUser = (event) => {
         const submittedUsername = event.target.querySelector('#username').value;
-        console.log(submittedUsername);
+        // console.log(submittedUsername);
         // findOrCreate API -> on backend -> create 
-    }
+        UserApi.findOrCreateByName(submittedUsername);
+    };
 
 }
