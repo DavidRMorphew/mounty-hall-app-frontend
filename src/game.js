@@ -113,7 +113,10 @@ class Game {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
-            console.log(doorElement)
+            console.log(doorElement.id);
+            // final pick method call
+            // log user data, change bubble to inform of win or loss
+            // present user with choice to play again or see results
         }
     }
     
