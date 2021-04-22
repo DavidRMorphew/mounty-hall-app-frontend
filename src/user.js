@@ -74,7 +74,10 @@ class User {
 
     static changeUser = () => {
         this.clearNavbar();
-        console.log("change user called")
+        console.log("change user called");
     }
-    static clearNavbar = () => navbarUl.innerHTML = "";
+    
+    static clearNavbar = () => {
+        navbarUl.innerHTML = "";
+    }
 }

@@ -19,7 +19,7 @@ class Game {
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
-        this.createPlayButton();
+        this.hostPause(this.createPlayButton, 1);
     }
 
     static createPlayButton(){
