@@ -19,10 +19,10 @@ class Game {
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
-        this.hostPause(this.createPlayButton, 1);
+        this.hostPause(this.createPlayButton);
     }
 
-    static createPlayButton(){
+    static createPlayButton = () => {
         const playButton = document.createElement('button')
         playButton.id = "play-button"
         playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
