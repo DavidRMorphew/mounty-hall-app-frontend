@@ -107,24 +107,32 @@ class Game {
         }
     }
 
- 
-
     handleDoorClicks(doorElement){
         this.doorClickCount++ 
         if (this.doorClickCount === 1) {
-            this.originalPick = doorElement.id;
-            // highlight original pick in some color with a note
-            // change talk bubble
-            // remove changeUser button during game
-            this.hostChoice();
+            this.hostResponseToFirstPick(doorElement);
+            doorElement.classList.add("red-text")
         }
+    }
+    
+    hostResponseToFirstPick(doorElement){
+        this.originalPick = doorElement.id;
+        // highlight original pick in some color with a note
+        const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
+        const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
+        Game.hostPause(hostResponse1);
+        Game.hostPause(hostResponseFollowUp, 4);
+        // remove changeUser button during game
+        // IIFE avoids losing this in the call of hostChoice
+        Game.hostPause((()=>this.hostChoice()), 5);
     }
 
     hostChoice(){
+        console.log(this)
         const doorsArray = ["door1", "door2", "door3"]
         const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()))
-        console.log(remainingDoorsArray)
-        console.log(remainingDoorsArray.length)
+        // console.log(remainingDoorsArray)
+        // console.log(remainingDoorsArray.length)
         if (remainingDoorsArray.length === 2){
             const randomIndex = () => Game.randomIntegerZeroToNum(1);
             this.hostReveal = remainingDoorsArray[randomIndex()]
