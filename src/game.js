@@ -66,10 +66,12 @@ class Game {
     static initializeNewGame = () => {
         console.log("hit new game");
         const currentGame = new Game({user_id: currentUser.id});
+        this.randomizeGame(currentGame);
         console.log(currentGame);
     }
 
-    randomizeGame = () => {
+    // as a normal method, this function was being added as a property on currentGame when called. Why?
+    static randomizeGame = (currentGame) => {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
         const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
@@ -80,7 +82,7 @@ class Game {
             };
         };
         const [door1, door2, door3] = randomizerArray;
-        return Object.assign(this, {door1, door2, door3})
+        return Object.assign(currentGame, {door1, door2, door3})
     };
 
     
