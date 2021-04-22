@@ -32,9 +32,11 @@ class User {
     static handleClickEvent = (event) => {
         event.preventDefault()
         if (event.target.id === "new-user-form"){
-            const submittedUsername = event.target.querySelector('#username').value;
-            this.findOrCreateByName(submittedUsername);
+            // Is this method of grabbing and clearing form OK?
+            const submittedUsername = event.target.querySelector('#username');
+            this.findOrCreateByName(submittedUsername.value);
             Game.toggleHostBubbleDisplay();
+            submittedUsername.value = ""
         } else if (event.target.id === "change-user-button"){
             console.log(event.target)
             User.changeUser()
@@ -78,6 +80,9 @@ class User {
     static changeUser = () => {
         this.clearNavbar();
         console.log("change user called");
+        hostTalkBubble.innerText = "Select a username on file or create a new username."
+        Game.toggleHostBubbleDisplay();
+        this.toggleUserSelectionDisplay();
     }
     
     static clearNavbar = () => {
