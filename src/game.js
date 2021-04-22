@@ -17,6 +17,9 @@ class Game {
         Game.all.push(this);
     };
 
+    // Ask about this:
+    static rodentiaNamesAndImageUrlsObj = {beaver: "https://i.imgur.com/tjvqilD.jpg", marmot: "https://i.imgur.com/Oqy9GG1.jpg", woodchuck: "https://i.imgur.com/zRgVoAg.jpeg"}
+
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
@@ -83,7 +86,8 @@ class Game {
     // as a normal arrow-function method, this function was being added as a property on currentGame when called. Why?
     randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
-        const rodentiaArray = ["beaver", "woodchuck", "marmot"];
+        // const rodentiaArray = ["beaver", "woodchuck", "marmot"];
+        const rodentiaArray = Object.keys(Game.rodentiaNamesAndImageUrlsObj);
         // const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
         const randomIndex = () => Game.randomIntegerZeroToNum(2);
         randomizerArray[randomIndex()] = "car";
@@ -116,6 +120,8 @@ class Game {
         this.doorClickCount++ 
         if (this.doorClickCount === 1) {
             this.originalPick = doorElement.id;
+            // highlight original pick in some color with a note
+            // change talk bubble
             // remove changeUser button during game
             this.hostChoice();
         }
@@ -132,6 +138,15 @@ class Game {
         } else {
             this.hostReveal = remainingDoorsArray[0]
         }
+        this.hostOpenDoor()
+    }
+
+    hostOpenDoor(){
+        const hostRevealedDoor = this.hostReveal
+        const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
+        const rodentBehindDoor = this[hostRevealedDoor]
+        hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
+        // disable event listener
     }
 
     toggleGameDisplay(){
