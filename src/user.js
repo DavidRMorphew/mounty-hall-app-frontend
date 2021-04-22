@@ -44,16 +44,14 @@ class User {
 
     loginUser(){
         currentUser = this;
-        currentUser.displayCurrentUserAndRemoveUserSelection();
-        currentUser.addLogoutButtonToNavbar()
     }
-
-    // updateCurrentUser
-    displayCurrentUserAndRemoveUserSelection(){
-        this.addUserNameToNavbar()
-        User.toggleUserSelectionDisplay()
+    updateCurrentUser(){    
+        this.loginUser()
+        // currentUser.displayCurrentUserAndRemoveUserSelection();
+        currentUser.addUserNameToNavbar();
+        currentUser.addLogoutButtonToNavbar();
+        User.toggleUserSelectionDisplay();
     }
-
 
     addUserNameToNavbar(){
         const currentUserName = this.name;
