@@ -66,12 +66,13 @@ class Game {
     static initializeNewGame = () => {
         console.log("hit new game");
         const currentGame = new Game({user_id: currentUser.id});
-        this.randomizeGame(currentGame);
+        currentGame.randomizeGame();
         console.log(currentGame);
+        debugger
     }
 
-    // as a normal method, this function was being added as a property on currentGame when called. Why?
-    static randomizeGame = (currentGame) => {
+    // as a normal arrow-function method, this function was being added as a property on currentGame when called. Why?
+    randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
         const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
@@ -82,7 +83,7 @@ class Game {
             };
         };
         const [door1, door2, door3] = randomizerArray;
-        return Object.assign(currentGame, {door1, door2, door3})
+        return Object.assign(this, {door1, door2, door3})
     };
 
     
