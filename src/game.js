@@ -114,8 +114,15 @@ class Game {
         clickCount++ 
         if (clickCount === 1) {
             this.originalPick = doorElement.id;
-            // hostChoice method
+            // remove changeUser button during game
+            this.hostChoice();
         }
+    }
+
+    hostChoice(){
+        const doorsArray = ["door1", "door2", "door3"]
+        const remainingDoorsArray = doorsArray.filter(door => door !== this.originalPick)
+        console.log(remainingDoorsArray)
     }
 
     toggleGameDisplay(){
