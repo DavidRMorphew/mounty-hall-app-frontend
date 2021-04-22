@@ -68,7 +68,13 @@ class Game {
         const currentGame = new Game({user_id: currentUser.id});
         currentGame.randomizeGame();
         console.log(currentGame);
-        debugger
+        Game.hostPause(currentGame.hostInstructionsToGame);
+        Game.hostPause(currentGame.toggleGameDisplay, 2)
+    }
+    
+    hostInstructionsToGame() {
+        hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!"
+        Game.toggleHostBubbleDisplay()  
     }
 
     // as a normal arrow-function method, this function was being added as a property on currentGame when called. Why?
@@ -86,7 +92,6 @@ class Game {
         return Object.assign(this, {door1, door2, door3})
     };
 
-    
     makeDoorsClickable(){
         for (const element of doorCards){
             element.addEventListener('click', () => {
