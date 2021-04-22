@@ -78,7 +78,7 @@ class Game {
     }
     
     hostInstructionsToGame() {
-        hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!"
+        hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. If you pick the car, YOU WIN IT! Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!"
         Game.toggleHostBubbleDisplay()
     }
 
@@ -112,6 +112,8 @@ class Game {
         if (this.doorClickCount === 1) {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
+        } else if (this.doorClickCount === 2) {
+            console.log(doorElement)
         }
     }
     
@@ -120,19 +122,18 @@ class Game {
         // highlight original pick in some color with a note
         const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
         const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
+        const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor()}?<br>Click on the door you choose.`
         Game.hostPause(hostResponse1);
         Game.hostPause(hostResponseFollowUp, 4);
         // remove changeUser button during game
         // IIFE avoids losing this in the call of hostChoice
-        Game.hostPause((()=>this.hostChoice()), 5);
+        Game.hostPause((() => this.hostChoice()), 7);
+        Game.hostPause((() => hostPromptToStayOrSwitch()), 13);
     }
 
     hostChoice(){
-        console.log(this)
         const doorsArray = ["door1", "door2", "door3"]
         const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()))
-        // console.log(remainingDoorsArray)
-        // console.log(remainingDoorsArray.length)
         if (remainingDoorsArray.length === 2){
             const randomIndex = () => Game.randomIntegerZeroToNum(1);
             this.hostReveal = remainingDoorsArray[randomIndex()]
@@ -147,7 +148,6 @@ class Game {
         const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
         const rodentBehindDoor = this[hostRevealedDoor]
         hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
-        // disable event listener
     }
 
     toggleGameDisplay(){
