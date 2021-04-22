@@ -45,7 +45,7 @@ class Game {
     }
 
     static hostPause = (callback) => {
-        window.setTimeout(callback, 700)
+        setTimeout(callback, 700)
     }
 
     static startNewGame(){

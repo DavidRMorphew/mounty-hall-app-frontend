@@ -14,7 +14,8 @@ const hostTalkBubble = document.getElementById('host-talk-bubble')
 // GlobalVariable
 var currentUser;
 // Immediately get seed data on users:
-UserApi.getUsers()
+UserApi.getUsers();
+Game.welcomePlayer()
 // The following is for testing
 // const testGame = new Game(1);
 // testGame.initializeRandomGame();
