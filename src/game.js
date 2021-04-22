@@ -35,7 +35,6 @@ class Game {
         hostTalkBubble.insertAdjacentElement('afterend', playButton);
     }
 
-    // Do I need to prevent default here? NOT NECESSARY HERE - TAKE OUT
     static handleClickEvent = (event) => {
         if (event.target.id === "play-button"){
             console.log("initiate game method")
@@ -83,7 +82,6 @@ class Game {
         Game.toggleHostBubbleDisplay()
     }
 
-    // as a normal arrow-function method, this function was being added as a property on currentGame when called. Why?
     randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         // const rodentiaArray = ["beaver", "woodchuck", "marmot"];
@@ -102,19 +100,14 @@ class Game {
 
     static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1))
 
+    // Do I need to disable all of these before the next game?
     makeDoorsClickable(){
         for (const doorElement of doorCards){
             doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement))
-            console.log(this.doorClickCount)
-            // () => {
-            //     this.originalPick = element.id
-            //     console.log(this.originalPick);          
-            // }
-
         }
     }
 
-    // make property - clickCount
+ 
 
     handleDoorClicks(doorElement){
         this.doorClickCount++ 
