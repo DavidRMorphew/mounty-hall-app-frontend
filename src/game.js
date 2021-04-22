@@ -44,8 +44,8 @@ class Game {
         }
     }
 
-    static hostPause = (callback) => {
-        setTimeout(callback, 700)
+    static hostPause = (callback, multiplier = 1) => {
+        setTimeout(callback, (multiplier * 700))
     }
 
     static startNewGame(){
@@ -56,7 +56,7 @@ class Game {
         this.hostPause(() => {
             User.toggleUserSelectionDisplay()
             User.addNewUserFormToDOM()
-        })        
+        }, 2)        
     }
 
     static toggleHostBubbleDisplay(){
