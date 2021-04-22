@@ -68,7 +68,13 @@ class User {
         logoutButton.classList.add("btn-large", "red", "darken-4", "right")
         logoutButton.innerText = "Change User"
         navbarUl.appendChild(logoutButton)
+        logoutButton.addEventListener('click', User.changeUser);
         // add event listener with functionality
-        // reformat button position
     }
+
+    static changeUser = () => {
+        this.clearNavbar();
+        console.log("change user called")
+    }
+    static clearNavbar = () => navbarUl.innerHTML = "";
 }
