@@ -65,6 +65,8 @@ class Game {
 
     static initializeNewGame = () => {
         console.log("hit new game");
+        const currentGame = new Game({user_id: currentUser.id});
+        console.log(currentGame);
     }
 
     randomizeGame = () => {
