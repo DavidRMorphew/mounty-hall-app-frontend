@@ -112,7 +112,7 @@ class Game {
         if (this.doorClickCount === 1) {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
-        } else if (this.doorClickCount > 1) {
+        } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
             console.log(doorElement)
         }
     }
@@ -141,7 +141,6 @@ class Game {
         } else {
             this.hostReveal = remainingDoorsArray[0]
         }
-        console.log(this.hostReveal)
     }
 
     hostOpenDoor(){
