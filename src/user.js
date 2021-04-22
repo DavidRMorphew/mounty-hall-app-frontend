@@ -22,9 +22,8 @@ class User {
     static addNewUserFormToDOM(){
         const newUserForm = document.createElement('form')
         newUserForm.innerHTML = 
-        `<label for="username">New User Name</label>
-        <input type="text" id="username" name="username">
-        <input type="submit" value="submit">`
+        `<h3>Username: <h3><input type="text" id="username" name="username">
+        <input class="btn-large light-blue darken-4" type="submit" value="Submit Username">`
         newUserForm.id = "new-user-form"
         userSelectionContainer.appendChild(newUserForm)
         newUserForm.addEventListener('submit', this.handleClickEvent)
