@@ -112,13 +112,14 @@ class Game {
         if (this.doorClickCount === 1) {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
-        } else if (this.doorClickCount === 2) {
+        } else if (this.doorClickCount > 1) {
             console.log(doorElement)
         }
     }
     
     hostResponseToFirstPick(doorElement){
         this.originalPick = doorElement.id;
+        this.hostChoice();
         // highlight original pick in some color with a note
         const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
         const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
@@ -127,7 +128,7 @@ class Game {
         Game.hostPause(hostResponseFollowUp, 4);
         // remove changeUser button during game
         // IIFE avoids losing this in the call of hostChoice
-        Game.hostPause((() => this.hostChoice()), 7);
+        Game.hostPause((() => this.hostOpenDoor()), 7);
         Game.hostPause((() => hostPromptToStayOrSwitch()), 13);
     }
 
@@ -140,7 +141,7 @@ class Game {
         } else {
             this.hostReveal = remainingDoorsArray[0]
         }
-        this.hostOpenDoor()
+        console.log(this.hostReveal)
     }
 
     hostOpenDoor(){
