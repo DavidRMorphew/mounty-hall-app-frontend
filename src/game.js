@@ -102,6 +102,7 @@ class Game {
         for (const doorElement of doorCards){
             let clickCount = 0;
             doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement, clickCount))
+            console.log(clickCount)
             // () => {
             //     this.originalPick = element.id
             //     console.log(this.originalPick);          
@@ -121,7 +122,7 @@ class Game {
 
     hostChoice(){
         const doorsArray = ["door1", "door2", "door3"]
-        const remainingDoorsArray = doorsArray.filter(door => door !== this.originalPick)
+        const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()))
         console.log(remainingDoorsArray)
     }
 
