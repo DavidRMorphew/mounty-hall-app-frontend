@@ -41,11 +41,9 @@ class Game {
             playButton.remove()
             Game.toggleHostBubbleDisplay()
             this.startNewGame()
-        } else if (event.currentTarget.className === "card") {
-            debugger
         }
     }
-
+    // Did not do doorclick event in handleClickEvent since I want to access current game
 
 
     static hostPause = (callback, multiplier = 1) => {
@@ -98,12 +96,26 @@ class Game {
     };
 
     makeDoorsClickable(){
-        for (const element of doorCards){
-            // element.addEventListener('click', () => {
-            //     console.log(element);          
-            // })
-            element.addEventListener('click', Game.handleClickEvent)
+        for (const doorElement of doorCards){
+            let clickCount = 0;
+            doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement, clickCount))
+            // () => {
+            //     this.originalPick = element.id
+            //     console.log(this.originalPick);          
+            // }
+
         }
+    }
+
+    handleDoorClicks(doorElement, clickCount){
+        clickCount++ 
+        if (clickCount === 1) {
+            this.originalPick = doorElement.id;
+        }
+        debugger
+        console.log(doorElement.id)
+        console.log(clickCount)
+        console.log(this)
     }
 
     toggleGameDisplay(){
