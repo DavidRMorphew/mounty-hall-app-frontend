@@ -34,6 +34,7 @@ class User {
         if (event.target.id === "new-user-form"){
             const submittedUsername = event.target.querySelector('#username').value;
             this.findOrCreateByName(submittedUsername);
+            Game.toggleHostBubbleDisplay();
         };
     };
 
@@ -57,7 +58,7 @@ class User {
     addUserNameToNavbar(){
         const currentUserName = this.name;
         const nameLi = document.createElement('li')
-        nameLi.innerHTML = `<h5>Current Username: "${currentUserName}"</h5>`;
+        nameLi.innerHTML = `<h5 class="light-grey-text">Current Username: "${currentUserName}"</h5>`;
         nameLi.id = "navbar-current-user";
         navbarUl.appendChild(nameLi);
     }
@@ -66,6 +67,7 @@ class User {
         const logoutButton = document.createElement('button')
         // logoutButton.classList.add('btn', 'right')
         logoutButton.id = "logout"
+        logoutButton.classList.add("btn-large", "red", "darken-4", "right")
         logoutButton.innerText = "Change User"
         navbarUl.appendChild(logoutButton)
         // add event listener with functionality

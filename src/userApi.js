@@ -21,6 +21,7 @@ class UserApi {
             const name = user.attributes.name
             const selectedUser = new User({id, name});
             selectedUser.loginUser();
+            // update user instaed of loginUser with loginUser inside updateUser
         }) 
     }
 
