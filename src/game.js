@@ -41,8 +41,12 @@ class Game {
             playButton.remove()
             Game.toggleHostBubbleDisplay()
             this.startNewGame()
+        } else if (event.currentTarget.className === "card") {
+            debugger
         }
     }
+
+
 
     static hostPause = (callback, multiplier = 1) => {
         setTimeout(callback, (multiplier * 700))
@@ -67,6 +71,7 @@ class Game {
         console.log("hit new game");
         const currentGame = new Game({user_id: currentUser.id});
         currentGame.randomizeGame();
+        currentGame.makeDoorsClickable();
         console.log(currentGame);
         Game.hostPause(currentGame.hostInstructionsToGame);
         Game.hostPause(currentGame.toggleGameDisplay, 2)
@@ -74,7 +79,7 @@ class Game {
     
     hostInstructionsToGame() {
         hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!"
-        Game.toggleHostBubbleDisplay()  
+        Game.toggleHostBubbleDisplay()
     }
 
     // as a normal arrow-function method, this function was being added as a property on currentGame when called. Why?
@@ -94,9 +99,10 @@ class Game {
 
     makeDoorsClickable(){
         for (const element of doorCards){
-            element.addEventListener('click', () => {
-                console.log(element.id);          
-            })
+            // element.addEventListener('click', () => {
+            //     console.log(element);          
+            // })
+            element.addEventListener('click', Game.handleClickEvent)
         }
     }
 
