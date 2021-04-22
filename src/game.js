@@ -12,6 +12,7 @@ class Game {
         this.userSwitch = user_switch;
         this.userWin = user_win;
         this.id = id;
+        this.doorClickCount = 0;
 
         Game.all.push(this);
     };
@@ -31,9 +32,8 @@ class Game {
         hostTalkBubble.insertAdjacentElement('afterend', playButton);
     }
 
-    // Do I need to prevent default here?
+    // Do I need to prevent default here? NOT NECESSARY HERE - TAKE OUT
     static handleClickEvent = (event) => {
-        event.preventDefault()
         if (event.target.id === "play-button"){
             console.log("initiate game method")
             console.log(event.target)
@@ -100,9 +100,8 @@ class Game {
 
     makeDoorsClickable(){
         for (const doorElement of doorCards){
-            let clickCount = 0;
-            doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement, clickCount))
-            console.log(clickCount)
+            doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement))
+            console.log(this.doorClickCount)
             // () => {
             //     this.originalPick = element.id
             //     console.log(this.originalPick);          
@@ -111,9 +110,11 @@ class Game {
         }
     }
 
-    handleDoorClicks(doorElement, clickCount){
-        clickCount++ 
-        if (clickCount === 1) {
+    // make property - clickCount
+
+    handleDoorClicks(doorElement){
+        this.doorClickCount++ 
+        if (this.doorClickCount === 1) {
             this.originalPick = doorElement.id;
             // remove changeUser button during game
             this.hostChoice();
@@ -124,6 +125,13 @@ class Game {
         const doorsArray = ["door1", "door2", "door3"]
         const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()))
         console.log(remainingDoorsArray)
+        console.log(remainingDoorsArray.length)
+        if (remainingDoorsArray.length === 2){
+            const randomIndex = () => Game.randomIntegerZeroToNum(1);
+            this.hostReveal = remainingDoorsArray[randomIndex()]
+        } else {
+            this.hostReveal = remainingDoorsArray[0]
+        }
     }
 
     toggleGameDisplay(){

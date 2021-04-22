@@ -43,7 +43,7 @@ class User {
         }
     };
 
-    // Is this useless?
+    // Is this useless? YES
     static findOrCreateByName(name){
         UserApi.findOrCreateByName(name);
     };

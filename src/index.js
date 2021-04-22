@@ -12,7 +12,8 @@ const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul')
 const hostTalkBubble = document.getElementById('host-talk-bubble')
 // GlobalVariable
-var currentUser;
+// CHANGE TO 'let'
+let currentUser;
 // Immediately get seed data on users:
 UserApi.getUsers();
 Game.hostPause(Game.welcomePlayer);
