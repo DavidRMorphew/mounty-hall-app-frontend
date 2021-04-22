@@ -49,7 +49,7 @@ class User {
         this.loginUser()
         // currentUser.displayCurrentUserAndRemoveUserSelection();
         currentUser.addUserNameToNavbar();
-        currentUser.addLogoutButtonToNavbar();
+        currentUser.addChangeUserButtonToNavbar();
         User.toggleUserSelectionDisplay();
     }
 
@@ -61,14 +61,14 @@ class User {
         navbarUl.appendChild(nameLi);
     }
 
-    addLogoutButtonToNavbar(){
-        const logoutButton = document.createElement('button')
-        // logoutButton.classList.add('btn', 'right')
-        logoutButton.id = "logout"
-        logoutButton.classList.add("btn-large", "red", "darken-4", "right")
-        logoutButton.innerText = "Change User"
-        navbarUl.appendChild(logoutButton)
-        logoutButton.addEventListener('click', User.changeUser);
+    addChangeUserButtonToNavbar(){
+        const changeUserButton = document.createElement('button')
+        // changeUserButton.classList.add('btn', 'right')
+        changeUserButton.id = "logout"
+        changeUserButton.classList.add("btn-large", "red", "darken-4", "right")
+        changeUserButton.innerText = "Change User"
+        navbarUl.appendChild(changeUserButton)
+        changeUserButton.addEventListener('click', User.changeUser);
         // add event listener with functionality
     }
 
