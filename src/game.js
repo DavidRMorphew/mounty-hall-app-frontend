@@ -84,16 +84,19 @@ class Game {
     randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
-        const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
-        randomizerArray[randomIntBetweenZeroAndTwo()] = "car";
+        // const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
+        const randomIndex = () => Game.randomIntegerZeroToNum(2);
+        randomizerArray[randomIndex()] = "car";
         for (let i = 0; i < randomizerArray.length; i++){
             if (randomizerArray[i] === "rodentia"){
-                randomizerArray[i] = rodentiaArray[randomIntBetweenZeroAndTwo()];
+                randomizerArray[i] = rodentiaArray[randomIndex()];
             };
         };
         const [door1, door2, door3] = randomizerArray;
         return Object.assign(this, {door1, door2, door3})
     };
+
+    static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1))
 
     makeDoorsClickable(){
         for (const doorElement of doorCards){
@@ -111,11 +114,8 @@ class Game {
         clickCount++ 
         if (clickCount === 1) {
             this.originalPick = doorElement.id;
+            // hostChoice method
         }
-        debugger
-        console.log(doorElement.id)
-        console.log(clickCount)
-        console.log(this)
     }
 
     toggleGameDisplay(){
