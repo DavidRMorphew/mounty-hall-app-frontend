@@ -35,7 +35,10 @@ class User {
             const submittedUsername = event.target.querySelector('#username').value;
             this.findOrCreateByName(submittedUsername);
             Game.toggleHostBubbleDisplay();
-        };
+        } else if (event.target.id === "change-user-button"){
+            console.log(event.target)
+            User.changeUser()
+        }
     };
 
     static findOrCreateByName(name){
@@ -64,11 +67,11 @@ class User {
     addChangeUserButtonToNavbar(){
         const changeUserButton = document.createElement('button')
         // changeUserButton.classList.add('btn', 'right')
-        changeUserButton.id = "logout"
+        changeUserButton.id = "change-user-button"
         changeUserButton.classList.add("btn-large", "red", "darken-4", "right")
         changeUserButton.innerText = "Change User"
         navbarUl.appendChild(changeUserButton)
-        changeUserButton.addEventListener('click', User.changeUser);
+        changeUserButton.addEventListener('click', User.handleClickEvent);
         // add event listener with functionality
     }
 

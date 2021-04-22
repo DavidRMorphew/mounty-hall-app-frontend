@@ -27,12 +27,12 @@ class Game {
         playButton.id = "play-button"
         playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
         playButton.innerText = "Play the Game"
-        playButton.addEventListener('click', this.handleClick)
+        playButton.addEventListener('click', this.handleClickEvent)
         hostTalkBubble.insertAdjacentElement('afterend', playButton);
     }
 
     // Do I need to prevent default here?
-    static handleClick = (event) => {
+    static handleClickEvent = (event) => {
         event.preventDefault()
         if (event.target.id === "play-button"){
             console.log("initiate game method")
