@@ -63,7 +63,11 @@ class Game {
         hostTalkBubble.style.display = (hostTalkBubble.style.display === "none")? "" : "none";
     }
 
-    initializeRandomGame(){
+    static initializeNewGame = () => {
+        console.log("hit new game");
+    }
+
+    randomizeGame = () => {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
         const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);

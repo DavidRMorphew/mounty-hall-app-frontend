@@ -43,6 +43,7 @@ class User {
         }
     };
 
+    // Is this useless?
     static findOrCreateByName(name){
         UserApi.findOrCreateByName(name);
     };
@@ -52,10 +53,10 @@ class User {
     }
     updateCurrentUser(){    
         this.loginUser()
-        // currentUser.displayCurrentUserAndRemoveUserSelection();
         currentUser.addUserNameToNavbar();
         currentUser.addChangeUserButtonToNavbar();
         User.toggleUserSelectionDisplay();
+        Game.initializeNewGame();
     }
 
     addUserNameToNavbar(){
