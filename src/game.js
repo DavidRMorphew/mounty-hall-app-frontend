@@ -14,8 +14,14 @@ class Game {
         this.id = id;
         this.doorClickCount = 0;
 
-        Game.all.push(this);
+        Game.findGameOrAddToAll(this);
     };
+
+    static findGameOrAddToAll(game){
+        if (!(this.all.some(element => element.id === game.id))){
+            Game.all.push(game);
+        }
+    }
 
     // Ask about this:
     static rodentiaAndCarNamesAndImageUrlsObj = {

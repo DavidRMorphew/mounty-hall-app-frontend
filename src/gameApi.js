@@ -19,7 +19,7 @@ class GameApi {
         const gameDataSnakeCasePropertyNames = {};
         (function () {
             for (const camelCaseProperty in game) {
-                const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(property)
+                const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(camelCaseProperty)
                 gameDataSnakeCasePropertyNames[snakeCaseProperty] = game[camelCaseProperty];
             }
         })();
@@ -30,14 +30,19 @@ class GameApi {
                 "Content-Type": "application/json", 
                 Accept: "application/json"
             },
-            body: JSON.stringify(gameData)
+            body: JSON.stringify(gameDataSnakeCasePropertyNames)
         }
 
-        // fetch(this.baseURL, configObj)
-        // .then(resp => resp.json())
-        // .then(savedGameData => {
-
-        // }
+        fetch(this.baseURL, configObj)
+        .then(resp => resp.json())
+        .then(savedGameData => {
+            const gameData = savedGameData['data']
+            const newSavedGame = new Game({id: gameData.id, ...gameData.attributes})
+            console.log(newSavedGame)
+            debugger
+            // make sure you load all games at the beginning
+            // make sure duplicates are not made in constructor
+        })
     }
 
     static gamePropertyCamelToSnakeCase(property){
