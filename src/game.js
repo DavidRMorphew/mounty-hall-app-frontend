@@ -17,6 +17,16 @@ class Game {
         Game.all.push(this);
     };
 
+    static gamePropertyCamelToSnakeCase(property){
+        const propertyArray = property.split('')
+        propertyArray.forEach(letter => {
+            if (letter === letter.toUpperCase()) {
+                letter = `_${letter.toLowerCase()}`
+            }
+        }).join('')
+        console.log(propertyArray)
+    }
+
     // Ask about this:
     static rodentiaAndCarNamesAndImageUrlsObj = {
         beaver: "https://i.imgur.com/tjvqilD.jpg", 
@@ -176,6 +186,9 @@ class Game {
             this.userSwitch = false
         }
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
+
+        GameApi.createGame(this);
+
         this.hostResponseToFinalChoice(finalDoorPick);
         // should I use .apply or .call instead of wrapping these callbacks?
         

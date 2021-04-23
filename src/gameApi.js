@@ -12,4 +12,24 @@ class GameApi {
             })
         })
     }
+
+    static createGame(game){
+        
+        const gameData = game
+        debugger
+        // const configObj = {
+        //     method: "POST",
+        //     headers: { 
+        //         "Content-Type": "application/json", 
+        //         Accept: "application/json"
+        //     },
+        //     body: JSON.stringify(gameData)
+        // }
+
+        // fetch(this.baseURL, configObj)
+        // .then(resp => resp.json())
+        // .then(savedGameData => {
+
+        // }
+    }
 }
