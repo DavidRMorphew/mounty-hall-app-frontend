@@ -18,7 +18,12 @@ class Game {
     };
 
     // Ask about this:
-    static rodentiaNamesAndImageUrlsObj = {beaver: "https://i.imgur.com/tjvqilD.jpg", marmot: "https://i.imgur.com/Oqy9GG1.jpg", woodchuck: "https://i.imgur.com/zRgVoAg.jpeg"}
+    static rodentiaAndCarNamesAndImageUrlsObj = {
+        beaver: "https://i.imgur.com/tjvqilD.jpg", 
+        marmot: "https://i.imgur.com/Oqy9GG1.jpg", 
+        woodchuck: "https://i.imgur.com/zRgVoAg.jpeg", 
+        car: "https://upload.wikimedia.org/wikipedia/commons/2/26/Volvo_122S_Canadian.jpg"
+    }
 
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
@@ -84,8 +89,8 @@ class Game {
 
     randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
-        // const rodentiaArray = ["beaver", "woodchuck", "marmot"];
-        const rodentiaArray = Object.keys(Game.rodentiaNamesAndImageUrlsObj);
+        const rodentiaArray = ["beaver", "woodchuck", "marmot"];
+        // const rodentiaArray = [Object.keys(Game.rodentiaNamesAndImageUrlsObj)]; Does not work if car is in object
         // const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
         const randomIndex = () => Game.randomIntegerZeroToNum(2);
         randomizerArray[randomIndex()] = "car";
@@ -121,7 +126,6 @@ class Game {
     hostResponseToFirstPick(doorElement){
         this.originalPick = doorElement.id;
         this.hostChoice();
-        // highlight original pick in some color with a note
         const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
         const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
         const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
@@ -129,9 +133,9 @@ class Game {
         Game.hostPause(hostResponseFollowUp, 4);
         // remove changeUser button during game
         // IIFE avoids losing this in the call of hostChoice
-        Game.hostPause((() => this.hostOpenDoor()), 7);
+        // Game.hostPause((() => this.hostOpenRevealDoor()), 7); Older method - not dynamic
+        Game.hostPause((() => this.hostOpenDoor(this.hostReveal)), 7); // dynamic version
         Game.hostPause((() => hostPromptToStayOrSwitch()), 13);
-        console.log("host promp ends now");
     }
 
     hostChoice(){
@@ -145,7 +149,15 @@ class Game {
         }
     }
 
-    hostOpenDoor(){
+    // dynamic version
+
+    hostOpenDoor(doorId){
+        const selectedDoorImage = document.querySelector(`#${doorId} img`);
+        const objectBehindDoor = this[doorId];
+        selectedDoorImage.src = Game.rodentiaAndCarNamesAndImageUrlsObj[objectBehindDoor];
+    }
+    // Older non-dynamic version
+    hostOpenRevealDoor(){
         const hostRevealedDoor = this.hostReveal
         const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
         const rodentBehindDoor = this[hostRevealedDoor]
@@ -160,18 +172,32 @@ class Game {
             this.userSwitch = false
         }
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
-        hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
-        Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."))
+        this.hostResponseToFinalChoice(finalDoorPick);
         // should I use .apply or .call instead of wrapping these callbacks?
-        Game.hostPause((()=>this.finalChoiceReveal()), 3)
-            // final pick method call
-            // log user data, change bubble to inform of win or loss
-            // present user with choice to play again or see results
+        // final pick method call
+        // log user data, change bubble to inform of win or loss
+        // present user with choice to play again or see results
     }
     // Put responses to choice in hostResponseToFinalChoice; call hostOpenRemainingDoors; change hostOpenRevealDoor
+    
+    hostResponseToFinalChoice(finalDoorPick){
+        hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
+        Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
+        Game.hostPause((()=>this.finalChoiceReveal()), 4)
+    }
+
     finalChoiceReveal(){
         hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`
+        for (let i = 0; i < doorCards.length; i++){
+            const doorId = doorCards[i].id;
+            this.hostOpenDoor(doorId);
+        }
     }
+
+    hostOpenRemainingDoors(){
+
+    }
+
     toggleGameDisplay(){
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
