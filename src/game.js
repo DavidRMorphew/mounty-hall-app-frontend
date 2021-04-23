@@ -119,6 +119,7 @@ class Game {
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
             // I put a delay on the response so that the timing of the prompts is correct - better way?
+            // What about a conditional to check if the final response is returned?
             Game.hostPause((() => this.finalPick(doorElement.id)), 10)
         }
     }
@@ -135,7 +136,7 @@ class Game {
         // IIFE avoids losing this in the call of hostChoice
         // Game.hostPause((() => this.hostOpenRevealDoor()), 7); Older method - not dynamic
         Game.hostPause((() => this.hostOpenDoor(this.hostReveal)), 7); // dynamic version
-        Game.hostPause((() => hostPromptToStayOrSwitch()), 10);
+        Game.hostPause((() => hostPromptToStayOrSwitch()), 10); // Perhaps put this prompt in final pick method?
     }
 
     hostChoice(){
