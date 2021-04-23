@@ -18,13 +18,15 @@ class Game {
     };
 
     static gamePropertyCamelToSnakeCase(property){
-        const propertyArray = property.split('')
-        propertyArray.forEach(letter => {
+        const propertyArray = property.split('');
+        const snakeCaseProperty = propertyArray.map(letter => {
             if (letter === letter.toUpperCase()) {
-                letter = `_${letter.toLowerCase()}`
+                return (letter = `_${letter.toLowerCase()}`);
+            } else {
+                return letter;
             }
         }).join('')
-        console.log(propertyArray)
+        return snakeCaseProperty
     }
 
     // Ask about this:
