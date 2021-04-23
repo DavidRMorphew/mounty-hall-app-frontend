@@ -114,7 +114,11 @@ div {
     flex-direction: column;
 }
 
+.card {
+    border: 10px solid;
+    border-color: black;
+}
 .final-pick {
-    border: 15px solid;
+    border: 10px solid;
     border-color: purple;
 }
