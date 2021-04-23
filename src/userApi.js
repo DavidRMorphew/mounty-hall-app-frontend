@@ -34,4 +34,8 @@ class UserApi {
             })
         })
     }
+
+    static getUserGames(userId){
+        const nestedRoute = `${this.baseURL}/${userId}/games`
+    }
 }

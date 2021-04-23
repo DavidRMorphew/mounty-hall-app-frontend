@@ -15,8 +15,8 @@ class GameApi {
 
     static createGame(game){
         
-        // Ask about this:
         const gameDataSnakeCasePropertyNames = {};
+        
         (function () {
             for (const camelCaseProperty in game) {
                 const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(camelCaseProperty)
@@ -40,8 +40,7 @@ class GameApi {
             const newSavedGame = new Game({id: gameData.id, ...gameData.attributes})
             console.log(newSavedGame)
             debugger
-            // make sure you load all games at the beginning
-            // make sure duplicates are not made in constructor
+            // make sure you load all games at the beginning?
         })
     }
 
