@@ -20,7 +20,7 @@ class Game {
     static gamePropertyCamelToSnakeCase(property){
         const propertyArray = property.split('');
         const snakeCaseProperty = propertyArray.map(letter => {
-            if (letter === letter.toUpperCase()) {
+            if (letter === letter.toUpperCase() && !letter.match(/[0-9]/)) {
                 return (letter = `_${letter.toLowerCase()}`);
             } else {
                 return letter;

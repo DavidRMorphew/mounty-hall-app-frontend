@@ -15,7 +15,14 @@ class GameApi {
 
     static createGame(game){
         
-        const gameData = game
+        const gameDataSnakeCasePropertyNames = {};
+        (function () {
+            for (const property in game) {
+                gameDataSnakeCasePropertyNames[Game.gamePropertyCamelToSnakeCase(property)] = game[property];
+            }
+        })();
+        console.log(gameDataSnakeCasePropertyNames);
+        
         debugger
         // const configObj = {
         //     method: "POST",
