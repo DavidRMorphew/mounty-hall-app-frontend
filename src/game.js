@@ -162,12 +162,16 @@ class Game {
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."))
-        Game.hostPause((()=>hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`), 3)
+        // should I use .apply or .call instead of wrapping these callbacks?
+        Game.hostPause((()=>this.finalChoiceReveal()), 3)
             // final pick method call
             // log user data, change bubble to inform of win or loss
             // present user with choice to play again or see results
     }
-
+    // Put responses to choice in hostResponseToFinalChoice; call hostOpenRemainingDoors; change hostOpenRevealDoor
+    finalChoiceReveal(){
+        hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`
+    }
     toggleGameDisplay(){
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
