@@ -16,7 +16,8 @@ class Game {
 
         Game.findGameOrAddToAll(this);
     };
-
+    
+    // Inherit this?
     static findGameOrAddToAll(game){
         if (!(this.all.some(element => element.id === game.id))){
             Game.all.push(game);

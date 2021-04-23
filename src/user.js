@@ -34,18 +34,13 @@ class User {
         if (event.target.id === "new-user-form"){
             // Is this method of grabbing and clearing form OK?
             const submittedUsername = event.target.querySelector('#username');
-            this.findOrCreateByName(submittedUsername.value);
+            UserApi.findOrCreateByName(submittedUsername.value);
             Game.toggleHostBubbleDisplay();
             submittedUsername.value = ""
         } else if (event.target.id === "change-user-button"){
             console.log(event.target)
             User.changeUser()
         }
-    };
-
-    // Is this useless? YES
-    static findOrCreateByName(name){
-        UserApi.findOrCreateByName(name);
     };
 
     loginUser(){
