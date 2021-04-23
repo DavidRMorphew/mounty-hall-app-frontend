@@ -113,10 +113,8 @@ class Game {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
-            console.log(doorElement.id);
-            // final pick method call
-            // log user data, change bubble to inform of win or loss
-            // present user with choice to play again or see results
+            // I put a delay on the response so that the timing of the prompts is correct - better way?
+            Game.hostPause((() => this.finalPick(doorElement.id)), 14)
         }
     }
     
@@ -133,6 +131,7 @@ class Game {
         // IIFE avoids losing this in the call of hostChoice
         Game.hostPause((() => this.hostOpenDoor()), 7);
         Game.hostPause((() => hostPromptToStayOrSwitch()), 13);
+        console.log("host promp ends now");
     }
 
     hostChoice(){
@@ -151,6 +150,19 @@ class Game {
         const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
         const rodentBehindDoor = this[hostRevealedDoor]
         hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
+    }
+
+    finalPick(finalDoorPick){
+        console.log("final pick method fired now: " + finalDoorPick);
+        if (finalDoorPick === this.switchDoor()) { 
+            this.userSwitch = true
+        } else {
+            this.userSwitch = false
+        }
+        hostTalkBubble.innerText = `You decided to ${this.userChoice.toUpperCase()}.`
+            // final pick method call
+            // log user data, change bubble to inform of win or loss
+            // present user with choice to play again or see results
     }
 
     toggleGameDisplay(){
