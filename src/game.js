@@ -17,18 +17,6 @@ class Game {
         Game.all.push(this);
     };
 
-    static gamePropertyCamelToSnakeCase(property){
-        const propertyArray = property.split('');
-        const snakeCaseProperty = propertyArray.map(letter => {
-            if (letter === letter.toUpperCase() && !letter.match(/[0-9]/)) {
-                return (letter = `_${letter.toLowerCase()}`);
-            } else {
-                return letter;
-            }
-        }).join('')
-        return snakeCaseProperty
-    }
-
     // Ask about this:
     static rodentiaAndCarNamesAndImageUrlsObj = {
         beaver: "https://i.imgur.com/tjvqilD.jpg", 

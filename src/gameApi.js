@@ -15,28 +15,40 @@ class GameApi {
 
     static createGame(game){
         
+        // Ask about this:
         const gameDataSnakeCasePropertyNames = {};
         (function () {
-            for (const property in game) {
-                gameDataSnakeCasePropertyNames[Game.gamePropertyCamelToSnakeCase(property)] = game[property];
+            for (const camelCaseProperty in game) {
+                const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(property)
+                gameDataSnakeCasePropertyNames[snakeCaseProperty] = game[camelCaseProperty];
             }
         })();
-        console.log(gameDataSnakeCasePropertyNames);
-        
-        debugger
-        // const configObj = {
-        //     method: "POST",
-        //     headers: { 
-        //         "Content-Type": "application/json", 
-        //         Accept: "application/json"
-        //     },
-        //     body: JSON.stringify(gameData)
-        // }
+ 
+        const configObj = {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json", 
+                Accept: "application/json"
+            },
+            body: JSON.stringify(gameData)
+        }
 
         // fetch(this.baseURL, configObj)
         // .then(resp => resp.json())
         // .then(savedGameData => {
 
         // }
+    }
+
+    static gamePropertyCamelToSnakeCase(property){
+        const propertyArray = property.split('');
+        const snakeCaseProperty = propertyArray.map(letter => {
+            if (letter === letter.toUpperCase() && !letter.match(/[0-9]/)) {
+                return (letter = `_${letter.toLowerCase()}`);
+            } else {
+                return letter;
+            }
+        }).join('')
+        return snakeCaseProperty
     }
 }
