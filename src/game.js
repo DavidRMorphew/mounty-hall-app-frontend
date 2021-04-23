@@ -119,7 +119,7 @@ class Game {
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
             // I put a delay on the response so that the timing of the prompts is correct - better way?
-            Game.hostPause((() => this.finalPick(doorElement.id)), 14)
+            Game.hostPause((() => this.finalPick(doorElement.id)), 10)
         }
     }
     
