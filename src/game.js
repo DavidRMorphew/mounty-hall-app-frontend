@@ -159,7 +159,10 @@ class Game {
         } else {
             this.userSwitch = false
         }
-        hostTalkBubble.innerText = `You decided to ${this.userChoice.toUpperCase()}.`
+        this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
+        hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
+        Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."))
+        Game.hostPause((()=>hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`), 3)
             // final pick method call
             // log user data, change bubble to inform of win or loss
             // present user with choice to play again or see results
