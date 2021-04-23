@@ -120,7 +120,8 @@ class Game {
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
             // I put a delay on the response so that the timing of the prompts is correct - better way?
             // What about a conditional to check if the final response is returned?
-            Game.hostPause((() => this.finalPick(doorElement.id)), 10)
+            // Game.hostPause((() => this.finalPick(doorElement.id)), 10)
+            this.finalPick(doorElement.id)
         }
     }
     
@@ -167,7 +168,7 @@ class Game {
 
     finalPick(finalDoorPick){
         const finalPickDoorCard = document.getElementById(finalDoorPick);
-        console.log(finalPickDoorCard)
+        
         finalPickDoorCard.classList.add('final-pick');
         if (finalDoorPick === this.switchDoor()) { 
             this.userSwitch = true
@@ -177,7 +178,7 @@ class Game {
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
         this.hostResponseToFinalChoice(finalDoorPick);
         // should I use .apply or .call instead of wrapping these callbacks?
-        // final pick method call
+        
         // log user data, change bubble to inform of win or loss
         // present user with choice to play again or see results
     }
