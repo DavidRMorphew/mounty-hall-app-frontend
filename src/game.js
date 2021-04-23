@@ -135,7 +135,7 @@ class Game {
         // IIFE avoids losing this in the call of hostChoice
         // Game.hostPause((() => this.hostOpenRevealDoor()), 7); Older method - not dynamic
         Game.hostPause((() => this.hostOpenDoor(this.hostReveal)), 7); // dynamic version
-        Game.hostPause((() => hostPromptToStayOrSwitch()), 13);
+        Game.hostPause((() => hostPromptToStayOrSwitch()), 10);
     }
 
     hostChoice(){
@@ -157,15 +157,17 @@ class Game {
         selectedDoorImage.src = Game.rodentiaAndCarNamesAndImageUrlsObj[objectBehindDoor];
     }
     // Older non-dynamic version
-    hostOpenRevealDoor(){
-        const hostRevealedDoor = this.hostReveal
-        const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
-        const rodentBehindDoor = this[hostRevealedDoor]
-        hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
-    }
+    // hostOpenRevealDoor(){
+    //     const hostRevealedDoor = this.hostReveal
+    //     const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
+    //     const rodentBehindDoor = this[hostRevealedDoor]
+    //     hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
+    // }
 
     finalPick(finalDoorPick){
-        console.log("final pick method fired now: " + finalDoorPick);
+        const finalPickDoorCard = document.getElementById(finalDoorPick);
+        console.log(finalPickDoorCard)
+        finalPickDoorCard.classList.add('final-pick');
         if (finalDoorPick === this.switchDoor()) { 
             this.userSwitch = true
         } else {
@@ -192,10 +194,6 @@ class Game {
             const doorId = doorCards[i].id;
             this.hostOpenDoor(doorId);
         }
-    }
-
-    hostOpenRemainingDoors(){
-
     }
 
     toggleGameDisplay(){

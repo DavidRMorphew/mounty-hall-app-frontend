@@ -114,3 +114,7 @@ div {
     flex-direction: column;
 }
 
+.final-pick {
+    border: 3px solid;
+    border-color: purple;
+}
