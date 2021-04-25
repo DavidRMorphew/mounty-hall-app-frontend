@@ -16,9 +16,9 @@ class UserApi {
         fetch(this.baseUrl, configObj)
         .then(resp => resp.json())
         .then(userData => {
-            const user = userData.data
-            const id = user.id
-            const name = user.attributes.name
+            const user = userData.data;
+            const id = user.id;
+            const name = user.attributes.name;
             const selectedUser = new User({id, name});
             selectedUser.updateCurrentUser();
         }) 
@@ -36,6 +36,11 @@ class UserApi {
     }
 
     static getUserGames(userId){
-        const nestedRoute = `${this.baseURL}/${userId}/games`
+        const userGamesNestedRoute = `${this.baseUrl}/${currentUser.id}/games`
+        fetch(userGamesNestedRoute)
+        .then(resp => resp.json())
+        .then(userGamesData => {
+            console.log(userGamesData['data']);
+        })
     }
 }
