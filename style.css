@@ -41,7 +41,7 @@ img {
     padding: 0;
 }
 
-  .Rtable-cell, form {
+  .Rtable-cell, .Rtable-cell-game-number, form {
     box-sizing: border-box;
     flex-grow: 1;
     width: 100%;  
@@ -64,6 +64,10 @@ img {
 
 .Rtable--8cols > .Rtable-cell { width: 12.5%; }
 .Rtable--2cols > .Rtable-cell-no-border { width: 50%; }
+.Rtable--3cols > .Rtable-cell { width: 40% }
+
+.Rtable-cell-game-number { width: 20%; }
+
 * {
     text-shadow: 1px 0px 1px black;
 }

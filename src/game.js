@@ -215,6 +215,7 @@ class Game {
 
     static addCurrentUserGamesToDom(){
         currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
+        
     }
 
     createGameResultsRowOnDOM(){
