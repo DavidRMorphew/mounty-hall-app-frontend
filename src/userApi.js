@@ -40,7 +40,11 @@ class UserApi {
         fetch(userGamesNestedRoute)
         .then(resp => resp.json())
         .then(userGamesData => {
-            console.log(userGamesData['data']);
+            userGamesData['data'].forEach(userGameObj => {
+                console.log(userGameObj);
+                const game = new Game({id: userGameObj.id, user_id: userGameObj.relationships.user.data.id, ...userGameObj.attributes});
+                console.log(game);
+            })
         })
     }
 }

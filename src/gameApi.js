@@ -38,8 +38,6 @@ class GameApi {
         .then(savedGameData => {
             const gameData = savedGameData['data']
             const newSavedGame = new Game({id: gameData.id, ...gameData.attributes})
-            console.log(newSavedGame)
-            debugger
             // make sure you load all games at the beginning?
         })
     }
