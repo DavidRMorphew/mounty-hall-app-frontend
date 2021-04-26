@@ -43,7 +43,7 @@ class UserApi {
             userGamesData['data'].forEach(userGameObj => {
                 console.log(userGameObj);
                 const game = new Game({id: userGameObj.id, user_id: userGameObj.relationships.user.data.id, ...userGameObj.attributes});
-                console.log(game);
+                game.addCurrentUserGamesToDom();
             })
         })
     }

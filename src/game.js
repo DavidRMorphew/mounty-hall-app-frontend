@@ -212,6 +212,10 @@ class Game {
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
 
+    addCurrentUserGamesToDom(){
+        console.log(this);
+    }
+
     createGameResultsRowOnDOM(){
         const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
         
