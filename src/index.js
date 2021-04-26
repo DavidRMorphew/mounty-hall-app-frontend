@@ -11,6 +11,8 @@ const currentUserResultsContainer = document.getElementById("current-user-result
 const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul')
 const hostTalkBubble = document.getElementById('host-talk-bubble')
+
+const currentUserResultsHeader = document.getElementById('current-user-results-header')
 // GlobalVariable
 // CHANGE TO 'let'
 let currentUser;

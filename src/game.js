@@ -198,6 +198,7 @@ class Game {
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
         Game.hostPause((()=>this.finalChoiceReveal()), 4)
+        // See Results Call
     }
 
     finalChoiceReveal(){
@@ -212,8 +213,8 @@ class Game {
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
 
-    addCurrentUserGamesToDom(){
-        console.log(this);
+    static addCurrentUserGamesToDom(){
+        currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
     }
 
     createGameResultsRowOnDOM(){
