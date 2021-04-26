@@ -15,7 +15,7 @@ const hostTalkBubble = document.getElementById('host-talk-bubble')
 // CHANGE TO 'let'
 let currentUser;
 // Immediately get seed data on users:
-UserApi.getUsers();
+
 Game.hostPause(Game.welcomePlayer);
 // The following is for testing
 // const testGame = new Game(1);

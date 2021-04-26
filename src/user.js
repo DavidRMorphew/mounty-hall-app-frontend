@@ -2,9 +2,10 @@ class User {
 
     static all = [];
 
-    constructor({name, id}){
+    constructor({name, id, winning_game_percentage}){
         this.id = id;
         this.name = name;
+        this.winningGamePercentage = winning_game_percentage;
 
         User.findUserOrAddToAll(this);
     };

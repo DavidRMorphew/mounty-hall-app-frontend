@@ -30,7 +30,7 @@ class UserApi {
         .then(resp => resp.json())
         .then(usersData => {
             usersData["data"].forEach(userData => {
-                new User({id: userData.id, name: userData.attributes.name})
+                new User({id: userData.id, ...userData.attributes})
             })
         })
     }
