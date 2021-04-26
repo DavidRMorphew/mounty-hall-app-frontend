@@ -29,6 +29,7 @@ class UserApi {
         fetch(this.baseUrl)
         .then(resp => resp.json())
         .then(usersData => {
+            User.all = []
             usersData["data"].forEach(userData => {
                 new User({id: userData.id, ...userData.attributes})
             })

@@ -7,14 +7,15 @@ class User {
         this.name = name;
         this.winningGamePercentage = winning_game_percentage;
 
-        User.findUserOrAddToAll(this);
+        User.all.push(this)
+        // User.findUserOrAddToAll(this);
     };
 
-    static findUserOrAddToAll(user){
-        if (!(this.all.some(element => element.id === user.id))){
-            User.all.push(user);
-        }
-    }
+    // static findUserOrAddToAll(user){
+    //     if (!(this.all.some(element => element.id === user.id))){
+    //         User.all.push(user);
+    //     }
+    // }
 
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
@@ -55,6 +56,10 @@ class User {
         Game.initializeNewGame();
     }
 
+    updateCurrentUserAfterUsersFetch(){
+        currentUser = User.all.find(user => user.id === currentUser.id);
+    }
+
     addUserNameToNavbar(){
         const currentUserName = this.name;
         const nameLi = document.createElement('li')
@@ -65,15 +70,15 @@ class User {
 
     addChangeUserButtonToNavbar(){
         const changeUserButton = document.createElement('button')
-        // changeUserButton.classList.add('btn', 'right')
         changeUserButton.id = "change-user-button"
         changeUserButton.classList.add("btn-large", "red", "darken-4", "right")
         changeUserButton.innerText = "Change User"
         navbarUl.appendChild(changeUserButton)
         changeUserButton.addEventListener('click', User.handleClickEvent);
-        // add event listener with functionality
     }
 
+    // build this out to start up a new game
+    // Add Button only after game completed to avoid fragmentary games
     static changeUser = () => {
         this.clearNavbar();
         console.log("change user called");

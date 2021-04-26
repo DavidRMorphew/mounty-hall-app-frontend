@@ -209,13 +209,25 @@ class Game {
         }
     }
 
+    seeResultsOptions(){
+        User.getUsers();
+        currentUser.updateCurrentUserAfterUsersFetch();
+        
+    }
+
     toggleGameDisplay(){
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
 
     static addCurrentUserGamesToDom(){
         currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
-        
+
+        Game.toggleCurrentUserResultsDisplay();
+
+    }
+
+    static toggleCurrentUserResultsDisplay(){
+        currentUserResultsContainer.style.display = (currentUserResultsContainer.style.display === "none") ? "" : "none";
     }
 
     createGameResultsRowOnDOM(){
