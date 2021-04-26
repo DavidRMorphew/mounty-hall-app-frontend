@@ -209,10 +209,14 @@ class Game {
         }
     }
 
-    seeResultsOptions(){
+    static seeResultsOptions(){
         User.getUsers();
         currentUser.updateCurrentUserAfterUsersFetch();
-        
+        this.addSeeResultsButtons()
+    }
+
+    static addSeeResultsButtons(){
+
     }
 
     toggleGameDisplay(){
