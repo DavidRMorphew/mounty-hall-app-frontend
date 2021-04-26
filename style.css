@@ -122,3 +122,9 @@ div {
     border: 10px solid;
     border-color: purple;
 }
+
+#current-user-results-container {
+    border: solid;
+    border-width: 10px;
+    border-color: red;
+}
