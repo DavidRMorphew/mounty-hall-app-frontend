@@ -60,6 +60,9 @@ class Game {
             const currentUserResultsButton = event.target;
             currentUserResultsButton.remove();
             this.toggleGameDisplayOffOnly()
+            currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
+            this.toggleCurrentUserResultsDisplay()
+            this.addCurrentUserGamesAndStatsToDom()
         } else if (event.target.id === "all-results-button"){
             const allResultsButton = event.target;
             allResultsButton.remove();
@@ -258,11 +261,17 @@ class Game {
         currentGameContainer.style.display = "none"
     }
 
-    static addCurrentUserGamesToDom(){
-        currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
+    static addCurrentUserGamesAndStatsToDom(){
+        this.addCurrentUserStatsToDom
+        UserApi.getUserGames()
+    }
 
-        Game.toggleCurrentUserResultsDisplay();
+    addCurrentUserGameToDom(){
+        console.log("add game row");
+    }
 
+    static addCurrentUserStatsToDom(){
+        
     }
 
     static toggleCurrentUserResultsDisplay(){
