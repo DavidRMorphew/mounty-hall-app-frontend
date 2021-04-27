@@ -262,8 +262,8 @@ class Game {
     }
 
     static addCurrentUserGamesAndStatsToDom(){
-        this.addCurrentUserStatsToDom
-        UserApi.getUserGames()
+        this.addCurrentUserStatsToDom();
+        UserApi.getUserGames();
     }
 
     addCurrentUserGameToDom(){
@@ -271,7 +271,17 @@ class Game {
     }
 
     static addCurrentUserStatsToDom(){
-        
+        const switchDiv = document.createElement('div')
+        switchDiv.id = "current-user-switch-percentage";
+        switchDiv.className = "Rtable-cell-no-border"
+        switchDiv.innerText = currentUser.switchPercentage;
+        currentUserStatsTable.appendChild(switchDiv);
+
+        const winDiv = document.createElement('div');
+        winDiv.id = "current-user-win-percentage";
+        winDiv.className = "Rtable-cell-no-border"
+        winDiv.innerText = currentUser.winningGamePercentage;
+        currentUserStatsTable.appendChild(winDiv);
     }
 
     static toggleCurrentUserResultsDisplay(){

@@ -3,14 +3,15 @@ const gamesURL = baseURL + "games";
 const usersURL = baseURL + "users";
 
 const mountyPicture = document.getElementById("mounty-with-beaver");
-const userSelectionContainer = document.getElementById('select-user-container')
+const userSelectionContainer = document.getElementById('select-user-container');
 const currentGameContainer = document.getElementById("current-game-container");
 const resultsContainer = document.getElementById("results-container");
-const resultsTable = resultsContainer.lastElementChild
+const resultsTable = resultsContainer.lastElementChild;
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
-const navbarUl = document.getElementById('navbar-ul')
-const hostTalkBubble = document.getElementById('host-talk-bubble')
+const navbarUl = document.getElementById('navbar-ul');
+const hostTalkBubble = document.getElementById('host-talk-bubble');
+const currentUserStatsTable = document.getElementById('current-user-stats-table');
 
 const currentUserResultsHeader = document.getElementById('current-user-results-header')
 // GlobalVariable
