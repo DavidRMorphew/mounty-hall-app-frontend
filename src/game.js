@@ -271,16 +271,19 @@ class Game {
     }
 
     static addCurrentUserStatsToDom(){
+        const twoDecimalSwitchPercentage = parseFloat(currentUser.switchPercentage).toFixed(2);
+        const twoDecimalWinPercentage = parseFloat(currentUser.winningGamePercentage).toFixed(2);
+        
         const switchDiv = document.createElement('div')
         switchDiv.id = "current-user-switch-percentage";
         switchDiv.className = "Rtable-cell-no-border"
-        switchDiv.innerText = currentUser.switchPercentage;
+        switchDiv.innerText = twoDecimalSwitchPercentage;
         currentUserStatsTable.appendChild(switchDiv);
 
         const winDiv = document.createElement('div');
         winDiv.id = "current-user-win-percentage";
         winDiv.className = "Rtable-cell-no-border"
-        winDiv.innerText = currentUser.winningGamePercentage;
+        winDiv.innerText = twoDecimalWinPercentage;
         currentUserStatsTable.appendChild(winDiv);
     }
 
