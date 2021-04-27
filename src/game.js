@@ -49,12 +49,21 @@ class Game {
 
     static handleClickEvent = (event) => {
         if (event.target.id === "play-button"){
-            console.log("initiate game method")
-            console.log(event.target)
-            const playButton = event.target
-            playButton.remove()
-            Game.toggleHostBubbleDisplay()
-            this.startNewGame()
+            console.log("initiate game method");
+            console.log(event.target);
+            const playButton = event.target;
+            playButton.remove();
+            Game.toggleHostBubbleDisplay();
+            this.startNewGame();
+        } else if (event.target.id === "current-user-results-button"){
+            console.log("current user results button clicked")
+            const currentUserResultsButton = event.target;
+            currentUserResultsButton.remove();
+            // this.toggleGameDisplay()
+        } else if (event.target.id === "all-results-button"){
+            const allResultsButton = event.target;
+            allResultsButton.remove();
+            // this.toggleGameDisplay()
         }
     }
     // Did not do doorclick event in handleClickEvent since I want to access current game
@@ -218,12 +227,27 @@ class Game {
     }
 
     static addSeeResultsButtons(){
+        this.addAllResultsButton()
+        this.addCurrentUserResultsButton()
+
+    }
+
+    static addCurrentUserResultsButton(){
         const currentUserResultsButton = document.createElement('button');
         currentUserResultsButton.id = "current-user-results-button"
-        currentUserResultsButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
-        currentUserResultsButton.innerText = "See All My Game Results"
+        currentUserResultsButton.classList.add("btn-large", "right-align", "light-blue", "darken-3")
+        currentUserResultsButton.innerText = "See My Results and Stats"
         currentUserResultsButton.addEventListener('click', this.handleClickEvent)
         hostTalkBubble.insertAdjacentElement('afterend', currentUserResultsButton);
+    }
+
+    static addAllResultsButton(){
+        const allResultsButton = document.createElement('button');
+        allResultsButton.id = "all-results-button"
+        allResultsButton.classList.add("btn-large", "right-align", "blue", "darken-4")
+        allResultsButton.innerText = "See All Results and Stats"
+        allResultsButton.addEventListener('click', this.handleClickEvent)
+        hostTalkBubble.insertAdjacentElement('afterend', allResultsButton);
     }
 
     toggleGameDisplay(){
