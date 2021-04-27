@@ -51,9 +51,13 @@
 
     <div class="container white" id="current-user-results-container" style="display: none">
       <h3 id="current-user-results-header" class="center"></h3>
-        <div class="Rtable Rtable--3cols">
-          <div class="Rtable-cell-game-number" id="username">Game</div>
-          <div class="Rtable-cell" id="username">User Choice</div>
+        <div class="Rtable Rtable--2cols" id="current-user-stats-table">
+          <div class="Rtable-cell-no-border" id="username">Switch-to-Stay %:</div>
+          <div class="Rtable-cell-no-border" id="win">Win %:</div>
+        </div>
+        <div class="Rtable Rtable--3cols" id="current-user-games-table">
+          <div class="Rtable-cell-game-number" id="game-number">Game</div>
+          <div class="Rtable-cell" id="user-choice">User Choice</div>
           <div class="Rtable-cell" id="win">Win / Lose</div>
         </div>
     </div>
