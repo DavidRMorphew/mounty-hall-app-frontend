@@ -199,6 +199,7 @@ class Game {
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
         Game.hostPause((()=>this.finalChoiceReveal()), 4)
         // See Results Call
+        Game.hostPause((()=>Game.seeResultsOptions()), 5)
     }
 
     finalChoiceReveal(){
@@ -210,13 +211,19 @@ class Game {
     }
 
     static seeResultsOptions(){
-        User.getUsers();
+        console.log(`seeResultsOptions called`)
+        UserApi.getUsers();
         currentUser.updateCurrentUserAfterUsersFetch();
         this.addSeeResultsButtons()
     }
 
     static addSeeResultsButtons(){
-
+        const currentUserResultsButton = document.createElement('button');
+        currentUserResultsButton.id = "current-user-results-button"
+        currentUserResultsButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
+        currentUserResultsButton.innerText = "See All My Game Results"
+        currentUserResultsButton.addEventListener('click', this.handleClickEvent)
+        hostTalkBubble.insertAdjacentElement('afterend', currentUserResultsButton);
     }
 
     toggleGameDisplay(){
