@@ -59,11 +59,11 @@ class Game {
             console.log("current user results button clicked")
             const currentUserResultsButton = event.target;
             currentUserResultsButton.remove();
-            // this.toggleGameDisplay()
+            this.toggleGameDisplayOffOnly()
         } else if (event.target.id === "all-results-button"){
             const allResultsButton = event.target;
             allResultsButton.remove();
-            // this.toggleGameDisplay()
+            this.toggleGameDisplayOffOnly()
         }
     }
     // Did not do doorclick event in handleClickEvent since I want to access current game
@@ -94,8 +94,8 @@ class Game {
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
         console.log(currentGame);
-        Game.hostPause(currentGame.hostInstructionsToGame);
-        Game.hostPause(currentGame.toggleGameDisplay, 2)
+        this.hostPause(currentGame.hostInstructionsToGame);
+        this.hostPause(this.toggleGameDisplay, 2)
     }
     
     hostInstructionsToGame() {
@@ -250,8 +250,12 @@ class Game {
         hostTalkBubble.insertAdjacentElement('afterend', allResultsButton);
     }
 
-    toggleGameDisplay(){
+    static toggleGameDisplay(){
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
+    }
+
+    static toggleGameDisplayOffOnly(){
+        currentGameContainer.style.display = "none"
     }
 
     static addCurrentUserGamesToDom(){
