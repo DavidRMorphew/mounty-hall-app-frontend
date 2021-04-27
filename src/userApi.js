@@ -33,6 +33,7 @@ class UserApi {
             usersData["data"].forEach(userData => {
                 new User({id: userData.id, ...userData.attributes})
             })
+            User.updateCurrentUserAfterUsersFetch()
         })
     }
 

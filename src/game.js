@@ -225,7 +225,7 @@ class Game {
     static seeResultsOptions(){
         console.log(`seeResultsOptions called`)
         UserApi.getUsers();
-        currentUser.updateCurrentUserAfterUsersFetch();
+        // currentUser.updateCurrentUserAfterUsersFetch();
         this.addSeeResultsButtons()
     }
 

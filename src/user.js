@@ -57,7 +57,7 @@ class User {
         Game.initializeNewGame();
     }
 
-    updateCurrentUserAfterUsersFetch(){
+    static updateCurrentUserAfterUsersFetch(){
         currentUser = User.all.find(user => user.id === currentUser.id);
     }
 
