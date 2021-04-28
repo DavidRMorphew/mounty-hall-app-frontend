@@ -275,6 +275,8 @@ class Game {
             rowDiv.innerText = this[key];
             if (key === "id"){
                 rowDiv.classList.add("Rtable-cell-game-number", "game-number");
+            } else if (!!this.userWin) {
+                rowDiv.classList.add("Rtable-cell", key, "red-text");
             } else {
                 rowDiv.classList.add("Rtable-cell", key);
             }
