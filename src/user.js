@@ -93,4 +93,23 @@ class User {
     static clearNavbar = () => {
         navbarUl.innerHTML = "";
     }
+
+    addCurrentUserStatsToDom(){
+        const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
+        
+        userStatsKeyArray.forEach(key => {
+            const columnDiv = document.createElement('div');
+            columnDiv.innerText = parseFloat(this[key]).toFixed(2);
+            switch (key) {
+                case ("stayAndWinPercentage"):
+                    columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");
+                    break;
+                case ("switchAndWinPercentage"):
+                    columnDiv.classList.add("Rtable-cell-no-border", key, "red-text");
+                default:
+                    columnDiv.classList.add("Rtable-cell-no-border", key);
+            }
+            currentUserStatsTable.appendChild(columnDiv)
+        })
+    }
 }

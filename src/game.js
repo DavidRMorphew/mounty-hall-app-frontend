@@ -263,7 +263,8 @@ class Game {
     }
 
     static addCurrentUserGamesAndStatsToDom(){
-        this.addCurrentUserStatsToDom();
+        // this.addCurrentUserStatsToDom();
+        currentUser.addCurrentUserStatsToDom();
         UserApi.getUserGames();
     }
 
@@ -293,24 +294,25 @@ class Game {
 
     }
 
-    static addCurrentUserStatsToDom(){
-        const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
+    // make dynamic as User method called on particular user
+    // static addCurrentUserStatsToDom(){
+    //     const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
         
-        userStatsKeyArray.forEach(key => {
-            const columnDiv = document.createElement('div');
-            columnDiv.innerText = parseFloat(currentUser[key]).toFixed(2);
-            switch (key) {
-                case ("stayAndWinPercentage"):
-                    columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");
-                    break;
-                case ("switchAndWinPercentage"):
-                    columnDiv.classList.add("Rtable-cell-no-border", key, "red-text");
-                default:
-                    columnDiv.classList.add("Rtable-cell-no-border", key);
-            }
-            currentUserStatsTable.appendChild(columnDiv)
-        })
-    }
+    //     userStatsKeyArray.forEach(key => {
+    //         const columnDiv = document.createElement('div');
+    //         columnDiv.innerText = parseFloat(currentUser[key]).toFixed(2);
+    //         switch (key) {
+    //             case ("stayAndWinPercentage"):
+    //                 columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");
+    //                 break;
+    //             case ("switchAndWinPercentage"):
+    //                 columnDiv.classList.add("Rtable-cell-no-border", key, "red-text");
+    //             default:
+    //                 columnDiv.classList.add("Rtable-cell-no-border", key);
+    //         }
+    //         currentUserStatsTable.appendChild(columnDiv)
+    //     })
+    // }
 
     static toggleCurrentUserResultsDisplay(){
         currentUserResultsContainer.style.display = (currentUserResultsContainer.style.display === "none") ? "" : "none";
