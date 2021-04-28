@@ -265,31 +265,31 @@ class Game {
     static addCurrentUserGamesAndStatsToDom(){
         // this.addCurrentUserStatsToDom();
         currentUser.addCurrentUserStatsToDom();
-        UserApi.getUserGames();
+        UserApi.getUserGames(currentUser);
     }
 
     addCurrentUserGameToDom(){
-        const rowGameKeyArray = ["id", "userChoice", "winLose"];
+        const columnGameKeyArray = ["id", "userChoice", "winLose"];
         
-        rowGameKeyArray.forEach(key => {
-            const rowDiv = document.createElement('div');
-            rowDiv.innerText = this[key];
+        columnGameKeyArray.forEach(key => {
+            const columnDiv = document.createElement('div');
+            columnDiv.innerText = this[key];
 
             switch (true) {
                 case (key === "id"):
-                    rowDiv.classList.add("Rtable-cell-game-number", "game-number");
+                    columnDiv.classList.add("Rtable-cell-game-number", "game-number");
                     break;
                 case (this.userWin && this.userSwitch):
-                    rowDiv.classList.add("Rtable-cell", key, "red-text");
+                    columnDiv.classList.add("Rtable-cell", key, "red-text");
                     break;
                 case (this.userWin && !this.userSwitch):
-                    rowDiv.classList.add("Rtable-cell", key, "blue-text");
+                    columnDiv.classList.add("Rtable-cell", key, "blue-text");
                     break;
                 default:
-                    rowDiv.classList.add("Rtable-cell", key);
+                    columnDiv.classList.add("Rtable-cell", key);
             }
             
-            currentUserGamesTable.appendChild(rowDiv);
+            currentUserGamesTable.appendChild(columnDiv);
         })
 
     }

@@ -37,8 +37,8 @@ class UserApi {
         })
     }
 
-    static getUserGames(userId){
-        const userGamesNestedRoute = `${this.baseUrl}/${currentUser.id}/games`
+    static getUserGames(user){
+        const userGamesNestedRoute = `${this.baseUrl}/${user.id}/games`
         fetch(userGamesNestedRoute)
         .then(resp => resp.json())
         .then(userGamesData => {
