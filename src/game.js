@@ -268,7 +268,19 @@ class Game {
     }
 
     addCurrentUserGameToDom(){
-        console.log("add game row");
+        const rowGameKeyArray = ["id", "userChoice", "winLose"];
+        
+        rowGameKeyArray.forEach(key => {
+            const rowDiv = document.createElement('div');
+            rowDiv.innerText = this[key];
+            if (key === "id"){
+                rowDiv.classList.add("Rtable-cell-game-number", "game-number");
+            } else {
+                rowDiv.classList.add("Rtable-cell", key);
+            }
+            currentUserGamesTable.appendChild(rowDiv);
+        })
+
     }
 
     static addCurrentUserStatsToDom(){

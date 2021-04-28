@@ -12,6 +12,7 @@ const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul');
 const hostTalkBubble = document.getElementById('host-talk-bubble');
 const currentUserStatsTable = document.getElementById('current-user-stats-table');
+const currentUserGamesTable = document.getElementById('current-user-games-table');
 
 const currentUserResultsHeader = document.getElementById('current-user-results-header')
 // GlobalVariable
