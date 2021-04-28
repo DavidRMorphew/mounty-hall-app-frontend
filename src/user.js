@@ -2,7 +2,7 @@ class User {
 
     static all = [];
 
-    constructor({name, id, winning_game_percentage, switch_percentage, switch_and_win_percentage}){
+    constructor({name, id, winning_game_percentage, switch_percentage, switch_and_win_percentage, stay_and_win_percentage}){
         this.id = id;
         this.name = name;
         this.winningGamePercentage = winning_game_percentage;
