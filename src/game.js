@@ -268,7 +268,8 @@ class Game {
         UserApi.getUserGames(currentUser);
     }
 
-    addCurrentUserGameToDom(){
+    // make dynamic - pass in div where added?
+    addGameResultsToDom(resultsTableOnDom){
         const columnGameKeyArray = ["id", "userChoice", "winLose"];
         
         columnGameKeyArray.forEach(key => {
@@ -288,8 +289,7 @@ class Game {
                 default:
                     columnDiv.classList.add("Rtable-cell", key);
             }
-            
-            currentUserGamesTable.appendChild(columnDiv);
+            resultsTableOnDom.appendChild(columnDiv);
         })
 
     }
