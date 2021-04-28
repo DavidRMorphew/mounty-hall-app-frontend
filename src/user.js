@@ -2,13 +2,15 @@ class User {
 
     static all = [];
 
-    constructor({name, id, winning_game_percentage, switch_percentage}){
+    constructor({name, id, winning_game_percentage, switch_percentage, switch_and_win_percentage}){
         this.id = id;
         this.name = name;
         this.winningGamePercentage = winning_game_percentage;
-        this.switchPercentage = switch_percentage
+        this.switchPercentage = switch_percentage;
+        this.switchAndWinPercentage = switch_and_win_percentage;
+        this.stayAndWinPercentage = stay_and_win_percentage;
 
-        User.all.push(this)
+        User.all.push(this);
         // User.findUserOrAddToAll(this);
     };
 
