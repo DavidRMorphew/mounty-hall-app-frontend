@@ -294,20 +294,22 @@ class Game {
     }
 
     static addCurrentUserStatsToDom(){
-        const twoDecimalSwitchPercentage = parseFloat(currentUser.switchPercentage).toFixed(2);
-        const twoDecimalWinPercentage = parseFloat(currentUser.winningGamePercentage).toFixed(2);
+        const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
         
-        const switchDiv = document.createElement('div')
-        switchDiv.id = "current-user-switch-percentage";
-        switchDiv.className = "Rtable-cell-no-border"
-        switchDiv.innerText = twoDecimalSwitchPercentage;
-        currentUserStatsTable.appendChild(switchDiv);
-
-        const winDiv = document.createElement('div');
-        winDiv.id = "current-user-win-percentage";
-        winDiv.className = "Rtable-cell-no-border"
-        winDiv.innerText = twoDecimalWinPercentage;
-        currentUserStatsTable.appendChild(winDiv);
+        userStatsKeyArray.forEach(key => {
+            const columnDiv = document.createElement('div');
+            columnDiv.innerText = parseFloat(currentUser[key]).toFixed(2);
+            switch (key) {
+                case ("stayAndWinPercentage"):
+                    columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");
+                    break;
+                case ("switchAndWinPercentage"):
+                    columnDiv.classList.add("Rtable-cell-no-border", key, "red-text");
+                default:
+                    columnDiv.classList.add("Rtable-cell-no-border", key);
+            }
+            currentUserStatsTable.appendChild(columnDiv)
+        })
     }
 
     static toggleCurrentUserResultsDisplay(){
