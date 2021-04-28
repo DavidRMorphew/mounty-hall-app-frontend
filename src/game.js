@@ -270,7 +270,7 @@ class Game {
 
     // make dynamic - pass in div where added?
     addGameResultsToDom(resultsTableOnDom){
-        const columnGameKeyArray = ["id", "userChoice", "winLose"];
+        const columnGameKeyArray = ["id", "userName", "userChoice", "winLose"];
         
         columnGameKeyArray.forEach(key => {
             const columnDiv = document.createElement('div');
@@ -279,6 +279,9 @@ class Game {
             switch (true) {
                 case (key === "id"):
                     columnDiv.classList.add("Rtable-cell-game-number", "game-number");
+                    break;
+                case (key === "userName"):
+                    columnDiv.classList.add("Rtable-cell", "user-name");
                     break;
                 case (this.userWin && this.userSwitch):
                     columnDiv.classList.add("Rtable-cell", key, "red-text");
