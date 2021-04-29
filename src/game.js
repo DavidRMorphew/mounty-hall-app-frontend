@@ -263,13 +263,26 @@ class Game {
         this.resetCurrentGameContainer();
         this.resetCurrentUserResultsContainer();
         this.resetAllResultsContainer();
+        const allResultsButton = document.getElementById('all-results-button')
+        const currentUserResultsButton = document.getElementById('current-user-results-button')
+        if (currentUserResultsButton){
+            currentUserResultsButton.remove();
+        };
+        if (allResultsButton){
+            allResultsButton.remove();        
+        };
     }
 
     static resetHostTalkContainer(){
-        hostTalkContainer.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
-        <br>
-        <div class="container white" id="select-user-container" style="display: none">
-        </div>`
+        // hostTalkContainer.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
+        // <br>
+        // <div class="container white" id="select-user-container" style="display: none">
+        // </div>`
+        // hostTalkBubble = document.getElementById('host-talk-bubble');
+        // userSelectionContainer = document.getElementById('select-user-container');
+        hostTalkBubble.style.display="none"
+        hostTalkBubble.innerHTML = "";
+        userSelectionContainer.innerHTML = "";
     }
 
     // static resetHostTalkContainer(){
@@ -313,6 +326,8 @@ class Game {
           <div class="Rtable-cell">Win / Lose</div>
         </div>`
         currentUserResultsContainer.style.display = "none"
+        currentUserStatsTable = document.getElementById('current-user-stats-table');
+        currentUserGamesTable = document.getElementById('current-user-games-table');
     }
 
     static resetAllResultsContainer(){
@@ -331,6 +346,7 @@ class Game {
             <div class="Rtable-cell">Win / Lose</div>
           </div>`
         allResultsContainer.style.display = "none"
+
     }
 
     static addCurrentUserGamesAndStatsToDom(){
@@ -381,6 +397,8 @@ class Game {
 
     static finalStatsOverall(){
         // user User.all and reduce the switch win stats to average
+        // filter out "N/A"
+        // User.all.reduce(()=>{}, 0)
         // ditto for stay win
         // add this to Dom by calling this method in another method appropriately named.
     }
