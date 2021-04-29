@@ -24,7 +24,6 @@ class UserApi {
         }) 
     }
 
-    // called in index.js
     static getUsers(){
         fetch(this.baseUrl)
         .then(resp => resp.json())

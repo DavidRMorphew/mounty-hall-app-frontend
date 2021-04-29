@@ -86,7 +86,7 @@ class User {
         this.clearNavbar();
         console.log("change user called");
         hostTalkBubble.innerText = "Select a username on file or create a new username."
-        Game.toggleHostBubbleDisplay();
+        // Game.toggleHostBubbleDisplay();
         this.toggleUserSelectionDisplay();
     }
     
