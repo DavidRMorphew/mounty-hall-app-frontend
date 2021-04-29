@@ -19,34 +19,13 @@ git clone git@github.com:DavidRMorphew/mounty-hall-app-frontend.git
 
 ```
 
-Also be sure to fork and clone the following repo in order to run the app:
-[mounty-hall-app-api](https://github.com/DavidRMorphew/mounty-hall-app-api)
+Also be sure to fork and clone the [Mounty-Hall-App-Api](https://github.com/DavidRMorphew/mounty-hall-app-api) repo in order to run the app.
 
-All of the user and game data is persisted using this Rails API.
+All of the user and game data is persisted using this Rails API, and you can find the instructions to install and run the API in [this Readme](https://github.com/DavidRMorphew/mounty-hall-app-api/blob/main/README.md).
 
-You can type this command in your terminal to clone the API:
+## Starting the App
 
-```
-git clone git@github.com:DavidRMorphew/mounty-hall-app-api.git
-```
-
-## Starting the Program
-
-Once you've installed the frontend and API, open the API's directory:
-```
-cd mounty-hall-app-api
-```
-Before starting, be sure to run:
-```
-bundle install
-```
-
-To get the API running, simply type:
-
-```
-rails s
-```
-For the frontend, likewise open the directory:
+First install and started the rails API server. (Again, follow the instructions [here](https://github.com/DavidRMorphew/mounty-hall-app-api/blob/main/README.md).) After you have the server running, open the frontend application directory:
 ```
 cd mounty-hall-app-frontend
 ```
@@ -79,9 +58,11 @@ This project is built for welcomed collaboration, and contributors are expected 
 
 ## Future Functionality
 
-The following are just a couple of areas open to future development:
+The following are areas open to future development:
 - provide a drop-down selection of usernames
 - make the mounty host more interactive
+
+Further suggestions are welcome.
 
 ## License
 The app is open source under the terms of the [MIT License](https://github.com/DavidRMorphew/mounty-hall-app-frontend/blob/main/LICENSE.txt).
