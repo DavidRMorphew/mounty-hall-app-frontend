@@ -99,7 +99,11 @@ class User {
         
         userStatsKeyArray.forEach(key => {
             const columnDiv = document.createElement('div');
-            columnDiv.innerText = parseFloat(this[key]).toFixed(2);
+            if (this[key] === "N/A") {
+                columnDiv.innerText = "N/A";
+            } else {
+                columnDiv.innerText = parseFloat(this[key]).toFixed(2);
+            }
             switch (key) {
                 case ("stayAndWinPercentage"):
                     columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");

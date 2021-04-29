@@ -265,7 +265,8 @@ class Game {
     }
 
     static addAllUserGamesAndStatsToDom(){
-        User.all.forEach(user => user.addUserStatsToDom(allUserStatsTable))
+        User.all.forEach(user => user.addUserStatsToDom(allUserStatsTable));
+        GameApi.getGames();
     }
 
     // make dynamic - pass in div where added?
