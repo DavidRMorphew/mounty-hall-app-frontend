@@ -13,8 +13,6 @@ class User {
         User.all.push(this);
     };
 
-    
-
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
     }
@@ -22,7 +20,7 @@ class User {
     static addNewUserFormToDOM(){
         const newUserForm = document.createElement('form')
         newUserForm.innerHTML = 
-        `<h3>Username: <h3><input type="text" id="username" name="username">
+        `<h3>Username: <h3><input type="text" id="username" name="username" required maxlength="15">
         <input class="btn-large light-blue darken-4" type="submit" value="Submit Username">`
         newUserForm.id = "new-user-form"
         userSelectionContainer.appendChild(newUserForm)
