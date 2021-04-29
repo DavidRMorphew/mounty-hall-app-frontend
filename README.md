@@ -1,5 +1,5 @@
-![mounty-with-beaver image](https://i.imgur.com/fpSzJsN.png)
 # The Mounty Hall App
+![mounty-with-beaver image](https://i.imgur.com/fpSzJsN.png)
 ## Purpose and Usage
 
 This app is intended for educational and entertainment purposes, and the Mounty Hall App simulates a famous game-show puzzle with a similar name. As a user, you are invited to provide a username and play the game. Once you start the game, your mounty host will lead you through the process. Your goal is to pick the door with a car behind it, and not a small Canadian woodland critter.
