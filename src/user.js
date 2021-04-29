@@ -9,16 +9,11 @@ class User {
         this.switchPercentage = switch_percentage;
         this.switchAndWinPercentage = switch_and_win_percentage;
         this.stayAndWinPercentage = stay_and_win_percentage;
-
+        
         User.all.push(this);
-        // User.findUserOrAddToAll(this);
     };
 
-    // static findUserOrAddToAll(user){
-    //     if (!(this.all.some(element => element.id === user.id))){
-    //         User.all.push(user);
-    //     }
-    // }
+    
 
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
@@ -84,7 +79,7 @@ class User {
     // Add Button only after game completed to avoid fragmentary games
     static changeUser = () => {
         this.clearNavbar();
-        console.log("change user called");
+        Game.resetGame();
         hostTalkBubble.innerText = "Select a username on file or create a new username."
         // Game.toggleHostBubbleDisplay();
         this.toggleUserSelectionDisplay();
