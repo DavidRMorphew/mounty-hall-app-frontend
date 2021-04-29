@@ -250,6 +250,17 @@ class Game {
         hostTalkBubble.insertAdjacentElement('afterend', allResultsButton);
     }
 
+    static removeSeeResultsButtons(){
+        const allResultsButton = document.getElementById('all-results-button')
+        const currentUserResultsButton = document.getElementById('current-user-results-button')
+        if (currentUserResultsButton){
+            currentUserResultsButton.remove();
+        };
+        if (allResultsButton){
+            allResultsButton.remove();        
+        };
+    }
+
     static toggleGameDisplay(){
         currentGameContainer.style.display = (currentGameContainer.style.display === "none") ? "" : "none";
     }
@@ -263,14 +274,7 @@ class Game {
         this.resetCurrentGameContainer();
         this.resetCurrentUserResultsContainer();
         this.resetAllResultsContainer();
-        const allResultsButton = document.getElementById('all-results-button')
-        const currentUserResultsButton = document.getElementById('current-user-results-button')
-        if (currentUserResultsButton){
-            currentUserResultsButton.remove();
-        };
-        if (allResultsButton){
-            allResultsButton.remove();        
-        };
+        this.removeSeeResultsButtons();
     }
 
     static resetHostTalkContainer(){
