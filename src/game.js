@@ -207,9 +207,9 @@ class Game {
     hostResponseToFinalChoice(finalDoorPick){
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
-        Game.hostPause((()=>this.finalChoiceReveal()), 4)
+        Game.hostPause((()=>this.finalChoiceReveal()), 4);
         // See Results Call
-        Game.hostPause((()=>Game.seeResultsOptions()), 5)
+        Game.hostPause((()=>Game.seeResultsOptions()), 5);
     }
 
     finalChoiceReveal(){
@@ -221,10 +221,8 @@ class Game {
     }
 
     static seeResultsOptions(){
-        console.log(`seeResultsOptions called`)
         UserApi.getUsers();
-        // currentUser.updateCurrentUserAfterUsersFetch();
-        this.addSeeResultsButtons()
+        this.addSeeResultsButtons();
     }
 
     static addSeeResultsButtons(){
@@ -259,14 +257,14 @@ class Game {
     }
 
     static resetGame(){
-        this.resetHostBubbleContainer();
+        this.resetHostTalkContainer();
         this.resetCurrentGameContainer();
         this.resetCurrentUserResultsContainer();
         this.resetAllResultsContainer();
     }
 
-    static resetHostBubbleContainer(){
-        hostTalkBubble.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
+    static resetHostTalkContainer(){
+        hostTalkContainer.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
         <br>
         <div class="container white" id="select-user-container" style="display: none">
         </div>`

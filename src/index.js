@@ -10,6 +10,7 @@ const allResultsTable = allResultsContainer.lastElementChild;
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul');
+const hostTalkContainer = document.getElementById('host-talk-container');
 const hostTalkBubble = document.getElementById('host-talk-bubble');
 const currentUserStatsTable = document.getElementById('current-user-stats-table');
 const currentUserGamesTable = document.getElementById('current-user-games-table');
