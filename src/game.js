@@ -272,6 +272,13 @@ class Game {
         </div>`
     }
 
+    // static resetHostTalkContainer(){
+    //     hostTalkContainer.innerHTML = `${hostTalkBubble}
+    //     <br>
+    //     <div class="container white" id="select-user-container" style="display: none">
+    //     </div>`
+    // }
+
     static resetCurrentGameContainer(){
         currentGameContainer.innerHTML = `      <section class='cards'>
         <article class='card' id='door1'>
@@ -327,7 +334,6 @@ class Game {
     }
 
     static addCurrentUserGamesAndStatsToDom(){
-        // this.addCurrentUserStatsToDom();
         currentUser.addUserStatsToDom(currentUserStatsTable);
         UserApi.getUserGames(currentUser);
     }
@@ -337,7 +343,6 @@ class Game {
         GameApi.getGames();
     }
 
-    // make dynamic - pass in div where added?
     addGameResultsToDom(resultsTableOnDom){
         const columnGameKeyArray = ["id", "userName", "userChoice", "winLose"];
         
@@ -365,26 +370,6 @@ class Game {
         })
 
     }
-
-    // make dynamic as User method called on particular user
-    // static addCurrentUserStatsToDom(){
-    //     const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
-        
-    //     userStatsKeyArray.forEach(key => {
-    //         const columnDiv = document.createElement('div');
-    //         columnDiv.innerText = parseFloat(currentUser[key]).toFixed(2);
-    //         switch (key) {
-    //             case ("stayAndWinPercentage"):
-    //                 columnDiv.classList.add("Rtable-cell-no-border", key, "blue-text");
-    //                 break;
-    //             case ("switchAndWinPercentage"):
-    //                 columnDiv.classList.add("Rtable-cell-no-border", key, "red-text");
-    //             default:
-    //                 columnDiv.classList.add("Rtable-cell-no-border", key);
-    //         }
-    //         currentUserStatsTable.appendChild(columnDiv)
-    //     })
-    // }
 
     static toggleCurrentUserResultsDisplay(){
         currentUserResultsContainer.style.display = (currentUserResultsContainer.style.display === "none") ? "" : "none";
