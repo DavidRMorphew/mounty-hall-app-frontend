@@ -18,14 +18,12 @@ class Game {
         Game.findGameOrAddToAll(this);
     };
     
-    // Inherit this?
     static findGameOrAddToAll(game){
         if (!(this.all.some(element => element.id === game.id))){
             Game.all.push(game);
         }
     }
 
-    // Ask about this:
     static rodentiaAndCarNamesAndImageUrlsObj = {
         beaver: "https://i.imgur.com/tjvqilD.jpg", 
         marmot: "https://i.imgur.com/Oqy9GG1.jpg", 
@@ -50,24 +48,23 @@ class Game {
 
     static handleClickEvent = (event) => {
         if (event.target.id === "play-button"){
-            console.log("initiate game method");
-            console.log(event.target);
             const playButton = event.target;
             playButton.remove();
             Game.toggleHostBubbleDisplay();
             this.startNewGame();
         } else if (event.target.id === "current-user-results-button"){
-            console.log("current user results button clicked")
             const currentUserResultsButton = event.target;
             currentUserResultsButton.remove();
             this.toggleGameDisplayOffOnly()
-            currentUserResultsHeader.innerText = `Game Results for User "${currentUser.name}"`
+            currentUserResultsHeader.innerText = `Game Results for Current User: "${currentUser.name}"`
             this.toggleCurrentUserResultsDisplay()
             this.addCurrentUserGamesAndStatsToDom()
         } else if (event.target.id === "all-results-button"){
             const allResultsButton = event.target;
             allResultsButton.remove();
             this.toggleGameDisplayOffOnly()
+            this.toggleAllResultsContainer()
+            this.addAllUserGamesAndStatsToDom();
         }
     }
     // Did not do doorclick event in handleClickEvent since I want to access current game
@@ -321,25 +318,29 @@ class Game {
         currentUserResultsContainer.style.display = (currentUserResultsContainer.style.display === "none") ? "" : "none";
     }
 
-    createGameResultsRowOnDOM(){
-        const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
-        
-        rowGameKeyArray.forEach(key => {
-            const rowDiv = document.createElement('div');
-            rowDiv.innerText = this[key];
-            switch (key) {
-                case (this.originalPick):
-                    rowDiv.classList.add("Rtable-cell", key, "original-pick");
-                    break;
-                case (this.switchDoor()):
-                    rowDiv.classList.add("Rtable-cell", key, "switch-door");
-                    break;
-                default:
-                    rowDiv.classList.add("Rtable-cell", key);
-            }
-            resultsTable.appendChild(rowDiv);
-        })
+    static toggleAllResultsContainer(){
+        allResultsContainer.style.display = (allResultsContainer.style.display === "none") ? "" : "none";
     }
+
+    // createGameResultsRowOnDOM(){
+    //     const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
+        
+    //     rowGameKeyArray.forEach(key => {
+    //         const rowDiv = document.createElement('div');
+    //         rowDiv.innerText = this[key];
+    //         switch (key) {
+    //             case (this.originalPick):
+    //                 rowDiv.classList.add("Rtable-cell", key, "original-pick");
+    //                 break;
+    //             case (this.switchDoor()):
+    //                 rowDiv.classList.add("Rtable-cell", key, "switch-door");
+    //                 break;
+    //             default:
+    //                 rowDiv.classList.add("Rtable-cell", key);
+    //         }
+    //         resultsTable.appendChild(rowDiv);
+    //     })
+    // }
 
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
