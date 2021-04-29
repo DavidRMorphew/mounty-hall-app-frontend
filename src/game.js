@@ -278,13 +278,7 @@ class Game {
     }
 
     static resetHostTalkContainer(){
-        // hostTalkContainer.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
-        // <br>
-        // <div class="container white" id="select-user-container" style="display: none">
-        // </div>`
-        // hostTalkBubble = document.getElementById('host-talk-bubble');
-        // userSelectionContainer = document.getElementById('select-user-container');
-        hostTalkBubble.style.display="none"
+        hostTalkBubble.style.display="none";
         hostTalkBubble.innerHTML = "";
         userSelectionContainer.innerHTML = "";
     }
@@ -303,25 +297,11 @@ class Game {
             <h2>DOOR 3</h2>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/Green_Lock_and_Door.jpg' alt='a green door'>
         </article>
-      </section>`
-      currentGameContainer.style.display = "none"
+      </section>`;
+      currentGameContainer.style.display = "none";
     }
 
     static resetCurrentUserResultsContainer(){
-        // currentUserResultsContainer.innerHTML = `<h3 id="current-user-results-header" class="center"></h3>
-        // <div class="Rtable Rtable--5cols" id="current-user-stats-table">
-        //   <div class="Rtable-cell-no-border">Username</div>
-        //   <div class="Rtable-cell-no-border">Win % Overall</div>
-        //   <div class="Rtable-cell-no-border">Switch-to-Stay %</div>
-        //   <div class="Rtable-cell-no-border">Switch-Win %</div>
-        //   <div class="Rtable-cell-no-border">Stay-Win %</div>
-        // </div>
-        // <div class="Rtable Rtable--4cols" id="current-user-games-table">
-        //   <div class="Rtable-cell-game-number" id="game-number">Game</div>
-        //   <div class="Rtable-cell">Username</div>
-        //   <div class="Rtable-cell">User Choice</div>
-        //   <div class="Rtable-cell">Win / Lose</div>
-        // </div>`
         currentUserResultsContainer.style.display = "none";
         currentUserResultsHeader.innerText = "";
         currentUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
@@ -336,20 +316,6 @@ class Game {
     }
 
     static resetAllResultsContainer(){
-        // allResultsContainer.innerHTML = `<h2 class="center">Game Results For All Users</h2>
-        // <div class="Rtable Rtable--5cols" id="all-user-stats-table">
-        //   <div class="Rtable-cell-no-border">Username</div>
-        //   <div class="Rtable-cell-no-border">Win % Overall</div>
-        //   <div class="Rtable-cell-no-border">Switch-to-Stay %</div>
-        //   <div class="Rtable-cell-no-border">Switch-Win %</div>
-        //   <div class="Rtable-cell-no-border">Stay-Win %</div>
-        // </div>
-        // <div class="Rtable Rtable--4cols" id="all-game-results-table">
-        //     <div class="Rtable-cell-game-number" id="game-number">Game</div>
-        //     <div class="Rtable-cell">Username</div>
-        //     <div class="Rtable-cell">User Choice</div>
-        //     <div class="Rtable-cell">Win / Lose</div>
-        //   </div>`
         allResultsContainer.style.display = "none";
         allUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
         <div class="Rtable-cell-no-border">Win % Overall</div>
