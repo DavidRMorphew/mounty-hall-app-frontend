@@ -258,6 +258,13 @@ class Game {
         currentGameContainer.style.display = "none"
     }
 
+    static resetGame(){
+        this.resetHostBubbleContainer();
+        this.resetCurrentGameContainer();
+        this.resetCurrentUserResultsContainer();
+        this.resetAllResultsContainer();
+    }
+
     static resetHostBubbleContainer(){
         hostTalkBubble.innerHTML = `<p class="bubble speech" id="host-talk-bubble" style="display: none"></p>
         <br>
