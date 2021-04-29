@@ -80,9 +80,10 @@ class User {
     static changeUser = () => {
         this.clearNavbar();
         Game.resetGame();
-        hostTalkBubble.innerText = "Select a username on file or create a new username."
+        Game.startNewGame();
+        // hostTalkBubble.innerText = "Select a username on file or create a new username."
         // Game.toggleHostBubbleDisplay();
-        this.toggleUserSelectionDisplay();
+        // this.toggleUserSelectionDisplay();
     }
     
     static clearNavbar = () => {

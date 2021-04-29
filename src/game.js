@@ -75,6 +75,7 @@ class Game {
     }
 
     static startNewGame(){
+        console.log('start new game called')
         this.hostPause(() => {
             Game.toggleHostBubbleDisplay()
             hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."
@@ -87,6 +88,7 @@ class Game {
 
     static toggleHostBubbleDisplay(){
         hostTalkBubble.style.display = (hostTalkBubble.style.display === "none")? "" : "none";
+        console.log("host talk bubble fired");
     }
 
     static initializeNewGame = () => {
