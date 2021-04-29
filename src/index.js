@@ -2,6 +2,7 @@ const baseURL = "http://localhost:3000/";
 const gamesURL = baseURL + "games";
 const usersURL = baseURL + "users";
 
+const promptFormDiv = document.getElementById('prompt-form-div')
 const mountyPicture = document.getElementById("mounty-with-beaver");
 const mountyPictureDiv = document.getElementById("mounty-picture-div");
 const userSelectionContainer = document.getElementById('select-user-container');

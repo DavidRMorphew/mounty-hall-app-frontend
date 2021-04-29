@@ -7,6 +7,12 @@ main {
     flex: 1 0 auto;
 }
 
+#prompt-form-div {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+}
+
 .cards {
     display: flex;
     justify-content: space-between;
@@ -67,10 +73,14 @@ img {
 .Rtable--2cols > .Rtable-cell-no-border { width: 50%; }
 
 .Rtable-cell-game-number { width: 20%; }
-.Rtable-cell-shrunken-image { width: 30%; }
+.Rtable--2cols > .Rtable-cell-shrunken-image { 
+    width: 30%;
+    height: 10vh;
+}
 * {
     text-shadow: 1px 0px 1px black;
 }
+
 
 p.bubble {
 	position: relative;
