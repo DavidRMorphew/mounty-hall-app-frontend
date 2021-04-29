@@ -7,10 +7,10 @@ main {
     flex: 1 0 auto;
 }
 
-#prompt-form-div {
+.sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 20px;
+    top: 15px;
 }
 
 .cards {

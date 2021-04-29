@@ -93,6 +93,9 @@ class Game {
 
     static initializeNewGame = () => {
         console.log("hit new game");
+        // make hostPromptFormDiv sticky
+        // remember to disable sticky in reset All
+        // shrink mounty for game play
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
