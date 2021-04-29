@@ -23,9 +23,7 @@ main {
 img {
     max-width: 100%;
 }
-/* #mounty-with-beaver {
-    max-width: 30%;
-} */
+
 .original-pick {
     color: red;
 }
@@ -69,7 +67,7 @@ img {
 .Rtable--2cols > .Rtable-cell-no-border { width: 50%; }
 
 .Rtable-cell-game-number { width: 20%; }
-
+.Rtable-cell-shrunken-image { width: 30%; }
 * {
     text-shadow: 1px 0px 1px black;
 }
@@ -88,8 +86,7 @@ p.bubble {
 	font-size: 200%;
 }
 
-p.bubble:before,
-p.bubble:after {
+p.bubble:before, p.bubble:after {
 	content: ' ';
 	position: absolute;
 	width: 0;
