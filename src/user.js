@@ -94,7 +94,7 @@ class User {
         navbarUl.innerHTML = "";
     }
 
-    addCurrentUserStatsToDom(){
+    addUserStatsToDom(userStatsTableOnDom){
         const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
         
         userStatsKeyArray.forEach(key => {
@@ -109,7 +109,7 @@ class User {
                 default:
                     columnDiv.classList.add("Rtable-cell-no-border", key);
             }
-            currentUserStatsTable.appendChild(columnDiv)
+            userStatsTableOnDom.appendChild(columnDiv)
         })
     }
 }

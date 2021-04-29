@@ -230,7 +230,6 @@ class Game {
     static addSeeResultsButtons(){
         this.addAllResultsButton()
         this.addCurrentUserResultsButton()
-
     }
 
     static addCurrentUserResultsButton(){
@@ -261,8 +260,12 @@ class Game {
 
     static addCurrentUserGamesAndStatsToDom(){
         // this.addCurrentUserStatsToDom();
-        currentUser.addCurrentUserStatsToDom();
+        currentUser.addUserStatsToDom(currentUserStatsTable);
         UserApi.getUserGames(currentUser);
+    }
+
+    static addAllUserGamesAndStatsToDom(){
+        User.all
     }
 
     // make dynamic - pass in div where added?
