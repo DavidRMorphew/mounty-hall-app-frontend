@@ -278,6 +278,7 @@ class Game {
         this.resetCurrentUserResultsContainer();
         this.resetAllResultsContainer();
         this.removeSeeResultsButtons();
+        this.resetHostPromptFormDiv()
     }
 
     static resetHostTalkContainer(){
@@ -329,7 +330,11 @@ class Game {
         <div class="Rtable-cell">Username</div>
         <div class="Rtable-cell">User Choice</div>
         <div class="Rtable-cell">Win / Lose</div>`;
+    }
 
+    static resetHostPromptFormDiv(){
+        hostPromptFormDiv.className = ""
+        hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols", "sticky-box");
     }
 
     static addCurrentUserGamesAndStatsToDom(){
