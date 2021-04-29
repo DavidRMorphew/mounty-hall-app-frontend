@@ -6,14 +6,14 @@ const mountyPicture = document.getElementById("mounty-with-beaver");
 const userSelectionContainer = document.getElementById('select-user-container');
 const currentGameContainer = document.getElementById("current-game-container");
 const allResultsContainer = document.getElementById("results-container");
-const resultsTable = allResultsContainer.lastElementChild;
+const allResultsTable = allResultsContainer.lastElementChild;
 const currentUserResultsContainer = document.getElementById("current-user-results-container");
 const doorCards = currentGameContainer.getElementsByTagName('article');
 const navbarUl = document.getElementById('navbar-ul');
 const hostTalkBubble = document.getElementById('host-talk-bubble');
 const currentUserStatsTable = document.getElementById('current-user-stats-table');
 const currentUserGamesTable = document.getElementById('current-user-games-table');
-
+const allUserStatsTable = document.getElementById('all-user-stats-table')
 const currentUserResultsHeader = document.getElementById('current-user-results-header')
 // GlobalVariable
 // CHANGE TO 'let'
