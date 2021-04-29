@@ -379,6 +379,12 @@ class Game {
         allResultsContainer.style.display = (allResultsContainer.style.display === "none") ? "" : "none";
     }
 
+    static finalStatsOverall(){
+        // user User.all and reduce the switch win stats to average
+        // ditto for stay win
+        // add this to Dom by calling this method in another method appropriately named.
+    }
+
     // createGameResultsRowOnDOM(){
     //     const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
         
