@@ -95,7 +95,7 @@ class User {
     }
 
     addUserStatsToDom(userStatsTableOnDom){
-        const userStatsKeyArray = ["name", "stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
+        const userStatsKeyArray = ["name", "winningGamePercentage", "switchPercentage", "switchAndWinPercentage", "stayAndWinPercentage"]
         
         userStatsKeyArray.forEach(key => {
             const columnDiv = document.createElement('div');
