@@ -95,12 +95,12 @@ class User {
     }
 
     addUserStatsToDom(userStatsTableOnDom){
-        const userStatsKeyArray = ["stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
+        const userStatsKeyArray = ["name", "stayAndWinPercentage", "switchAndWinPercentage", "switchPercentage", "winningGamePercentage"]
         
         userStatsKeyArray.forEach(key => {
             const columnDiv = document.createElement('div');
-            if (this[key] === "N/A") {
-                columnDiv.innerText = "N/A";
+            if (this[key] === "N/A" || key === "name") {
+                columnDiv.innerText = this[key];
             } else {
                 columnDiv.innerText = parseFloat(this[key]).toFixed(2);
             }
