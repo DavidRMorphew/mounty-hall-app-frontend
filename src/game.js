@@ -70,8 +70,6 @@ class Game {
             Game.initializeNewGame();
         }
     }
-    // Did not do doorclick event in handleClickEvent since I want to access current game
-
 
     static hostPause = (callback, multiplier = 1) => {
         setTimeout(callback, (multiplier * 700))
@@ -93,16 +91,13 @@ class Game {
     }
 
     static initializeNewGame = () => {
-        // make hostPromptFormDiv sticky
-        // remember to disable sticky in reset All
-        // shrink mounty for game play
         this.shrinkHostImageAndBubbleFont()
 
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
-        this.hostPause(currentGame.hostInstructionsToGame);
-        this.hostPause(this.toggleGameDisplay, 2)
+        setTimeout(currentGame.hostInstructionsToGame, 500);
+        setTimeout(this.toggleGameDisplay, 1000)
     }
     
     hostInstructionsToGame() {
@@ -113,9 +108,8 @@ class Game {
     randomizeGame() {
         const randomizerArray = ["rodentia","rodentia","rodentia"];
         const rodentiaArray = ["beaver", "woodchuck", "marmot"];
-        // const rodentiaArray = [Object.keys(Game.rodentiaNamesAndImageUrlsObj)]; Does not work if car is in object
-        // const randomIntBetweenZeroAndTwo = () => Math.floor(Math.random() * 3);
         const randomIndex = () => Game.randomIntegerZeroToNum(2);
+
         randomizerArray[randomIndex()] = "car";
         for (let i = 0; i < randomizerArray.length; i++){
             if (randomizerArray[i] === "rodentia"){
@@ -128,7 +122,6 @@ class Game {
 
     static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1))
 
-    // Do I need to disable all of these before the next game?
     makeDoorsClickable(){
         for (const doorElement of doorCards){
             doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement))
