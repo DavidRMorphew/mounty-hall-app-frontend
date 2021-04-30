@@ -30,10 +30,10 @@ class User {
     static handleClickEvent = (event) => {
         event.preventDefault()
         if (event.target.id === "new-user-form"){
-            // Is this method of grabbing and clearing form OK?
+            Game.toggleHostBubbleDisplay();
+            User.toggleUserSelectionDisplay();
             const submittedUsername = event.target.querySelector('#username');
             UserApi.findOrCreateByName(submittedUsername.value);
-            Game.toggleHostBubbleDisplay();
             submittedUsername.value = ""
         } else if (event.target.id === "change-user-button"){
             console.log(event.target)
@@ -48,7 +48,7 @@ class User {
         this.loginUser()
         currentUser.addUserNameToNavbar();
         currentUser.addChangeUserButtonToNavbar();
-        User.toggleUserSelectionDisplay();
+        // User.toggleUserSelectionDisplay();
         Game.initializeNewGame();
     }
 
