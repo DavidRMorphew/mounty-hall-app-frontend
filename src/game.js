@@ -34,7 +34,7 @@ class Game {
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
-        this.hostPause(this.addPlayButton);
+        setTimeout(this.addPlayButton, 500);
     }
 
     static addPlayButton = () => {
@@ -78,14 +78,14 @@ class Game {
     }
 
     static startNewGame(){
-        this.hostPause(() => {
-            Game.toggleHostBubbleDisplay()
+        setTimeout(() => {
+            this.toggleHostBubbleDisplay()
             hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."
-        })
-        this.hostPause(() => {
+        }, 500)
+        setTimeout(() => {
             User.toggleUserSelectionDisplay()
             User.addNewUserFormToDOM()
-        }, 2)        
+        }, 1000)        
     }
 
     static toggleHostBubbleDisplay(){

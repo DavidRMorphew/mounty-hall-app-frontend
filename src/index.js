@@ -22,4 +22,4 @@ const currentUserResultsHeader = document.getElementById('current-user-results-h
 // CHANGE TO 'let'
 let currentUser;
 
-Game.hostPause(Game.welcomePlayer);
+setTimeout(Game.welcomePlayer, 500);
