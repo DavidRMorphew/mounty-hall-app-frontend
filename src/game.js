@@ -34,10 +34,10 @@ class Game {
     static welcomePlayer = () => {
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
-        this.hostPause(this.createPlayButton);
+        this.hostPause(this.addPlayButton);
     }
 
-    static createPlayButton = () => {
+    static addPlayButton = () => {
         const playButton = document.createElement('button')
         playButton.id = "play-button"
         playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
@@ -65,6 +65,8 @@ class Game {
             this.toggleGameDisplayOffOnly()
             this.toggleAllResultsContainer()
             this.addAllUserGamesAndStatsToDom();
+        } else if (event.target.id === "play-again-button"){
+            console.log("hit play again button");
         }
     }
     // Did not do doorclick event in handleClickEvent since I want to access current game
