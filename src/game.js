@@ -96,7 +96,7 @@ class Game {
         // make hostPromptFormDiv sticky
         // remember to disable sticky in reset All
         // shrink mounty for game play
-        this.shrinkHostImage()
+        this.shrinkHostImageAndBubbleFont()
 
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
@@ -281,7 +281,8 @@ class Game {
         this.resetCurrentUserResultsContainer();
         this.resetAllResultsContainer();
         this.removeSeeResultsButtons();
-        this.resetHostPromptFormDiv()
+        this.resetHostPromptFormDiv();
+        this.unshrinkHostImageAndBubbleFont();
     }
 
     static resetHostTalkContainer(){
@@ -335,9 +336,16 @@ class Game {
         <div class="Rtable-cell">Win / Lose</div>`;
     }
 
-    static shrinkHostImage(){
+    static shrinkHostImageAndBubbleFont(){
         mountyPictureDiv.className = "Rtable-cell-shrunken-image";
+        hostTalkBubble.style.fontSize = "150%";
     }
+
+    static unshrinkHostImageAndBubbleFont(){
+        mountyPictureDiv.className = "Rtable-cell-no-border";
+        hostTalkBubble.style.fontSize = "200%";
+    }
+
     static unstickHostPromptFormDiv(){
         hostPromptFormDiv.className = ""
         hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols")
