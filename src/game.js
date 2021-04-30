@@ -134,7 +134,7 @@ class Game {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
-            
+
             this.finalPick(doorElement.id)
         }
     }
@@ -145,10 +145,10 @@ class Game {
         const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
         const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
         const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
-        Game.hostPause(hostResponse1);
-        Game.hostPause(hostResponseFollowUp, 4);
-        Game.hostPause((() => this.hostOpenDoor(this.hostReveal)), 7); // dynamic version
-        Game.hostPause((() => hostPromptToStayOrSwitch()), 10); // Perhaps put this prompt in final pick method?
+        setTimeout(hostResponse1, 500);
+        setTimeout(hostResponseFollowUp, 1000);
+        setTimeout((() => this.hostOpenDoor(this.hostReveal)), 4000);
+        setTimeout((() => hostPromptToStayOrSwitch()), 7000); // Perhaps put this prompt in final pick method?
     }
 
     hostChoice(){
