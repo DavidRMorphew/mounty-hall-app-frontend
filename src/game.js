@@ -307,9 +307,9 @@ class Game {
         currentUserResultsHeader.innerText = "";
         currentUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
         <div class="Rtable-cell-no-border">Win % Overall</div>
-        <div class="Rtable-cell-no-border">Switch-to-Stay %</div>
-        <div class="Rtable-cell-no-border">Switch-Win %</div>
-        <div class="Rtable-cell-no-border">Stay-Win %</div>`;
+        <div class="Rtable-cell-no-border">Switch-vs-Stay %</div>
+        <div class="Rtable-cell-no-border">Switch & Win %</div>
+        <div class="Rtable-cell-no-border">Stay & Win %</div>`;
         currentUserGamesTable.innerHTML = `<div class="Rtable-cell-game-number" id="game-number">Game</div>
         <div class="Rtable-cell">Username</div>
         <div class="Rtable-cell">User Choice</div>
@@ -320,9 +320,9 @@ class Game {
         allResultsContainer.style.display = "none";
         allUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
         <div class="Rtable-cell-no-border">Win % Overall</div>
-        <div class="Rtable-cell-no-border">Switch-to-Stay %</div>
-        <div class="Rtable-cell-no-border">Switch-Win %</div>
-        <div class="Rtable-cell-no-border">Stay-Win %</div>`;
+        <div class="Rtable-cell-no-border">Switch-vs-Stay %</div>
+        <div class="Rtable-cell-no-border">Switch & Win %</div>
+        <div class="Rtable-cell-no-border">Stay & Win %</div>`;
         allResultsTable.innerHTML = `<div class="Rtable-cell-game-number" id="game-number">Game</div>
         <div class="Rtable-cell">Username</div>
         <div class="Rtable-cell">User Choice</div>
