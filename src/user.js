@@ -28,28 +28,27 @@ class User {
     };
 
     static handleClickEvent = (event) => {
-        event.preventDefault()
         if (event.target.id === "new-user-form"){
+            event.preventDefault() // OK here?
             Game.toggleHostBubbleDisplay();
             User.toggleUserSelectionDisplay();
             const submittedUsername = event.target.querySelector('#username');
             UserApi.findOrCreateByName(submittedUsername.value);
             submittedUsername.value = ""
         } else if (event.target.id === "change-user-button"){
-            console.log(event.target)
             User.changeUser()
         }
     };
 
-    loginUser(){
-        currentUser = this;
-    }
     updateCurrentUser(){    
         this.loginUser()
         currentUser.addUserNameToNavbar();
         currentUser.addChangeUserButtonToNavbar();
-        // User.toggleUserSelectionDisplay();
         Game.initializeNewGame();
+    }
+    
+    loginUser(){
+        currentUser = this;
     }
 
     static updateCurrentUserAfterUsersFetch(){
@@ -73,15 +72,10 @@ class User {
         changeUserButton.addEventListener('click', User.handleClickEvent);
     }
 
-    // build this out to start up a new game
-    // Add Button only after game completed to avoid fragmentary games
     static changeUser = () => {
         this.clearNavbar();
         Game.resetGame();
         Game.startNewGame();
-        // hostTalkBubble.innerText = "Select a username on file or create a new username."
-        // Game.toggleHostBubbleDisplay();
-        // this.toggleUserSelectionDisplay();
     }
     
     static clearNavbar = () => {
