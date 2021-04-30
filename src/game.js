@@ -190,7 +190,7 @@ class Game {
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
 
         GameApi.createGame(this);
-        
+
         this.hostResponseToFinalChoice(finalDoorPick);
         // should I use .apply or .call instead of wrapping these callbacks?
         
@@ -201,8 +201,13 @@ class Game {
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
         Game.hostPause((()=>this.finalChoiceReveal()), 4);
-        // See Results Call
+    
+        // change prompt to ask to see results, change user, or play again
+        // set up event listener for playAgain button
         Game.hostPause((()=>Game.seeResultsOptions()), 5);
+        
+        Game.hostPause((()=>Game.addPlayAgainButton()), 5);
+
     }
 
     finalChoiceReveal(){
@@ -251,6 +256,15 @@ class Game {
         if (allResultsButton){
             allResultsButton.remove();        
         };
+    }
+
+    static addPlayAgainButton(){
+        const playAgainButton = document.createElement('button');
+        playAgainButton.id = "play-again-button";
+        playAgainButton.classList.add("btn-large", "right-align", "light-purple", "darken-3");
+        playAgainButton.innerText = "Play Again";
+        playAgainButton.addEventListener('click', this.handleClickEvent);
+        hostTalkBubble.insertAdjacentElement('afterend', playAgainButton);
     }
 
     static toggleGameDisplay(){
