@@ -66,7 +66,6 @@ class Game {
             this.toggleAllResultsContainer()
             this.addAllUserGamesAndStatsToDom();
         } else if (event.target.id === "play-again-button"){
-            console.log("hit play again button");
             Game.resetGame();
             Game.initializeNewGame();
         }
@@ -79,7 +78,6 @@ class Game {
     }
 
     static startNewGame(){
-        console.log('start new game called')
         this.hostPause(() => {
             Game.toggleHostBubbleDisplay()
             hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."
@@ -92,11 +90,9 @@ class Game {
 
     static toggleHostBubbleDisplay(){
         hostTalkBubble.style.display = (hostTalkBubble.style.display === "none")? "" : "none";
-        console.log("host talk bubble fired");
     }
 
     static initializeNewGame = () => {
-        console.log("hit new game");
         // make hostPromptFormDiv sticky
         // remember to disable sticky in reset All
         // shrink mounty for game play
@@ -105,7 +101,6 @@ class Game {
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
-        console.log(currentGame);
         this.hostPause(currentGame.hostInstructionsToGame);
         this.hostPause(this.toggleGameDisplay, 2)
     }
