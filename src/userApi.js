@@ -21,6 +21,10 @@ class UserApi {
             const name = user.attributes.name;
             const selectedUser = new User({id, name});
             selectedUser.updateCurrentUser();
+        })
+        .catch((error)=> {
+            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            console.log(error);
         }) 
     }
 
@@ -34,6 +38,10 @@ class UserApi {
             })
             User.updateCurrentUserAfterUsersFetch()
         })
+        .catch((error)=> {
+            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            console.log(error);
+        })
     }
 
     static getUserGames(user){
@@ -46,6 +54,10 @@ class UserApi {
                 const game = new Game({id: userGameObj.id, user_id: userGameObj.relationships.user.data.id, ...userGameObj.attributes});
                 game.addGameResultsToDom(currentUserGamesTable);
             })
+        })
+        .catch((error)=> {
+            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            console.log(error);
         })
     }
 }

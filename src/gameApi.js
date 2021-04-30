@@ -11,6 +11,10 @@ class GameApi {
                 gameResults.addGameResultsToDom(allResultsTable)
             })
         })
+        .catch((error)=> {
+            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            console.log(error);
+        })
     }
 
     static createGame(game){
@@ -38,6 +42,10 @@ class GameApi {
         .then(savedGameData => {
             const gameData = savedGameData['data']
             const newSavedGame = new Game({id: gameData.id, ...gameData.attributes})
+        })
+        .catch((error)=> {
+            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            console.log(error);
         })
     }
 
