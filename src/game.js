@@ -96,6 +96,8 @@ class Game {
         // make hostPromptFormDiv sticky
         // remember to disable sticky in reset All
         // shrink mounty for game play
+        this.shrinkHostImage()
+
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
@@ -228,6 +230,7 @@ class Game {
     static seeResultsOptions(){
         UserApi.getUsers();
         this.addSeeResultsButtons();
+        this.unstickHostPromptFormDiv();
     }
 
     static addSeeResultsButtons(){
@@ -330,6 +333,14 @@ class Game {
         <div class="Rtable-cell">Username</div>
         <div class="Rtable-cell">User Choice</div>
         <div class="Rtable-cell">Win / Lose</div>`;
+    }
+
+    static shrinkHostImage(){
+        mountyPictureDiv.className = "Rtable-cell-shrunken-image";
+    }
+    static unstickHostPromptFormDiv(){
+        hostPromptFormDiv.className = ""
+        hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols")
     }
 
     static resetHostPromptFormDiv(){
