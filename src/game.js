@@ -203,6 +203,8 @@ class Game {
     
         // change prompt to ask to see results, change user, or play again
         // set up event listener for playAgain button
+        Game.hostPause((()=>hostTalkBubble.innerHTML += "<br>Would you like to SEE YOUR STATS & RESULTS, SEE ALL STATS & RESULTS or PLAY AGAIN again? If you want to CHANGE USERS, click the button above."), 5);
+
         Game.hostPause((()=>Game.seeResultsOptions()), 5);
         
         Game.hostPause((()=>Game.addPlayAgainButton()), 5);
