@@ -157,9 +157,6 @@ class Game {
         const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
         Game.hostPause(hostResponse1);
         Game.hostPause(hostResponseFollowUp, 4);
-        // remove changeUser button during game
-        // IIFE avoids losing this in the call of hostChoice
-        // Game.hostPause((() => this.hostOpenRevealDoor()), 7); Older method - not dynamic
         Game.hostPause((() => this.hostOpenDoor(this.hostReveal)), 7); // dynamic version
         Game.hostPause((() => hostPromptToStayOrSwitch()), 10); // Perhaps put this prompt in final pick method?
     }
@@ -175,20 +172,11 @@ class Game {
         }
     }
 
-    // dynamic version
-
     hostOpenDoor(doorId){
         const selectedDoorImage = document.querySelector(`#${doorId} img`);
         const objectBehindDoor = this[doorId];
         selectedDoorImage.src = Game.rodentiaAndCarNamesAndImageUrlsObj[objectBehindDoor];
     }
-    // Older non-dynamic version
-    // hostOpenRevealDoor(){
-    //     const hostRevealedDoor = this.hostReveal
-    //     const hostRevealedDoorImage = document.querySelector(`#${hostRevealedDoor} img`)
-    //     const rodentBehindDoor = this[hostRevealedDoor]
-    //     hostRevealedDoorImage.src = Game.rodentiaNamesAndImageUrlsObj[rodentBehindDoor]
-    // }
 
     finalPick(finalDoorPick){
         const finalPickDoorCard = document.getElementById(finalDoorPick);
@@ -202,12 +190,10 @@ class Game {
         this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
 
         GameApi.createGame(this);
-
+        
         this.hostResponseToFinalChoice(finalDoorPick);
         // should I use .apply or .call instead of wrapping these callbacks?
         
-        // log user data, change bubble to inform of win or loss
-        // present user with choice to play again or see results
     }
     // Put responses to choice in hostResponseToFinalChoice; call hostOpenRemainingDoors; change hostOpenRevealDoor
     
