@@ -67,6 +67,8 @@ class Game {
             this.addAllUserGamesAndStatsToDom();
         } else if (event.target.id === "play-again-button"){
             console.log("hit play again button");
+            Game.resetGame();
+            Game.initializeNewGame();
         }
     }
     // Did not do doorclick event in handleClickEvent since I want to access current game
@@ -285,6 +287,7 @@ class Game {
         this.removeSeeResultsButtons();
         this.resetHostPromptFormDiv();
         this.unshrinkHostImageAndBubbleFont();
+        this.removePlayAgainButton();
     }
 
     static resetHostTalkContainer(){
@@ -356,6 +359,13 @@ class Game {
     static resetHostPromptFormDiv(){
         hostPromptFormDiv.className = ""
         hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols", "sticky-box");
+    }
+
+    static removePlayAgainButton(){
+        const playAgainButton = document.getElementById('play-again-button');
+        if (playAgainButton){
+            playAgainButton.remove();
+        }
     }
 
     static addCurrentUserGamesAndStatsToDom(){
