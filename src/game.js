@@ -51,7 +51,7 @@ class Game {
             const playButton = event.target;
             playButton.remove();
             Game.toggleHostBubbleDisplay();
-            this.startNewGame();
+            this.startLoginAndNewGame();
         } else if (event.target.id === "current-user-results-button"){
             const currentUserResultsButton = event.target;
             currentUserResultsButton.remove();
@@ -77,7 +77,7 @@ class Game {
         setTimeout(callback, (multiplier * 700))
     }
 
-    static startNewGame(){
+    static startLoginAndNewGame(){
         setTimeout(() => {
             this.toggleHostBubbleDisplay()
             hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."

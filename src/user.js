@@ -75,7 +75,7 @@ class User {
     static changeUser = () => {
         this.clearNavbar();
         Game.resetGame();
-        Game.startNewGame();
+        Game.startLoginAndNewGame();
     }
     
     static clearNavbar = () => {
