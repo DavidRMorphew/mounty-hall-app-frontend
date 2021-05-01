@@ -22,4 +22,9 @@ const currentUserResultsHeader = document.getElementById('current-user-results-h
 // CHANGE TO 'let'
 let currentUser;
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {accordion: true});
+});
+
 setTimeout(Game.welcomePlayer, 500);
