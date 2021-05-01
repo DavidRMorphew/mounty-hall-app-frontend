@@ -1,4 +1,5 @@
 class GameApi {
+    
     static baseURL = "http://localhost:3000/games"
     
     static getGames(){
@@ -6,12 +7,12 @@ class GameApi {
         .then(resp => resp.json())
         .then(gameData => {
             gameData['data'].forEach(gameObj => {
-                const gameResults = new Game({id: gameObj.id, user_id: gameObj.relationships.user.data.id, ...gameObj.attributes})
-                gameResults.addGameResultsToDom(allResultsTable)
+                const gameResults = new Game({id: gameObj.id, user_id: gameObj.relationships.user.data.id, ...gameObj.attributes});
+                gameResults.addGameResultsToDom(allResultsTable);
             })
         })
         .catch((error)=> {
-            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            alert("A failure occurred in getting game results data. Please check that the Rails API server is running.");
             console.log(error);
         })
     }
@@ -22,7 +23,7 @@ class GameApi {
         
         (function () {
             for (const camelCaseProperty in game) {
-                const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(camelCaseProperty)
+                const snakeCaseProperty = GameApi.gamePropertyCamelToSnakeCase(camelCaseProperty);
                 gameDataSnakeCasePropertyNames[snakeCaseProperty] = game[camelCaseProperty];
             }
         })();
@@ -39,11 +40,11 @@ class GameApi {
         fetch(this.baseURL, configObj)
         .then(resp => resp.json())
         .then(savedGameData => {
-            const gameData = savedGameData['data']
-            const newSavedGame = new Game({id: gameData.id, ...gameData.attributes})
+            const gameData = savedGameData['data'];
+            const newSavedGame = new Game({id: gameData.id, ...gameData.attributes});
         })
         .catch((error)=> {
-            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            alert("A failure occurred in saving the game. Please check that the Rails API server is running.");
             console.log(error);
         })
     }
@@ -57,6 +58,6 @@ class GameApi {
                 return letter;
             }
         }).join('')
-        return snakeCaseProperty
+        return snakeCaseProperty;
     }
 }

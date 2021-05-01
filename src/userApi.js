@@ -23,7 +23,7 @@ class UserApi {
             selectedUser.updateCurrentUser();
         })
         .catch((error)=> {
-            alert("A failure occurred in fetching or saving the user data. Please check that the Rails API server is running.")
+            alert("A failure occurred in fetching or saving the user data. Please check that the Rails API server is running.");
             console.log(error);
         }) 
     }
@@ -34,12 +34,12 @@ class UserApi {
         .then(usersData => {
             User.all = []
             usersData["data"].forEach(userData => {
-                new User({id: userData.id, ...userData.attributes})
+                new User({id: userData.id, ...userData.attributes});
             })
             User.updateCurrentUserAfterUsersFetch()
         })
         .catch((error)=> {
-            alert("A failure occurred in fetching data on all users. Please check that the Rails API server is running.")
+            alert("A failure occurred in fetching data on all users. Please check that the Rails API server is running.");
             console.log(error);
         })
     }
@@ -55,7 +55,7 @@ class UserApi {
             })
         })
         .catch((error)=> {
-            alert("There was a failure in getting user game data. Please check that the Rails API server is running.")
+            alert("There was a failure in getting user game data. Please check that the Rails API server is running.");
             console.log(error);
         })
     }
