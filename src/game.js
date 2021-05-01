@@ -188,14 +188,12 @@ class Game {
     hostResponseToFinalChoice(finalDoorPick){
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
         setTimeout((()=>hostTalkBubble.innerHTML = "Drum Roll....."), 2000);
-        setTimeout((()=>this.finalChoiceReveal()), 3000);    
+        setTimeout(this.finalChoiceReveal.bind(this), 3000);    
         setTimeout((()=>{
             hostTalkBubble.innerHTML += "<br>Would you like to SEE YOUR STATS & RESULTS, SEE ALL STATS & RESULTS or PLAY AGAIN again? If you want to CHANGE USERS, click the button above.";
             Game.seeResultsOptions();
             Game.addPlayAgainButton();
         }), 5000);
-        // setTimeout((()=>Game.seeResultsOptions()), 5000);
-        // setTimeout((()=>Game.addPlayAgainButton()), 5000);
     }
 
     finalChoiceReveal(){
