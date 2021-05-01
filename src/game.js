@@ -33,10 +33,16 @@ class Game {
     }
 
     static welcomePlayer = () => {
+        this.makeGameResultsContainersCollapsible();
         this.toggleHostBubbleDisplay();
         hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
         setTimeout(this.addPlayButton, 500);
     }
+
+    static makeGameResultsContainersCollapsible = () => {
+        const elems = document.querySelectorAll('.collapsible');
+        const instances = M.Collapsible.init(elems, {accordion: true});
+    };
 
     static addPlayButton = () => {
         const playButton = document.createElement('button')

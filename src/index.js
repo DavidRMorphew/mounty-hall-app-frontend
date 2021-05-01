@@ -18,13 +18,7 @@ const currentUserStatsTable = document.getElementById('current-user-stats-table'
 const currentUserGamesTable = document.getElementById('current-user-games-table');
 const allUserStatsTable = document.getElementById('all-user-stats-table');
 const currentUserResultsHeader = document.getElementById('current-user-results-header');
-// GlobalVariable
-// CHANGE TO 'let'
-let currentUser;
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {accordion: true});
-});
+let currentUser;
 
 setTimeout(Game.welcomePlayer, 500);
