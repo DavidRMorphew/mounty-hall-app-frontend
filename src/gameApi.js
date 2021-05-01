@@ -5,7 +5,6 @@ class GameApi {
         fetch(this.baseURL)
         .then(resp => resp.json())
         .then(gameData => {
-            console.log(gameData["data"]);
             gameData['data'].forEach(gameObj => {
                 const gameResults = new Game({id: gameObj.id, user_id: gameObj.relationships.user.data.id, ...gameObj.attributes})
                 gameResults.addGameResultsToDom(allResultsTable)
