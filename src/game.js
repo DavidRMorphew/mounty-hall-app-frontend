@@ -400,31 +400,25 @@ class Game {
 
     static finalStatsOverall(){
         // user User.all and reduce the switch win stats to average
+        const allUsersStayAndWinFiltered = User.all.filter(user => user.stayAndWinPercentage !== "N/A")
+        const allUsersStayAndWinStats = []
+        for (const user of allUsersStayAndWinFiltered){
+            allUsersStayAndWinStats.push(user.stayAndWinPercentage)
+        }
+        const dividendNumUsers = allUsersStayAndWinStats.length
+        const averageStayAndWinStat = allUsersStayAndWinStats.reduce((total, currentValue)=>{ 
+            if (allUsersStayAndWinStats.indexOf(currentValue) === (dividendNumUsers - 1)){
+                return (total + currentValue) / dividendNumUsers
+            } else {
+                return total + currentValue;
+            }
+        },0)
+        debugger
         // filter out "N/A"
         // User.all.reduce(()=>{}, 0)
         // ditto for stay win
         // add this to Dom by calling this method in another method appropriately named.
     }
-
-    // createGameResultsRowOnDOM(){
-    //     const rowGameKeyArray = [...Object.keys(this).slice(1,5), "stayResult", "switchResult", "userChoice", "winLose"];
-        
-    //     rowGameKeyArray.forEach(key => {
-    //         const rowDiv = document.createElement('div');
-    //         rowDiv.innerText = this[key];
-    //         switch (key) {
-    //             case (this.originalPick):
-    //                 rowDiv.classList.add("Rtable-cell", key, "original-pick");
-    //                 break;
-    //             case (this.switchDoor()):
-    //                 rowDiv.classList.add("Rtable-cell", key, "switch-door");
-    //                 break;
-    //             default:
-    //                 rowDiv.classList.add("Rtable-cell", key);
-    //         }
-    //         resultsTable.appendChild(rowDiv);
-    //     })
-    // }
 
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
