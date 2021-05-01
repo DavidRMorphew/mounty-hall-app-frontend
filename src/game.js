@@ -134,8 +134,7 @@ class Game {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
-
-            this.finalPick(doorElement.id)
+            this.finalPick(doorElement.id);
         }
     }
     
@@ -147,8 +146,8 @@ class Game {
         const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
         setTimeout(hostResponse1, 500);
         setTimeout(hostResponseFollowUp, 1000);
-        setTimeout((() => this.hostOpenDoor(this.hostReveal)), 4000);
-        setTimeout((() => hostPromptToStayOrSwitch()), 7000); // Perhaps put this prompt in final pick method?
+        setTimeout(this.hostOpenDoor.bind(this, this.hostReveal), 4000);
+        setTimeout(hostPromptToStayOrSwitch, 7000);  
     }
 
     hostChoice(){
@@ -192,8 +191,6 @@ class Game {
         Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
         Game.hostPause((()=>this.finalChoiceReveal()), 4);
     
-        // change prompt to ask to see results, change user, or play again
-        // set up event listener for playAgain button
         Game.hostPause((()=>hostTalkBubble.innerHTML += "<br>Would you like to SEE YOUR STATS & RESULTS, SEE ALL STATS & RESULTS or PLAY AGAIN again? If you want to CHANGE USERS, click the button above."), 5);
 
         Game.hostPause((()=>Game.seeResultsOptions()), 5);
