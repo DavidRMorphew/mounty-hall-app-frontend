@@ -446,17 +446,6 @@ class Game {
         return switchDoor;
     }
 
-    get stayResult(){
-        const originalDoorPick = this.originalPick;
-        const originalDoorResult = this[originalDoorPick];
-        return originalDoorResult;
-    }
-
-    get switchResult(){
-        const switchDoor = this.switchDoor();
-        return this[switchDoor];
-    }
-
     get userChoice(){
         return (!!this.userSwitch) ? "switch" : "stay";
     }
