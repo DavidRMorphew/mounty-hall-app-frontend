@@ -4,7 +4,6 @@ class Game {
 
     constructor({user_id, user_name, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id}){
         this.userId = user_id;
-        // was username
         this.userName = user_name;
         this.door1 = door1;
         this.door2 = door2;
@@ -184,22 +183,15 @@ class Game {
         GameApi.createGame(this);
 
         this.hostResponseToFinalChoice(finalDoorPick);
-        // should I use .apply or .call instead of wrapping these callbacks?
-        
     }
-    // Put responses to choice in hostResponseToFinalChoice; call hostOpenRemainingDoors; change hostOpenRevealDoor
     
     hostResponseToFinalChoice(finalDoorPick){
         hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
-        Game.hostPause((()=>hostTalkBubble.innerHTML = "Drum Roll....."),2)
-        Game.hostPause((()=>this.finalChoiceReveal()), 4);
-    
-        Game.hostPause((()=>hostTalkBubble.innerHTML += "<br>Would you like to SEE YOUR STATS & RESULTS, SEE ALL STATS & RESULTS or PLAY AGAIN again? If you want to CHANGE USERS, click the button above."), 5);
-
-        Game.hostPause((()=>Game.seeResultsOptions()), 5);
-        
-        Game.hostPause((()=>Game.addPlayAgainButton()), 5);
-
+        setTimeout((()=>hostTalkBubble.innerHTML = "Drum Roll....."), 2000);
+        setTimeout((()=>this.finalChoiceReveal()), 3000);    
+        setTimeout((()=>hostTalkBubble.innerHTML += "<br>Would you like to SEE YOUR STATS & RESULTS, SEE ALL STATS & RESULTS or PLAY AGAIN again? If you want to CHANGE USERS, click the button above."), 5000);
+        setTimeout((()=>Game.seeResultsOptions()), 5000);
+        setTimeout((()=>Game.addPlayAgainButton()), 5000);
     }
 
     finalChoiceReveal(){
