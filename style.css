@@ -19,7 +19,7 @@ main {
     align-items: stretch;
  }
 
- .card {
+.card {
     box-sizing: border-box;
     margin: 1rem .25em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -37,7 +37,7 @@ img {
     padding: 0;
 }
 
-  .Rtable-cell, .Rtable-cell-game-number, form {
+.Rtable-cell, .Rtable-cell-game-number, form {
     box-sizing: border-box;
     flex-grow: 1;
     width: 100%;  
@@ -71,7 +71,6 @@ img {
 * {
     text-shadow: 1px 0px 1px black;
 }
-
 
 p.bubble {
 	position: relative;
@@ -122,6 +121,7 @@ div {
     border: 10px solid;
     border-color: black;
 }
+
 .final-pick {
     border: 10px solid;
     border-color: purple;
