@@ -72,10 +72,6 @@ class Game {
         }
     }
 
-    static hostPause = (callback, multiplier = 1) => {
-        setTimeout(callback, (multiplier * 700))
-    }
-
     static startLoginAndNewGame(){
         setTimeout(() => {
             this.toggleHostBubbleDisplay()
