@@ -23,7 +23,7 @@ class UserApi {
             selectedUser.updateCurrentUser();
         })
         .catch((error)=> {
-            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            alert("A failure occurred in fetching or saving the user data. Please check that the Rails API server is running.")
             console.log(error);
         }) 
     }
@@ -39,7 +39,7 @@ class UserApi {
             User.updateCurrentUserAfterUsersFetch()
         })
         .catch((error)=> {
-            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            alert("A failure occurred in fetching data on all users. Please check that the Rails API server is running.")
             console.log(error);
         })
     }
@@ -55,7 +55,7 @@ class UserApi {
             })
         })
         .catch((error)=> {
-            alert("There was a failure in communicating with the server. Please check that the Rails API server is running.")
+            alert("There was a failure in getting your user game data. Please check that the Rails API server is running.")
             console.log(error);
         })
     }
