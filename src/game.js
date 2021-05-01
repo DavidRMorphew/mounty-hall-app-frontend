@@ -187,7 +187,7 @@ class Game {
     }
     
     hostResponseToFinalChoice(finalDoorPick){
-        hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`
+        hostTalkBubble.innerHTML = `You decided to ${this.userChoice.toUpperCase()}.<br>Final choice: ${finalDoorPick.toUpperCase()}.`;
         setTimeout((()=>hostTalkBubble.innerHTML = "Drum Roll....."), 2000);
         setTimeout(this.finalChoiceReveal.bind(this), 3000);    
         setTimeout((()=>{
@@ -198,7 +198,7 @@ class Game {
     }
 
     finalChoiceReveal(){
-        hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`
+        hostTalkBubble.innerHTML += `<br>You ${this.winLose.toUpperCase()}.`;
         for (let i = 0; i < doorCards.length; i++){
             const doorId = doorCards[i].id;
             this.hostOpenDoor(doorId);
@@ -212,31 +212,31 @@ class Game {
     }
 
     static addSeeResultsButtons(){
-        this.addAllResultsButton()
-        this.addCurrentUserResultsButton()
+        this.addAllResultsButton();
+        this.addCurrentUserResultsButton();
     }
 
     static addCurrentUserResultsButton(){
         const currentUserResultsButton = document.createElement('button');
-        currentUserResultsButton.id = "current-user-results-button"
-        currentUserResultsButton.classList.add("btn-large", "right-align", "light-blue", "darken-3")
-        currentUserResultsButton.innerText = "See My Results and Stats"
-        currentUserResultsButton.addEventListener('click', this.handleClickEvent)
+        currentUserResultsButton.id = "current-user-results-button";
+        currentUserResultsButton.classList.add("btn-large", "right-align", "light-blue", "darken-3");
+        currentUserResultsButton.innerText = "See My Results and Stats";
+        currentUserResultsButton.addEventListener('click', this.handleClickEvent);
         hostTalkBubble.insertAdjacentElement('afterend', currentUserResultsButton);
     }
 
     static addAllResultsButton(){
         const allResultsButton = document.createElement('button');
-        allResultsButton.id = "all-results-button"
-        allResultsButton.classList.add("btn-large", "right-align", "blue", "darken-4")
-        allResultsButton.innerText = "See All Results and Stats"
-        allResultsButton.addEventListener('click', this.handleClickEvent)
+        allResultsButton.id = "all-results-button";
+        allResultsButton.classList.add("btn-large", "right-align", "blue", "darken-4");
+        allResultsButton.innerText = "See All Results and Stats";
+        allResultsButton.addEventListener('click', this.handleClickEvent);
         hostTalkBubble.insertAdjacentElement('afterend', allResultsButton);
     }
 
     static removeSeeResultsButtons(){
-        const allResultsButton = document.getElementById('all-results-button')
-        const currentUserResultsButton = document.getElementById('current-user-results-button')
+        const allResultsButton = document.getElementById('all-results-button');
+        const currentUserResultsButton = document.getElementById('current-user-results-button');
         if (currentUserResultsButton){
             currentUserResultsButton.remove();
         };
@@ -341,12 +341,12 @@ class Game {
     }
 
     static unstickHostPromptFormDiv(){
-        hostPromptFormDiv.className = ""
-        hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols")
+        hostPromptFormDiv.className = "";
+        hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols");
     }
 
     static resetHostPromptFormDiv(){
-        hostPromptFormDiv.className = ""
+        hostPromptFormDiv.className = "";
         hostPromptFormDiv.classList.add("Rtable", "Rtable--2cols", "sticky-box");
     }
 
@@ -406,9 +406,9 @@ class Game {
 
     static addFinalStatsOverall(){
         const stayAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("stayAndWinPercentage");
-        const switchAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("switchAndWinPercentage")
-        const overallStatsHeader = document.createElement('h5')
-        overallStatsHeader.id = 'overall-stats-header'
+        const switchAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("switchAndWinPercentage");
+        const overallStatsHeader = document.createElement('h5');
+        overallStatsHeader.id = 'overall-stats-header';
         overallStatsHeader.innerHTML = `Average % of Wins for <span class="red-text">Switching Doors: ${parseFloat(switchAndWinPercentageAverage).toFixed(2)}%</span> 
         <br><br>
         Average % of Wins for <span class="blue-text">Staying with First Pick: ${parseFloat(stayAndWinPercentageAverage).toFixed(2)}%</span>`;
@@ -416,12 +416,12 @@ class Game {
     }
 
     static averageUserChoiceAndWinPercentage(userChoiceAndWinPercentage){
-        const allUsersChoiceAndWinFiltered = User.all.filter(user => user[userChoiceAndWinPercentage] !== "N/A")
-        const allUsersChoiceAndWinStats = []
+        const allUsersChoiceAndWinFiltered = User.all.filter(user => user[userChoiceAndWinPercentage] !== "N/A");
+        const allUsersChoiceAndWinStats = [];
         for (const user of allUsersChoiceAndWinFiltered){
-            allUsersChoiceAndWinStats.push(user[userChoiceAndWinPercentage])
+            allUsersChoiceAndWinStats.push(user[userChoiceAndWinPercentage]);
         }
-        const dividendNumUsers = allUsersChoiceAndWinStats.length
+        const dividendNumUsers = allUsersChoiceAndWinStats.length;
         const averageChoiceAndWinStat = allUsersChoiceAndWinStats.reduce((total, currentValue, index)=>{ 
             if (index === (dividendNumUsers - 1)){
                 return ((total + currentValue) / dividendNumUsers);
@@ -432,18 +432,16 @@ class Game {
         return averageChoiceAndWinStat;
     }
 
-
-
     winningDoor(){
-        return Object.keys(this).find(key => this[key] === "car")
+        return Object.keys(this).find(key => this[key] === "car");
     }
 
     switchDoor(){
-        const doorArray = ["door1", "door2", "door3"]
-        const originalPick = this.originalPick
-        const hostReveal = this.hostReveal
+        const doorArray = ["door1", "door2", "door3"];
+        const originalPick = this.originalPick;
+        const hostReveal = this.hostReveal;
         const switchDoor = doorArray.find(door => { 
-            return (door !== originalPick && door !== hostReveal)
+            return (door !== originalPick && door !== hostReveal);
         })
         return switchDoor;
     }
@@ -451,7 +449,7 @@ class Game {
     get stayResult(){
         const originalDoorPick = this.originalPick;
         const originalDoorResult = this[originalDoorPick];
-        return originalDoorResult
+        return originalDoorResult;
     }
 
     get switchResult(){
