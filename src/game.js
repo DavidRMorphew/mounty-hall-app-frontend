@@ -314,8 +314,12 @@ class Game {
 
     static resetAllResultsContainer(){
         allResultsContainer.style.display = "none";
+        
         const overallStatsHeader = document.querySelector('#overall-stats-header');
-        overallStatsHeader.remove();
+        if (overallStatsHeader){
+            overallStatsHeader.remove();
+        }
+
         allUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
         <div class="Rtable-cell-no-border">Win % Overall</div>
         <div class="Rtable-cell-no-border">Switch-vs-Stay %</div>

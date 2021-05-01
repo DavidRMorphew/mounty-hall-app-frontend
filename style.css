@@ -30,14 +30,6 @@ img {
     max-width: 100%;
 }
 
-.original-pick {
-    color: red;
-}
-
-.switch-door {
-    color: blue;
-}
-
 .Rtable {
     display: flex;
     flex-wrap: wrap;
