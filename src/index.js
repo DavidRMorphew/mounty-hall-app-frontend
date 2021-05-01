@@ -21,6 +21,4 @@ const allResultsTable = document.getElementById("all-game-results-table");
 
 let currentUser;
 
-window.addEventListener('DOMContentLoaded', (e) => console.log("page opened / refreshed"));
-
 setTimeout(Game.welcomePlayer, 500);

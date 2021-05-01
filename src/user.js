@@ -18,30 +18,30 @@ class User {
     }
 
     static addNewUserFormToDOM(){
-        const newUserForm = document.createElement('form')
+        const newUserForm = document.createElement('form');
         newUserForm.innerHTML = 
         `<h3>Username: <h3><input type="text" id="username" name="username" required maxlength="15">
-        <input class="btn-large light-blue darken-4" type="submit" value="Submit Username">`
+        <input class="btn-large light-blue darken-4" type="submit" value="Submit Username">`;
         newUserForm.id = "new-user-form"
-        userSelectionContainer.appendChild(newUserForm)
-        newUserForm.addEventListener('submit', this.handleClickEvent)
+        userSelectionContainer.appendChild(newUserForm);
+        newUserForm.addEventListener('submit', this.handleClickEvent);
     };
 
     static handleClickEvent = (event) => {
         if (event.target.id === "new-user-form"){
-            event.preventDefault() // OK here?
+            event.preventDefault();
             Game.toggleHostBubbleDisplay();
             User.toggleUserSelectionDisplay();
             const submittedUsername = event.target.querySelector('#username');
             UserApi.findOrCreateByName(submittedUsername.value);
-            submittedUsername.value = ""
+            submittedUsername.value = "";
         } else if (event.target.id === "change-user-button"){
-            User.changeUser()
+            User.changeUser();
         }
     };
 
     updateCurrentUser(){    
-        this.loginUser()
+        this.loginUser();
         currentUser.addUserNameToNavbar();
         currentUser.addChangeUserButtonToNavbar();
         Game.initializeNewGame();
@@ -57,18 +57,18 @@ class User {
 
     addUserNameToNavbar(){
         const currentUserName = this.name;
-        const nameLi = document.createElement('li')
+        const nameLi = document.createElement('li');
         nameLi.innerHTML = `<h5 class="light-grey-text">Current Username: "${currentUserName}"</h5>`;
         nameLi.id = "navbar-current-user";
         navbarUl.appendChild(nameLi);
     }
 
     addChangeUserButtonToNavbar(){
-        const changeUserButton = document.createElement('button')
-        changeUserButton.id = "change-user-button"
-        changeUserButton.classList.add("btn-large", "red", "darken-4", "right")
-        changeUserButton.innerText = "Change User"
-        navbarUl.appendChild(changeUserButton)
+        const changeUserButton = document.createElement('button');
+        changeUserButton.id = "change-user-button";
+        changeUserButton.classList.add("btn-large", "red", "darken-4", "right");
+        changeUserButton.innerText = "Change User";
+        navbarUl.appendChild(changeUserButton);
         changeUserButton.addEventListener('click', User.handleClickEvent);
     }
 
@@ -83,7 +83,7 @@ class User {
     }
 
     addUserStatsToDom(userStatsTableOnDom){
-        const userStatsKeyArray = ["name", "winningGamePercentage", "switchPercentage", "switchAndWinPercentage", "stayAndWinPercentage"]
+        const userStatsKeyArray = ["name", "winningGamePercentage", "switchPercentage", "switchAndWinPercentage", "stayAndWinPercentage"];
         
         userStatsKeyArray.forEach(key => {
             const columnDiv = document.createElement('div');
@@ -101,7 +101,7 @@ class User {
                 default:
                     columnDiv.classList.add("Rtable-cell-no-border", key);
             }
-            userStatsTableOnDom.appendChild(columnDiv)
+            userStatsTableOnDom.appendChild(columnDiv);
         })
     }
 }
