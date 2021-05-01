@@ -314,6 +314,8 @@ class Game {
 
     static resetAllResultsContainer(){
         allResultsContainer.style.display = "none";
+        const overallStatsHeader = document.querySelector('#overall-stats-header');
+        overallStatsHeader.remove();
         allUserStatsTable.innerHTML = `<div class="Rtable-cell-no-border">Username</div>
         <div class="Rtable-cell-no-border">Win % Overall</div>
         <div class="Rtable-cell-no-border">Switch-vs-Stay %</div>
@@ -358,6 +360,7 @@ class Game {
     }
 
     static addAllUserGamesAndStatsToDom(){
+        this.addFinalStatsOverall();
         User.all.forEach(user => user.addUserStatsToDom(allUserStatsTable));
         GameApi.getGames();
     }
@@ -398,30 +401,15 @@ class Game {
         allResultsContainer.style.display = (allResultsContainer.style.display === "none") ? "" : "none";
     }
 
-    static finalStatsOverall(){
-        debugger
+    static addFinalStatsOverall(){
         const stayAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("stayAndWinPercentage");
         const switchAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("switchAndWinPercentage")
-        debugger
-
-        // const allUsersStayAndWinFiltered = User.all.filter(user => user.stayAndWinPercentage !== "N/A")
-        // const allUsersStayAndWinStats = []
-        // for (const user of allUsersStayAndWinFiltered){
-        //     allUsersStayAndWinStats.push(user.stayAndWinPercentage)
-        // }
-        // const dividendNumUsers = allUsersStayAndWinStats.length
-        // const averageStayAndWinStat = allUsersStayAndWinStats.reduce((total, currentValue)=>{ 
-        //     if (allUsersStayAndWinStats.indexOf(currentValue) === (dividendNumUsers - 1)){
-        //         return (total + currentValue) / dividendNumUsers
-        //     } else {
-        //         return total + currentValue;
-        //     }
-        // },0)
-
-        // filter out "N/A"
-        // User.all.reduce(()=>{}, 0)
-        // ditto for stay win
-        // add this to Dom by calling this method in another method appropriately named.
+        const overallStatsHeader = document.createElement('h5')
+        overallStatsHeader.id = 'overall-stats-header'
+        overallStatsHeader.innerHTML = `Average % of Wins for Switching Doors: ${parseFloat(switchAndWinPercentageAverage).toFixed(2)}% 
+        <br>
+        Average % of Wins for Staying with First Pick: ${parseFloat(stayAndWinPercentageAverage).toFixed(2)}%`;
+        allUserResultsHeader.appendChild(overallStatsHeader);
     }
 
     static averageUserChoiceAndWinPercentage(userChoiceAndWinPercentage){
@@ -438,7 +426,6 @@ class Game {
                 return (total + currentValue);
             }
         },0);
-        debugger
         return averageChoiceAndWinStat;
     }
 

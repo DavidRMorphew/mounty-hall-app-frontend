@@ -18,6 +18,7 @@ const currentUserStatsTable = document.getElementById('current-user-stats-table'
 const currentUserGamesTable = document.getElementById('current-user-games-table');
 const allUserStatsTable = document.getElementById('all-user-stats-table');
 const currentUserResultsHeader = document.getElementById('current-user-results-header');
+const allUserResultsHeader = document.getElementById('all-user-results-header')
 
 let currentUser;
 
