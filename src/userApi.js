@@ -55,7 +55,7 @@ class UserApi {
             })
         })
         .catch((error)=> {
-            alert("There was a failure in getting your user game data. Please check that the Rails API server is running.")
+            alert("There was a failure in getting user game data. Please check that the Rails API server is running.")
             console.log(error);
         })
     }
