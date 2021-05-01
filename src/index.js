@@ -1,4 +1,4 @@
-const hostPromptFormDiv = document.getElementById('host-prompt-form-div')
+const hostPromptFormDiv = document.getElementById('host-prompt-form-div');
 const mountyPictureDiv = document.getElementById("mounty-picture-div");
 const hostTalkContainer = document.getElementById('host-talk-container');
 const hostTalkBubble = document.getElementById('host-talk-bubble');
@@ -15,7 +15,7 @@ const currentUserStatsTable = document.getElementById('current-user-stats-table'
 const currentUserGamesTable = document.getElementById('current-user-games-table');
 
 const allResultsContainer = document.getElementById("all-results-container");
-const allUserResultsHeader = document.getElementById('all-user-results-header')
+const allUserResultsHeader = document.getElementById('all-user-results-header');
 const allUserStatsTable = document.getElementById('all-user-stats-table');
 const allResultsTable = document.getElementById("all-game-results-table");
 
