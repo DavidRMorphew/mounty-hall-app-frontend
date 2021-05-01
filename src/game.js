@@ -154,13 +154,13 @@ class Game {
     }
 
     hostChoice(){
-        const doorsArray = ["door1", "door2", "door3"]
-        const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()))
+        const doorsArray = ["door1", "door2", "door3"];
+        const remainingDoorsArray = doorsArray.filter(door => (door !== this.originalPick && door !== this.winningDoor()));
         if (remainingDoorsArray.length === 2){
             const randomIndex = () => Game.randomIntegerZeroToNum(1);
-            this.hostReveal = remainingDoorsArray[randomIndex()]
+            this.hostReveal = remainingDoorsArray[randomIndex()];
         } else {
-            this.hostReveal = remainingDoorsArray[0]
+            this.hostReveal = remainingDoorsArray[0];
         }
     }
 
@@ -175,11 +175,11 @@ class Game {
         
         finalPickDoorCard.classList.add('final-pick');
         if (finalDoorPick === this.switchDoor()) { 
-            this.userSwitch = true
+            this.userSwitch = true;
         } else {
-            this.userSwitch = false
+            this.userSwitch = false;
         }
-        this.userWin = (finalDoorPick === this.winningDoor()) ? true : false
+        this.userWin = (finalDoorPick === this.winningDoor()) ? true : false;
 
         GameApi.createGame(this);
 
