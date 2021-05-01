@@ -406,9 +406,9 @@ class Game {
         const switchAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("switchAndWinPercentage")
         const overallStatsHeader = document.createElement('h5')
         overallStatsHeader.id = 'overall-stats-header'
-        overallStatsHeader.innerHTML = `Average % of Wins for Switching Doors: ${parseFloat(switchAndWinPercentageAverage).toFixed(2)}% 
-        <br>
-        Average % of Wins for Staying with First Pick: ${parseFloat(stayAndWinPercentageAverage).toFixed(2)}%`;
+        overallStatsHeader.innerHTML = `Average % of Wins for <span class="red-text">Switching Doors: ${parseFloat(switchAndWinPercentageAverage).toFixed(2)}%</span> 
+        <br><br>
+        Average % of Wins for <span class="blue-text">Staying with First Pick: ${parseFloat(stayAndWinPercentageAverage).toFixed(2)}%</span>`;
         allUserResultsHeader.appendChild(overallStatsHeader);
     }
 
