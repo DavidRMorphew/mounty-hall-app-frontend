@@ -399,26 +399,50 @@ class Game {
     }
 
     static finalStatsOverall(){
-        // user User.all and reduce the switch win stats to average
-        const allUsersStayAndWinFiltered = User.all.filter(user => user.stayAndWinPercentage !== "N/A")
-        const allUsersStayAndWinStats = []
-        for (const user of allUsersStayAndWinFiltered){
-            allUsersStayAndWinStats.push(user.stayAndWinPercentage)
-        }
-        const dividendNumUsers = allUsersStayAndWinStats.length
-        const averageStayAndWinStat = allUsersStayAndWinStats.reduce((total, currentValue)=>{ 
-            if (allUsersStayAndWinStats.indexOf(currentValue) === (dividendNumUsers - 1)){
-                return (total + currentValue) / dividendNumUsers
-            } else {
-                return total + currentValue;
-            }
-        },0)
         debugger
+        const stayAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("stayAndWinPercentage");
+        const switchAndWinPercentageAverage = this.averageUserChoiceAndWinPercentage("switchAndWinPercentage")
+        debugger
+
+        // const allUsersStayAndWinFiltered = User.all.filter(user => user.stayAndWinPercentage !== "N/A")
+        // const allUsersStayAndWinStats = []
+        // for (const user of allUsersStayAndWinFiltered){
+        //     allUsersStayAndWinStats.push(user.stayAndWinPercentage)
+        // }
+        // const dividendNumUsers = allUsersStayAndWinStats.length
+        // const averageStayAndWinStat = allUsersStayAndWinStats.reduce((total, currentValue)=>{ 
+        //     if (allUsersStayAndWinStats.indexOf(currentValue) === (dividendNumUsers - 1)){
+        //         return (total + currentValue) / dividendNumUsers
+        //     } else {
+        //         return total + currentValue;
+        //     }
+        // },0)
+
         // filter out "N/A"
         // User.all.reduce(()=>{}, 0)
         // ditto for stay win
         // add this to Dom by calling this method in another method appropriately named.
     }
+
+    static averageUserChoiceAndWinPercentage(userChoiceAndWinPercentage){
+        const allUsersChoiceAndWinFiltered = User.all.filter(user => user[userChoiceAndWinPercentage] !== "N/A")
+        const allUsersChoiceAndWinStats = []
+        for (const user of allUsersChoiceAndWinFiltered){
+            allUsersChoiceAndWinStats.push(user[userChoiceAndWinPercentage])
+        }
+        const dividendNumUsers = allUsersChoiceAndWinStats.length
+        const averageChoiceAndWinStat = allUsersChoiceAndWinStats.reduce((total, currentValue, index)=>{ 
+            if (index === (dividendNumUsers - 1)){
+                return ((total + currentValue) / dividendNumUsers);
+            } else {
+                return (total + currentValue);
+            }
+        },0);
+        debugger
+        return averageChoiceAndWinStat;
+    }
+
+
 
     winningDoor(){
         return Object.keys(this).find(key => this[key] === "car")
