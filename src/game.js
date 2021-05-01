@@ -1,4 +1,5 @@
 class Game {
+    
     static all = [];
 
     constructor({user_id, user_name, door1, door2, door3, original_pick, host_reveal, user_switch, user_win, id}){
@@ -14,6 +15,7 @@ class Game {
         this.userWin = user_win;
         this.id = id;
         this.doorClickCount = 0;
+        this.hostPromptsComplete = false;
 
         Game.findGameOrAddToAll(this);
     };
@@ -129,11 +131,11 @@ class Game {
     }
 
     handleDoorClicks(doorElement){
-        this.doorClickCount++ 
+        this.doorClickCount++
         if (this.doorClickCount === 1) {
             this.hostResponseToFirstPick(doorElement);
             doorElement.classList.add("red-text")
-        } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal) {
+        } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal && this.hostPromptsComplete) {
             this.finalPick(doorElement.id);
         }
     }
@@ -141,13 +143,14 @@ class Game {
     hostResponseToFirstPick(doorElement){
         this.originalPick = doorElement.id;
         this.hostChoice();
-        const hostResponse1 = () => hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
+        hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
         const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
         const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
-        setTimeout(hostResponse1, 500);
+        
         setTimeout(hostResponseFollowUp, 1000);
         setTimeout(this.hostOpenDoor.bind(this, this.hostReveal), 4000);
-        setTimeout(hostPromptToStayOrSwitch, 7000);  
+        setTimeout(hostPromptToStayOrSwitch, 6000);
+        setTimeout(() => this.hostPromptsComplete = true, 6001);
     }
 
     hostChoice(){
