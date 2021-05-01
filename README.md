@@ -4,7 +4,7 @@
 
 This app is intended for educational and entertainment purposes, and the Mounty Hall App simulates a famous game-show puzzle with a [very similar name](https://en.wikipedia.org/wiki/Monty_Hall_problem). As a user, you are invited to provide a username and play the game. Once you start the game, your mounty host will lead you through the process of playing the game. Your goal is to optimize your chances of picking the door with a car behind it, and not one of the doors with a small Canadian woodland critter.
 
-To play the game, you first pick one of three doors. The host opens one of the other two doors, revealing that it was a losing door. Do you stay with your original pick or switch doors? Watch [this video]() to see how the game works.
+To play the game, you first pick one of three doors. The host opens one of the other two doors, revealing that it was a losing door. Do you stay with your original pick or switch doors? Watch [this video](https://www.youtube.com/watch?v=5j0xTed6OY4) to see how the game works.
 
 After each round of the game, you are given the chance to view your user stats and game results. You can also view results and stats for all users, where users by are ranked their overall winning game percentages.
 
