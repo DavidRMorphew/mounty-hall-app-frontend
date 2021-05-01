@@ -35,7 +35,7 @@ class Game {
     static welcomePlayer = () => {
         this.makeGameResultsContainersCollapsible();
         this.toggleHostBubbleDisplay();
-        hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?"
+        hostTalkBubble.innerText = "Welcome to the Mounty Hall Game! I'm your host, Mr. Hall. Play the game, eh?";
         setTimeout(this.addPlayButton, 500);
     }
 
@@ -45,11 +45,11 @@ class Game {
     };
 
     static addPlayButton = () => {
-        const playButton = document.createElement('button')
-        playButton.id = "play-button"
-        playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4")
-        playButton.innerText = "Play the Game"
-        playButton.addEventListener('click', this.handleClickEvent)
+        const playButton = document.createElement('button');
+        playButton.id = "play-button";
+        playButton.classList.add("btn-large", "right-align", "light-blue", "darken-4");
+        playButton.innerText = "Play the Game";
+        playButton.addEventListener('click', this.handleClickEvent);
         hostTalkBubble.insertAdjacentElement('afterend', playButton);
     }
 
@@ -57,20 +57,20 @@ class Game {
         if (event.target.id === "play-button"){
             const playButton = event.target;
             playButton.remove();
-            Game.toggleHostBubbleDisplay();
+            this.toggleHostBubbleDisplay();
             this.startLoginAndNewGame();
         } else if (event.target.id === "current-user-results-button"){
             const currentUserResultsButton = event.target;
             currentUserResultsButton.remove();
-            this.toggleGameDisplayOffOnly()
-            currentUserResultsHeader.innerText = `Game Results for Current User: "${currentUser.name}"`
-            this.toggleCurrentUserResultsDisplay()
-            this.addCurrentUserGamesAndStatsToDom()
+            this.toggleGameDisplayOffOnly();
+            currentUserResultsHeader.innerText = `Game Results for Current User: "${currentUser.name}"`;
+            this.toggleCurrentUserResultsDisplay();
+            this.addCurrentUserGamesAndStatsToDom();
         } else if (event.target.id === "all-results-button"){
             const allResultsButton = event.target;
             allResultsButton.remove();
-            this.toggleGameDisplayOffOnly()
-            this.toggleAllResultsContainer()
+            this.toggleGameDisplayOffOnly();
+            this.toggleAllResultsContainer();
             this.addAllUserGamesAndStatsToDom();
         } else if (event.target.id === "play-again-button"){
             Game.resetGame();
@@ -80,13 +80,13 @@ class Game {
 
     static startLoginAndNewGame(){
         setTimeout(() => {
-            this.toggleHostBubbleDisplay()
-            hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username."
-        }, 500)
+            this.toggleHostBubbleDisplay();
+            hostTalkBubble.innerText = "Type a username below to find a user on file or create a new username.";
+        }, 500);
         setTimeout(() => {
-            User.toggleUserSelectionDisplay()
-            User.addNewUserFormToDOM()
-        }, 1000)        
+            User.toggleUserSelectionDisplay();
+            User.addNewUserFormToDOM();
+        }, 1000);       
     }
 
     static toggleHostBubbleDisplay(){
@@ -94,18 +94,17 @@ class Game {
     }
 
     static initializeNewGame = () => {
-        this.shrinkHostImageAndBubbleFont()
-
+        this.shrinkHostImageAndBubbleFont();
         const currentGame = new Game({user_id: currentUser.id, user_name: currentUser.name});
         currentGame.randomizeGame();
         currentGame.makeDoorsClickable();
         setTimeout(currentGame.hostInstructionsToGame, 500);
-        setTimeout(this.toggleGameDisplay, 1000)
+        setTimeout(this.toggleGameDisplay, 1000);
     }
     
     hostInstructionsToGame() {
-        hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. If you pick the car, YOU WIN IT! Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!"
-        Game.toggleHostBubbleDisplay()
+        hostTalkBubble.innerText = "Behind two doors below are Canadian woodland creatures; behind one is a car. If you pick the car, YOU WIN IT! Pick any door by clicking on it. Don't worry, eh! I'll give you the choice to switch doors later!";
+        Game.toggleHostBubbleDisplay();
     }
 
     randomizeGame() {
@@ -120,22 +119,22 @@ class Game {
             };
         };
         const [door1, door2, door3] = randomizerArray;
-        return Object.assign(this, {door1, door2, door3})
+        return Object.assign(this, {door1, door2, door3});
     };
 
-    static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1))
+    static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1));
 
     makeDoorsClickable(){
         for (const doorElement of doorCards){
-            doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement))
+            doorElement.addEventListener('click', () => this.handleDoorClicks(doorElement));
         }
     }
 
     handleDoorClicks(doorElement){
-        this.doorClickCount++
+        this.doorClickCount++;
         if (this.doorClickCount === 1) {
             this.hostResponseToFirstPick(doorElement);
-            doorElement.classList.add("red-text")
+            doorElement.classList.add("red-text");
         } else if (this.doorClickCount > 1 && doorElement.id !== this.hostReveal && this.hostPromptsComplete) {
             this.finalPick(doorElement.id);
         }
@@ -144,9 +143,9 @@ class Game {
     hostResponseToFirstPick(doorElement){
         this.originalPick = doorElement.id;
         this.hostChoice();
-        hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`
-        const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`
-        const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`
+        hostTalkBubble.innerHTML = `You have picked ${this.originalPick.toUpperCase()} (highlighted in red).`;
+        const hostResponseFollowUp = () => hostTalkBubble.innerHTML += `<br> Now...to reveal one of the Canadian woodland creatures behind another door.`;
+        const hostPromptToStayOrSwitch = () => hostTalkBubble.innerHTML = `Now, would you like to stay with ${this.originalPick.toUpperCase()} (in red) or switch to ${this.switchDoor().toUpperCase()}?<br>Click on the door you choose.`;
         
         setTimeout(hostResponseFollowUp, 1000);
         setTimeout(this.hostOpenDoor.bind(this, this.hostReveal), 4000);
