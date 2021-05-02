@@ -10,6 +10,8 @@ After each round of the game, you are given the chance to view your user stats a
 
 Can you see a pattern in the results as you play more games? What are your odds if you stay vs. switch? Play to find out!
 
+(You can also read my [blog](https://davidrmorphew.medium.com/losing-my-constants-in-a-javascript-gaming-app-snaking-camel-case-properties-for-a-ruby-based-api-c63c49f6ed54) on more fine-tuned aspects I learned in writing this code.)
+
 
 ## Installation
 To install the program, open your terminal and run the following command:
