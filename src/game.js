@@ -17,7 +17,7 @@ class Game {
         this.hostPromptsComplete = false;
 
         Game.findGameOrAddToAll(this);
-    };
+    }
     
     static findGameOrAddToAll(game){
         if (!(this.all.some(element => element.id === game.id))){
@@ -42,7 +42,7 @@ class Game {
     static makeGameResultsContainersCollapsible = () => {
         const elems = document.querySelectorAll('.collapsible');
         const instances = M.Collapsible.init(elems, {accordion: true});
-    };
+    }
 
     static addPlayButton = () => {
         const playButton = document.createElement('button');
@@ -116,11 +116,11 @@ class Game {
         for (let i = 0; i < randomizerArray.length; i++){
             if (randomizerArray[i] === "rodentia"){
                 randomizerArray[i] = rodentiaArray[randomIndex()];
-            };
-        };
+            }
+        }
         const [door1, door2, door3] = randomizerArray;
         return Object.assign(this, {door1, door2, door3});
-    };
+    }
 
     static randomIntegerZeroToNum = (num) => Math.floor(Math.random() * (num + 1));
 
@@ -239,10 +239,10 @@ class Game {
         const currentUserResultsButton = document.getElementById('current-user-results-button');
         if (currentUserResultsButton){
             currentUserResultsButton.remove();
-        };
+        }
         if (allResultsButton){
             allResultsButton.remove();        
-        };
+        }
     }
 
     static addPlayAgainButton(){

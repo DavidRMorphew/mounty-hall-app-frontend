@@ -11,7 +11,7 @@ class User {
         this.stayAndWinPercentage = stay_and_win_percentage;
         
         User.all.push(this);
-    };
+    }
 
     static toggleUserSelectionDisplay(){
         userSelectionContainer.style.display = (userSelectionContainer.style.display === "none") ? "" : "none";
@@ -25,7 +25,7 @@ class User {
         newUserForm.id = "new-user-form"
         userSelectionContainer.appendChild(newUserForm);
         newUserForm.addEventListener('submit', this.handleClickEvent);
-    };
+    }
 
     static handleClickEvent = (event) => {
         if (event.target.id === "new-user-form"){
@@ -38,7 +38,7 @@ class User {
         } else if (event.target.id === "change-user-button"){
             User.changeUser();
         }
-    };
+    }
 
     updateCurrentUser(){    
         this.loginUser();
